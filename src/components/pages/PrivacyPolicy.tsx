@@ -100,7 +100,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ currentLang }) => 
           5. Contact Privacy Officer
         </h2>
         <p className="text-sm leading-relaxed">
-          If you have any questions or inquiries about this Privacy Policy, please contact our team at: <span className="font-mono text-blue-600 dark:text-blue-400">privacy@omnicalc.example.com</span>.
+          If you have any questions or inquiries about this Privacy Policy, please contact our team at: <span className="font-mono text-blue-600 dark:text-blue-400">privacy@smartcalclab.com</span>.
         </p>
       </section>
     </div>

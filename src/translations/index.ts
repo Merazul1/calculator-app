@@ -96,7 +96,7 @@ export interface TranslationDictionary {
 
 export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
   en: {
-    siteName: 'OmniCalc Pro',
+    siteName: 'SmartCalcLab.com',
     tagline: 'Fast, Free & Accurate Calculators for Daily Finance, Health & Math',
     searchPlaceholder: 'Search calculators (e.g., Loan EMI, Currency, BMI)...',
     categories: {
@@ -355,14 +355,14 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       privacyTitle: 'Privacy Policy',
       privacyLastUpdated: 'Last Updated: October 2026',
       termsTitle: 'Terms of Service',
-      aboutTitle: 'About OmniCalc Pro',
+      aboutTitle: 'About SmartCalcLab.com',
       contactTitle: 'Contact Us & Feedback',
       disclaimerTitle: 'Disclaimer & Financial Notice'
     }
   },
 
   es: {
-    siteName: 'OmniCalc Pro Español',
+    siteName: 'SmartCalcLab Español',
     tagline: 'Calculadoras Rápidas, Gratuitas y Precisas para Finanzas, Salud y Matemáticas',
     searchPlaceholder: 'Buscar herramientas (ej. Préstamo, Conversor de divisas, IMC)...',
     categories: {
@@ -620,14 +620,14 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       privacyTitle: 'Política de Privacidad y Cookies',
       privacyLastUpdated: 'Última actualización: Octubre 2026',
       termsTitle: 'Términos y Condiciones de Uso',
-      aboutTitle: 'Acerca de OmniCalc Pro',
+      aboutTitle: 'Acerca de SmartCalcLab.com',
       contactTitle: 'Contacto y Sugerencias',
       disclaimerTitle: 'Descargo de Responsabilidad y Aviso Legal'
     }
   },
 
   ar: {
-    siteName: 'أومني كالك برو (OmniCalc)',
+    siteName: 'سمارت كالك لاب (SmartCalcLab.com)',
     tagline: 'حاسبات دقيقة ومجانية للاستخدام اليومي في المال، الصحة، والرياضيات',
     searchPlaceholder: 'ابحث عن حاسبة (مثال: حاسبة القروض، محول العملات، مؤشر كتلة الجسم)...',
     categories: {
@@ -885,14 +885,14 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       privacyTitle: 'سياسة الخصوصية وملفات تعريف الارتباط',
       privacyLastUpdated: 'آخر تحديث: أكتوبر 2026',
       termsTitle: 'شروط وأحكام الخدمة',
-      aboutTitle: 'عن موقع أومني كالك برو',
+      aboutTitle: 'عن موقع SmartCalcLab.com',
       contactTitle: 'تواصل معنا والدعم الفني',
       disclaimerTitle: 'إخلاء المسؤولية القانونية والمالية'
     }
   },
 
   hi: {
-    siteName: 'ओम्नीकैल्क प्रो (OmniCalc)',
+    siteName: 'स्मार्टकैल्क लैब (SmartCalcLab.com)',
     tagline: 'दैनिक वित्त, स्वास्थ्य एवं गणित के लिए तेज़, मुफ्त और सटीक कैलकुलेटर',
     searchPlaceholder: 'कैलकुलेटर खोजें (उदा. ईएमआई कैलकुलेटर, मुद्रा परिवर्तक, बीएमआई)...',
     categories: {
@@ -1141,7 +1141,7 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       privacyTitle: 'गोपनीयता नीति (Privacy Policy)',
       privacyLastUpdated: 'अंतिम अपडेट: अक्टूबर 2026',
       termsTitle: 'नियम एवं शर्तें (Terms of Service)',
-      aboutTitle: 'ओम्नीकैल्क के बारे में',
+      aboutTitle: 'SmartCalcLab.com के बारे में',
       contactTitle: 'संपर्क करें एवं फीडबैक',
       disclaimerTitle: 'अस्वीकरण एवं कानूनी सूचना'
     }

@@ -52,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({
                 {t.siteName}
               </span>
               <span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300">
-                PRO
+                LAB
               </span>
             </div>
           </div>

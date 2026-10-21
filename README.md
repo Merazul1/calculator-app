@@ -1,4 +1,4 @@
-# OmniCalc Hub — Multilingual High-RPM Calculator Platform
+# SmartCalcLab.com — Multilingual High-RPM Calculator Platform
 
 A high-performance, modern calculator and utility web application built with **React 19**, **Vite 8**, **TypeScript**, and **Tailwind CSS**. Optimized for **Google AdSense approval and monetization ($1,000/mo blueprint)**, supporting 4 high-value global markets.
 
