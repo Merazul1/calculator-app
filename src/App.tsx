@@ -47,9 +47,19 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>(() => {
     if (typeof window !== 'undefined') {
       // 1. Pathname (e.g. /loan)
-      const path = window.location.pathname.replace(/^\/+|\/+$/g, '') as PageId;
-      if (VALID_PAGES.includes(path)) {
-        return path;
+      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      if (VALID_PAGES.includes(rawPath as PageId)) {
+        return rawPath as PageId;
+      }
+      // Handle legacy URL aliases
+      if (rawPath.includes('mortgage') || rawPath.includes('lease') || rawPath.includes('real-estate')) {
+        return 'loan';
+      }
+      if (rawPath.includes('dividend') || rawPath.includes('stock-profit') || rawPath.includes('investing')) {
+        return 'compound';
+      }
+      if (rawPath === 'overview') {
+        return 'about';
       }
       // 2. Query param (e.g. ?calc=loan or ?tool=loan)
       const params = new URLSearchParams(window.location.search);
@@ -96,9 +106,21 @@ export default function App() {
   // Listen to browser navigation (back/forward button and hash changes)
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname.replace(/^\/+|\/+$/g, '') as PageId;
-      if (VALID_PAGES.includes(path)) {
-        setCurrentPage(path);
+      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      if (VALID_PAGES.includes(rawPath as PageId)) {
+        setCurrentPage(rawPath as PageId);
+        return;
+      }
+      if (rawPath.includes('mortgage') || rawPath.includes('lease') || rawPath.includes('real-estate')) {
+        setCurrentPage('loan');
+        return;
+      }
+      if (rawPath.includes('dividend') || rawPath.includes('stock-profit') || rawPath.includes('investing')) {
+        setCurrentPage('compound');
+        return;
+      }
+      if (rawPath === 'overview') {
+        setCurrentPage('about');
         return;
       }
       if (window.location.hash) {

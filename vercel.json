@@ -1,4 +1,41 @@
 {
+  "redirects": [
+    {
+      "source": "/calculators/real-estate/mortgage-calculator",
+      "destination": "/loan",
+      "permanent": true
+    },
+    {
+      "source": "/calculators/auto/car-lease-calculator",
+      "destination": "/loan",
+      "permanent": true
+    },
+    {
+      "source": "/calculators/dividend-calculator",
+      "destination": "/compound",
+      "permanent": true
+    },
+    {
+      "source": "/calculators/investing/stock-profit-calculator",
+      "destination": "/compound",
+      "permanent": true
+    },
+    {
+      "source": "/calculators",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/calculators/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/overview",
+      "destination": "/about",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/:path*",
