@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
+  <url>
+    <loc>https://smartcalclab.com/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://smartcalclab.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://smartcalclab.com/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://smartcalclab.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://smartcalclab.com/?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://smartcalclab.com/?lang=hi" />
+  </url>
+
+  <!-- Loan & Mortgage EMI Calculator -->
+  <url>
+    <loc>https://smartcalclab.com/#loan</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://smartcalclab.com/?lang=es#loan" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://smartcalclab.com/?lang=en#loan" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://smartcalclab.com/?lang=ar#loan" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://smartcalclab.com/?lang=hi#loan" />
+  </url>
+
+  <!-- Live Currency Converter -->
+  <url>
+    <loc>https://smartcalclab.com/#currency</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://smartcalclab.com/?lang=es#currency" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://smartcalclab.com/?lang=en#currency" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://smartcalclab.com/?lang=ar#currency" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://smartcalclab.com/?lang=hi#currency" />
+  </url>
+
+  <!-- BMI Health Calculator -->
+  <url>
+    <loc>https://smartcalclab.com/#bmi</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://smartcalclab.com/?lang=es#bmi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://smartcalclab.com/?lang=en#bmi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://smartcalclab.com/?lang=ar#bmi" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://smartcalclab.com/?lang=hi#bmi" />
+  </url>
+
+  <!-- Percentage & Discount Calculator -->
+  <url>
+    <loc>https://smartcalclab.com/#percentage</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://smartcalclab.com/?lang=es#percentage" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://smartcalclab.com/?lang=en#percentage" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://smartcalclab.com/?lang=ar#percentage" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://smartcalclab.com/?lang=hi#percentage" />
+  </url>
+
+  <!-- Compound Interest Calculator -->
+  <url>
+    <loc>https://smartcalclab.com/#compound</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://smartcalclab.com/?lang=es#compound" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://smartcalclab.com/?lang=en#compound" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://smartcalclab.com/?lang=ar#compound" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://smartcalclab.com/?lang=hi#compound" />
+  </url>
+
+  <!-- Salary & Net Pay Calculator -->
+  <url>
+    <loc>https://smartcalclab.com/#salary</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://smartcalclab.com/?lang=es#salary" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://smartcalclab.com/?lang=en#salary" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://smartcalclab.com/?lang=ar#salary" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://smartcalclab.com/?lang=hi#salary" />
+  </url>
+
+  <!-- Legal & Trust Pages -->
+  <url>
+    <loc>https://smartcalclab.com/#privacy</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/#terms</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/#about</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/#contact</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/#disclaimer</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

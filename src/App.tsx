@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { HomePage } from './components/HomePage';
 import { AdSlot } from './components/AdSlot';
 import { SEOContentSection } from './components/SEOContentSection';
+import { SEOHead } from './components/SEOHead';
 
 // Calculator components
 import { LoanCalculator } from './components/calculators/LoanCalculator';
@@ -26,7 +27,22 @@ import { ChevronRight, ArrowLeft } from 'lucide-react';
 
 export default function App() {
   const [currentLang, setCurrentLang] = useState<Language>('es'); // Default to Spanish as requested
-  const [currentPage, setCurrentPage] = useState<PageId>('home');
+  
+  // Read initial page from hash if available
+  const [currentPage, setCurrentPage] = useState<PageId>(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hashPage = window.location.hash.replace('#', '') as PageId;
+      const validPages: PageId[] = [
+        'home', 'loan', 'currency', 'bmi', 'percentage', 'compound', 'salary',
+        'privacy', 'terms', 'about', 'contact', 'disclaimer'
+      ];
+      if (validPages.includes(hashPage)) {
+        return hashPage;
+      }
+    }
+    return 'home';
+  });
+
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
       return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -52,35 +68,23 @@ export default function App() {
     }
   }, [isDark]);
 
-  // Update dynamic page title
+  // Listen to browser hash navigation
   useEffect(() => {
-    if (currentPage === 'home') {
-      document.title = `${t.siteName} - ${t.tagline}`;
-    } else if (
-      currentPage === 'loan' ||
-      currentPage === 'currency' ||
-      currentPage === 'bmi' ||
-      currentPage === 'percentage' ||
-      currentPage === 'compound' ||
-      currentPage === 'salary'
-    ) {
-      document.title = `${t.tools[currentPage].seo.title} | ${t.siteName}`;
-    } else if (currentPage === 'privacy') {
-      document.title = `${t.legal.privacyTitle} | ${t.siteName}`;
-    } else if (currentPage === 'terms') {
-      document.title = `${t.legal.termsTitle} | ${t.siteName}`;
-    } else if (currentPage === 'about') {
-      document.title = `${t.legal.aboutTitle} | ${t.siteName}`;
-    } else if (currentPage === 'contact') {
-      document.title = `${t.legal.contactTitle} | ${t.siteName}`;
-    } else if (currentPage === 'disclaimer') {
-      document.title = `${t.legal.disclaimerTitle} | ${t.siteName}`;
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentPage, currentLang, t]);
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '') as PageId;
+      if (hash && hash !== currentPage) {
+        setCurrentPage(hash);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [currentPage]);
 
-  const handleSelectTool = (id: ToolId) => {
-    setCurrentPage(id);
+  // Update hash when page changes
+  const handleNavigate = (page: PageId) => {
+    setCurrentPage(page);
+    window.location.hash = page === 'home' ? '' : page;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const isToolPage = [
@@ -94,12 +98,15 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+      {/* Dynamic SEO Meta & Schema.org JSON-LD */}
+      <SEOHead currentLang={currentLang} currentPage={currentPage} />
+
       {/* Top Header */}
       <Header
         currentLang={currentLang}
         onSelectLang={setCurrentLang}
         currentPage={currentPage}
-        onNavigate={setCurrentPage}
+        onNavigate={handleNavigate}
         isDark={isDark}
         onToggleDark={() => setIsDark(!isDark)}
       />
@@ -110,7 +117,7 @@ export default function App() {
         {isToolPage && (
           <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-6 font-medium">
             <button
-              onClick={() => setCurrentPage('home')}
+              onClick={() => handleNavigate('home')}
               className="hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1 cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-180" />
@@ -127,7 +134,7 @@ export default function App() {
         {currentPage === 'home' && (
           <HomePage
             currentLang={currentLang}
-            onSelectTool={handleSelectTool}
+            onSelectTool={handleNavigate}
             onSelectLang={setCurrentLang}
           />
         )}
@@ -149,7 +156,7 @@ export default function App() {
             {/* In-Article Mid Ad Unit */}
             <AdSlot currentLang={currentLang} format="in-article" />
 
-            {/* In-Depth SEO Rich Content (Step #2 in Instagram Reel) */}
+            {/* In-Depth SEO Rich Content */}
             <SEOContentSection seo={t.tools[currentPage as ToolId].seo} />
 
             {/* Bottom Ad Unit */}
@@ -166,7 +173,7 @@ export default function App() {
       </main>
 
       {/* Global Footer */}
-      <Footer currentLang={currentLang} onNavigate={setCurrentPage} />
+      <Footer currentLang={currentLang} onNavigate={handleNavigate} />
     </div>
   );
 }
