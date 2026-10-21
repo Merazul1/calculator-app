@@ -96,7 +96,7 @@ export interface TranslationDictionary {
 
 export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
   en: {
-    siteName: 'SmartCalcLab.com',
+    siteName: 'SmartCalcLab',
     tagline: 'Fast, Free & Accurate Calculators for Daily Finance, Health & Math',
     searchPlaceholder: 'Search calculators (e.g., Loan EMI, Currency, BMI)...',
     categories: {
@@ -355,7 +355,7 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       privacyTitle: 'Privacy Policy',
       privacyLastUpdated: 'Last Updated: October 2026',
       termsTitle: 'Terms of Service',
-      aboutTitle: 'About SmartCalcLab.com',
+      aboutTitle: 'About SmartCalcLab',
       contactTitle: 'Contact Us & Feedback',
       disclaimerTitle: 'Disclaimer & Financial Notice'
     }
@@ -620,14 +620,14 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       privacyTitle: 'Política de Privacidad y Cookies',
       privacyLastUpdated: 'Última actualización: Octubre 2026',
       termsTitle: 'Términos y Condiciones de Uso',
-      aboutTitle: 'Acerca de SmartCalcLab.com',
+      aboutTitle: 'Acerca de SmartCalcLab',
       contactTitle: 'Contacto y Sugerencias',
       disclaimerTitle: 'Descargo de Responsabilidad y Aviso Legal'
     }
   },
 
   ar: {
-    siteName: 'سمارت كالك لاب (SmartCalcLab.com)',
+    siteName: 'سمارت كالك لاب (SmartCalcLab)',
     tagline: 'حاسبات دقيقة ومجانية للاستخدام اليومي في المال، الصحة، والرياضيات',
     searchPlaceholder: 'ابحث عن حاسبة (مثال: حاسبة القروض، محول العملات، مؤشر كتلة الجسم)...',
     categories: {
@@ -885,14 +885,14 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       privacyTitle: 'سياسة الخصوصية وملفات تعريف الارتباط',
       privacyLastUpdated: 'آخر تحديث: أكتوبر 2026',
       termsTitle: 'شروط وأحكام الخدمة',
-      aboutTitle: 'عن موقع SmartCalcLab.com',
+      aboutTitle: 'عن موقع SmartCalcLab',
       contactTitle: 'تواصل معنا والدعم الفني',
       disclaimerTitle: 'إخلاء المسؤولية القانونية والمالية'
     }
   },
 
   hi: {
-    siteName: 'स्मार्टकैल्क लैब (SmartCalcLab.com)',
+    siteName: 'स्मार्टकैल्क लैब (SmartCalcLab)',
     tagline: 'दैनिक वित्त, स्वास्थ्य एवं गणित के लिए तेज़, मुफ्त और सटीक कैलकुलेटर',
     searchPlaceholder: 'कैलकुलेटर खोजें (उदा. ईएमआई कैलकुलेटर, मुद्रा परिवर्तक, बीएमआई)...',
     categories: {
@@ -1141,7 +1141,7 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       privacyTitle: 'गोपनीयता नीति (Privacy Policy)',
       privacyLastUpdated: 'अंतिम अपडेट: अक्टूबर 2026',
       termsTitle: 'नियम एवं शर्तें (Terms of Service)',
-      aboutTitle: 'SmartCalcLab.com के बारे में',
+      aboutTitle: 'SmartCalcLab के बारे में',
       contactTitle: 'संपर्क करें एवं फीडबैक',
       disclaimerTitle: 'अस्वीकरण एवं कानूनी सूचना'
     }
