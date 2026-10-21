@@ -25,19 +25,44 @@ import { Disclaimer } from './components/pages/Disclaimer';
 
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 
+const VALID_PAGES: PageId[] = [
+  'home', 'loan', 'currency', 'bmi', 'percentage', 'compound', 'salary',
+  'privacy', 'terms', 'about', 'contact', 'disclaimer'
+];
+
 export default function App() {
-  const [currentLang, setCurrentLang] = useState<Language>('es'); // Default to Spanish as requested
+  // Read initial language from query param or default to Spanish
+  const [currentLang, setCurrentLang] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang') as Language;
+      if (['en', 'es', 'ar', 'hi'].includes(urlLang)) {
+        return urlLang;
+      }
+    }
+    return 'es'; // Default Spanish
+  });
   
-  // Read initial page from hash if available
+  // Read initial page from pathname, query param, or hash
   const [currentPage, setCurrentPage] = useState<PageId>(() => {
-    if (typeof window !== 'undefined' && window.location.hash) {
-      const hashPage = window.location.hash.replace('#', '') as PageId;
-      const validPages: PageId[] = [
-        'home', 'loan', 'currency', 'bmi', 'percentage', 'compound', 'salary',
-        'privacy', 'terms', 'about', 'contact', 'disclaimer'
-      ];
-      if (validPages.includes(hashPage)) {
-        return hashPage;
+    if (typeof window !== 'undefined') {
+      // 1. Pathname (e.g. /loan)
+      const path = window.location.pathname.replace(/^\/+|\/+$/g, '') as PageId;
+      if (VALID_PAGES.includes(path)) {
+        return path;
+      }
+      // 2. Query param (e.g. ?calc=loan or ?tool=loan)
+      const params = new URLSearchParams(window.location.search);
+      const queryPage = (params.get('calc') || params.get('tool') || params.get('p')) as PageId;
+      if (VALID_PAGES.includes(queryPage)) {
+        return queryPage;
+      }
+      // 3. Hash fallback (e.g. #loan)
+      if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '') as PageId;
+        if (VALID_PAGES.includes(hash)) {
+          return hash;
+        }
       }
     }
     return 'home';
@@ -68,22 +93,39 @@ export default function App() {
     }
   }, [isDark]);
 
-  // Listen to browser hash navigation
+  // Listen to browser navigation (back/forward button and hash changes)
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '') as PageId;
-      if (hash && hash !== currentPage) {
-        setCurrentPage(hash);
+    const handlePopState = () => {
+      const path = window.location.pathname.replace(/^\/+|\/+$/g, '') as PageId;
+      if (VALID_PAGES.includes(path)) {
+        setCurrentPage(path);
+        return;
       }
+      if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '') as PageId;
+        if (VALID_PAGES.includes(hash)) {
+          setCurrentPage(hash);
+          return;
+        }
+      }
+      setCurrentPage('home');
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [currentPage]);
 
-  // Update hash when page changes
+    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handlePopState);
+    };
+  }, []);
+
+  // Clean URL routing on navigate
   const handleNavigate = (page: PageId) => {
     setCurrentPage(page);
-    window.location.hash = page === 'home' ? '' : page;
+    const targetUrl = page === 'home' ? '/' : `/${page}`;
+    if (window.location.pathname !== targetUrl) {
+      window.history.pushState({ page }, '', targetUrl);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

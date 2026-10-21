@@ -15,7 +15,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage }) =>
     
     let title = `${t.siteName} - ${t.tagline}`;
     let desc = 'SmartCalcLab offers free, fast, and accurate online calculators for loan EMI, live currency exchange, BMI health index, compound interest, percentages, and take-home salary in English, Spanish, Arabic, and Hindi.';
-    let canonicalUrl = `https://smartcalclab.com/${currentPage !== 'home' ? `#${currentPage}` : ''}`;
+    let canonicalUrl = `https://smartcalclab.com/${currentPage !== 'home' ? currentPage : ''}`;
 
     if (isTool) {
       const tool = t.tools[currentPage as ToolId];
