@@ -55,7 +55,7 @@ A high-performance, modern calculator and utility web application built with **R
 
 ```bash
 # 1. Navigate to the project directory
-cd D:\Merazul\Code\gemini\antigravity\calculator-app
+cd D:\Merazul\Code\calculator-app
 
 # 2. Run the local development server
 npm run dev
