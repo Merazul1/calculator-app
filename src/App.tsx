@@ -80,6 +80,10 @@ export default function App() {
 
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved) return saved === 'dark';
+      } catch (e) {}
       return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
     return false;
@@ -94,12 +98,18 @@ export default function App() {
     document.documentElement.lang = currentLang;
   }, [currentLang, langInfo.dir]);
 
-  // Sync Dark theme class
+  // Sync Dark theme class and persist preference
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
+      try {
+        localStorage.setItem('theme', 'dark');
+      } catch (e) {}
     } else {
       document.documentElement.classList.remove('dark');
+      try {
+        localStorage.setItem('theme', 'light');
+      } catch (e) {}
     }
   }, [isDark]);
 
