@@ -66,11 +66,10 @@ npm run build
 
 ---
 
-## 💰 How to Connect Your Google AdSense Account
+## 💰 Google AdSense Connected
 
-1. Open `index.html` and uncomment / insert your publisher meta tag:
-   ```html
-   <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
-   ```
-2. In `src/components/AdSlot.tsx`, replace the default `adClient` and `adSlotId` props with your real approved AdSense IDs.
+Your Google AdSense Publisher account is configured:
+- **Publisher ID:** `ca-pub-3890743631653804`
+- **Verification Tag & Script:** Active in `index.html`
+- **Ad Slot Engine:** Configured in `src/config/ads.ts`
 3. Deploy to **Vercel**, **Netlify**, or **Cloudflare Pages** (Zero-cost hosting with global Edge CDN).

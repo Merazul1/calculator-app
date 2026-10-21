@@ -10,7 +10,7 @@ export const ADS_CONFIG = {
   enabled: true,
   
   // Your Google AdSense Publisher ID
-  client: 'ca-pub-XXXXXXXXXXXXXXXX', 
+  client: 'ca-pub-3890743631653804', 
 
   // Specific ad slot IDs from your Google AdSense console
   slots: {
