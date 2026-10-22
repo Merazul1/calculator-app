@@ -4,6 +4,6 @@
  */
 
 export const CONTACT_CONFIG = {
-  recipientEmail: 'merajulhaikhan@gmail.com',
-  serviceUrl: 'https://formsubmit.co/ajax/merajulhaikhan@gmail.com',
+  recipientEmail: 'contact@smartcalclab.com',
+  serviceUrl: 'https://formsubmit.co/ajax/contact@smartcalclab.com',
 };
