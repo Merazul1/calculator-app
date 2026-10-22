@@ -140,38 +140,39 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
     },
     tools: {
       loan: {
-        name: 'Loan & EMI Calculator',
-        shortDesc: 'Calculate monthly loan payments, total interest, and full amortization schedule.',
+        name: 'Mortgage Cost Estimator & Loan Calculator',
+        shortDesc: 'Compute monthly mortgage payments, down payment, property taxes, insurance, and amortization schedule.',
         category: 'finance',
         seo: {
-          title: 'Free Loan & Mortgage EMI Calculator | Monthly Payment Simulator',
-          subtitle: 'Accurately simulate mortgages, auto loans, and personal credit installments with zero hidden fees.',
-          metaDesc: 'Free online loan and mortgage EMI calculator. Compute monthly payment, interest rate costs, and total repayment schedule in seconds.',
-          badge: 'High Value Finance Tool',
+          title: 'Mortgage Cost Estimator & Calculator (with Taxes & Insurance)',
+          subtitle: 'Accurately compute monthly mortgage payments, calculate down payment savings, property taxes, homeowners insurance, and analyze your principal vs interest chart.',
+          metaDesc: 'Free mortgage cost estimator to compute monthly home payments with taxes, insurance, down payment, interest rates, and full amortization schedule.',
+          badge: 'High Precision Mortgage Tool',
           introParagraphs: [
-            'Understanding the true cost of borrowing money is the most critical step before committing to a mortgage, car loan, or personal credit. Our free loan calculator computes your exact monthly installments (EMI), total interest payable, and the total lifetime repayment of any loan.',
-            'Whether you are negotiating home financing or evaluating bank offers, this tool gives you instant transparency with complete amortization details.'
+            'Estimating your total monthly homeownership cost is the most critical step before shopping for real estate or negotiating a home loan. Our free Mortgage Cost Estimator and Loan Calculator allows you to compute your exact monthly mortgage payment, factoring in principal, interest, property taxes, homeowners insurance (hazard insurance), and private mortgage insurance (PMI).',
+            'Whether you are computing down payment options for a first-time home purchase, evaluating a 15-year vs. 30-year fixed loan, or calculating amortization payoff schedules, this comprehensive simulator gives you full financial clarity.'
           ],
-          howItWorksTitle: 'How to Calculate Your Loan Repayment',
+          howItWorksTitle: 'How to Compute Your Mortgage & Loan Payment',
           howItWorksSteps: [
-            { step: '1. Enter Principal Amount', desc: 'The exact amount of money you want to borrow from the bank or financial institution.' },
-            { step: '2. Specify Annual Interest Rate', desc: 'The fixed annual percentage rate (APR) quoted by your lender.' },
-            { step: '3. Select Loan Duration', desc: 'The repayment period in years or months. Longer terms lower monthly payments but increase total interest.' }
+            { step: '1. Enter Home Value & Down Payment', desc: 'Specify the home purchase price and your planned down payment ($ or %). A 20% down payment eliminates PMI costs.' },
+            { step: '2. Set Interest Rate & Loan Term', desc: 'Input the annual mortgage interest rate (e.g., 6.5%) and select a 15-year, 20-year, or 30-year term.' },
+            { step: '3. Include Taxes & Insurance (PITI)', desc: 'Include estimated annual property taxes, homeowners hazard insurance, and HOA fees to calculate your total monthly payment.' }
           ],
-          formulaTitle: 'The Amortization Formula',
-          formulaMath: 'EMI = [P x r x (1 + r)^n] / [(1 + r)^n - 1]',
-          formulaExplanation: 'Where P is Principal loan amount, r is monthly interest rate (Annual rate / 12 / 100), and n is total number of monthly payments.',
-          exampleTitle: 'Real-World Example',
-          exampleText: 'Borrowing $250,000 for a mortgage at 6.5% interest over 30 years results in a monthly payment of $1,580.17. Over the full 30-year span, total interest paid equals $318,861.20, for a total payoff of $568,861.20.',
+          formulaTitle: 'Mortgage Payment & Amortization Formula',
+          formulaMath: 'M = P × [r(1 + r)^n] / [(1 + r)^n - 1] + (Taxes / 12) + (Insurance / 12)',
+          formulaExplanation: 'Where M is total monthly payment, P is the principal loan amount (Home Price minus Down Payment), r is the monthly interest rate (Annual rate / 12 / 100), and n is the total number of monthly payments (Years × 12).',
+          exampleTitle: 'Real-World Mortgage Calculation Example',
+          exampleText: 'Buying a $400,000 home with a 20% down payment ($80,000) leaves a $320,000 loan. At a 6.5% interest rate over a 30-year term, the monthly Principal & Interest payment is $2,022.62. Adding $400/mo in property taxes and $100/mo in homeowners insurance brings the total monthly mortgage cost to $2,522.62.',
           faqsTitle: 'Frequently Asked Questions (FAQ)',
           faqs: [
-            { q: 'What is an EMI?', a: 'EMI stands for Equated Monthly Installment. It is a fixed payment amount made by a borrower to a lender at a specified date each calendar month.' },
-            { q: 'Does this calculator include property tax or insurance?', a: 'This tool computes principal and interest. If your loan includes escrow for PMI, taxes, or home insurance, add those monthly fees to the resulting figure.' },
-            { q: 'How does paying extra principal help?', a: 'Making additional payments directly towards the principal reduces the compounding base, shortening your loan term and saving thousands in interest.' }
+            { q: 'How do you calculate mortgage payment with taxes and insurance?', a: 'To compute your total monthly mortgage payment (PITI), calculate your monthly Principal and Interest using the amortization formula, then add 1/12th of your annual property taxes and 1/12th of your annual homeowners insurance premium.' },
+            { q: 'How is the down payment for a house calculated?', a: 'The down payment is calculated as: Down Payment = Home Price × Down Payment Percentage. For a $350,000 home, a 20% down payment equals $70,000, which lowers your borrowing amount to $280,000 and eliminates private mortgage insurance (PMI).' },
+            { q: 'What is the difference between a 15-year and a 30-year mortgage?', a: 'A 30-year mortgage has lower monthly payments spread across 360 months, making it easier to qualify. A 15-year mortgage has higher monthly payments but lower interest rates and typically saves over 60% in lifetime interest charges.' },
+            { q: 'What is Private Mortgage Insurance (PMI)?', a: 'Lenders typically require PMI if your down payment is less than 20% of the home price. PMI typically costs between 0.3% and 1.5% of the original loan amount per year until you build 20% home equity.' }
           ],
           tips: [
-            'A 15-year mortgage typically saves over 60% in lifetime interest compared to a 30-year mortgage.',
-            'Always compare the APR (Annual Percentage Rate) which includes bank closing costs, not just the nominal interest rate.'
+            'Putting at least 20% down on a home purchase exempts you from paying Private Mortgage Insurance (PMI), saving $100 to $250 each month.',
+            'Making one extra monthly mortgage payment each year can shave 4 to 6 years off a 30-year fixed mortgage and save tens of thousands in interest.'
           ]
         }
       },

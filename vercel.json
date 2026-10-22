@@ -1,6 +1,21 @@
 {
   "redirects": [
     {
+      "source": "/mortgage",
+      "destination": "/loan",
+      "permanent": true
+    },
+    {
+      "source": "/mortgage-cost-estimator",
+      "destination": "/loan",
+      "permanent": true
+    },
+    {
+      "source": "/mortgage-calculator",
+      "destination": "/loan",
+      "permanent": true
+    },
+    {
       "source": "/calculators/real-estate/mortgage-calculator",
       "destination": "/loan",
       "permanent": true
