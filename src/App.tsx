@@ -31,7 +31,7 @@ const VALID_PAGES: PageId[] = [
 ];
 
 export default function App() {
-  // Read initial language from query param or default to Spanish
+  // Read initial language from query param, localStorage, or default to English
   const [currentLang, setCurrentLang] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
@@ -39,8 +39,14 @@ export default function App() {
       if (['en', 'es', 'ar', 'hi'].includes(urlLang)) {
         return urlLang;
       }
+      try {
+        const savedLang = localStorage.getItem('user_lang') as Language;
+        if (['en', 'es', 'ar', 'hi'].includes(savedLang)) {
+          return savedLang;
+        }
+      } catch (e) {}
     }
-    return 'es'; // Default Spanish
+    return 'en'; // Default English
   });
   
   // Read initial page from pathname, query param, or hash
@@ -92,10 +98,13 @@ export default function App() {
   const t = TRANSLATIONS[currentLang];
   const langInfo = LANGUAGES.find((l) => l.code === currentLang) || LANGUAGES[0];
 
-  // Sync RTL and lang attribute
+  // Sync RTL, lang attribute, and persist language preference
   useEffect(() => {
     document.documentElement.dir = langInfo.dir;
     document.documentElement.lang = currentLang;
+    try {
+      localStorage.setItem('user_lang', currentLang);
+    } catch (e) {}
   }, [currentLang, langInfo.dir]);
 
   // Sync Dark theme class and persist preference
