@@ -16,7 +16,7 @@ export const HomePage: React.FC<HomePageProps> = ({ currentLang, onSelectTool, o
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'finance' | 'health' | 'daily'>('all');
 
-  const toolIds: ToolId[] = ['loan', 'currency', 'bmi', 'percentage', 'compound', 'salary'];
+  const toolIds: ToolId[] = ['loan', 'autoloan', 'currency', 'bmi', 'percentage', 'compound', 'salary'];
 
   // Filter tools based on search and category
   const filteredTools = toolIds.filter((id) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ToolId, Language } from '../types';
 import { TRANSLATIONS } from '../translations';
-import { Landmark, RefreshCw, Activity, Percent, TrendingUp, Briefcase, ArrowRight } from 'lucide-react';
+import { Landmark, RefreshCw, Activity, Percent, TrendingUp, Briefcase, Car, ArrowRight } from 'lucide-react';
 
 interface ToolCardProps {
   id: ToolId;
@@ -43,6 +43,11 @@ export const ToolCard: React.FC<ToolCardProps> = ({ id, currentLang, onSelect })
       icon: <Briefcase className="w-6 h-6" />,
       bg: 'bg-cyan-100 dark:bg-cyan-950/80',
       text: 'text-cyan-600 dark:text-cyan-400',
+    },
+    autoloan: {
+      icon: <Car className="w-6 h-6" />,
+      bg: 'bg-orange-100 dark:bg-orange-950/80',
+      text: 'text-orange-600 dark:text-orange-400',
     },
   };
 

@@ -1,6 +1,21 @@
 {
   "redirects": [
     {
+      "source": "/auto-loan",
+      "destination": "/autoloan",
+      "permanent": true
+    },
+    {
+      "source": "/car-loan",
+      "destination": "/autoloan",
+      "permanent": true
+    },
+    {
+      "source": "/car-payment-calculator",
+      "destination": "/autoloan",
+      "permanent": true
+    },
+    {
       "source": "/mortgage",
       "destination": "/loan",
       "permanent": true

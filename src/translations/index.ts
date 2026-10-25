@@ -1,4 +1,7 @@
 import { Language, LanguageInfo, ToolId, ToolSEOData, PageId } from '../types';
+import { pt } from './pt';
+import { fr } from './fr';
+import { de } from './de';
 
 export const LANGUAGES: LanguageInfo[] = [
   {
@@ -16,6 +19,30 @@ export const LANGUAGES: LanguageInfo[] = [
     dir: 'ltr',
     flag: '🇪🇸',
     region: 'España & Latinoamérica'
+  },
+  {
+    code: 'pt',
+    name: 'Portuguese',
+    nativeName: 'Português',
+    dir: 'ltr',
+    flag: '🇧🇷',
+    region: 'Brasil & Portugal'
+  },
+  {
+    code: 'fr',
+    name: 'French',
+    nativeName: 'Français',
+    dir: 'ltr',
+    flag: '🇫🇷',
+    region: 'France & Canada'
+  },
+  {
+    code: 'de',
+    name: 'German',
+    nativeName: 'Deutsch',
+    dir: 'ltr',
+    flag: '🇩🇪',
+    region: 'Deutschland & DACH'
   },
   {
     code: 'ar',
@@ -173,6 +200,43 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
           tips: [
             'Putting at least 20% down on a home purchase exempts you from paying Private Mortgage Insurance (PMI), saving $100 to $250 each month.',
             'Making one extra monthly mortgage payment each year can shave 4 to 6 years off a 30-year fixed mortgage and save tens of thousands in interest.'
+          ]
+        }
+      },
+      autoloan: {
+        name: 'Auto Loan & Car Payment Calculator',
+        shortDesc: 'Calculate monthly car payments, trade-in value, down payment, sales tax, and loan amortization.',
+        category: 'finance',
+        seo: {
+          title: 'Auto Loan Calculator | Car Payment & Interest Estimator with Trade-in & Tax',
+          subtitle: 'Estimate monthly car financing payments, trade-in credit, sales tax, APR, and total loan interest.',
+          metaDesc: 'Free auto loan calculator and car payment estimator. Compute monthly car financing payments, trade-in value, down payment, sales tax, and amortization.',
+          badge: 'High Precision Auto Tool',
+          introParagraphs: [
+            'Financing a new or used vehicle is one of the most common and significant recurring monthly expenses. Our free Auto Loan and Car Payment Calculator computes your exact monthly car loan payment, accounting for vehicle purchase price, cash down payment, trade-in allowance, state/local sales tax, and dealership loan APR.',
+            'Whether you are negotiating at the dealership or shopping for private bank pre-approvals, this tool provides complete clarity with full payment amortization schedules.'
+          ],
+          howItWorksTitle: 'How to Calculate Your Car Payment',
+          howItWorksSteps: [
+            { step: '1. Enter Vehicle Price & Trade-In', desc: 'Specify the negotiated car price and any trade-in value or down payment cash you are contributing.' },
+            { step: '2. Input Sales Tax Rate', desc: 'Add your local auto sales tax percentage to accurately finance registration and purchase taxes.' },
+            { step: '3. Select Loan Term & Interest Rate', desc: 'Choose standard auto loan terms (36, 48, 60, or 72 months) and the APR quoted by your bank or dealership.' }
+          ],
+          formulaTitle: 'Auto Loan Amortization Formula',
+          formulaMath: 'Monthly Payment = [P × r × (1 + r)^n] / [(1 + r)^n – 1]',
+          formulaExplanation: 'Where P is the Net Financed Amount (Vehicle Price – Down Payment – Trade-In + Sales Tax), r is the monthly interest rate (APR / 12 / 100), and n is the total number of months (e.g. 60 months for a 5-year loan).',
+          exampleTitle: 'Real-World Auto Loan Example',
+          exampleText: 'Buying a $35,000 car with a $5,000 down payment, a $4,000 trade-in credit, and 7% sales tax ($2,450) leaves an amount financed of $28,450. At a 6.5% APR over 60 months (5 years), the monthly payment is $556.76 with total interest of $4,955.60.',
+          faqsTitle: 'Auto Loan FAQs',
+          faqs: [
+            { q: 'What is a good auto loan interest rate (APR)?', a: 'Auto loan APRs vary by credit score. Borrowers with excellent credit (750+) typically qualify for 5% to 7% on new cars, while used car loans or lower credit scores can range from 8% to 14%+.' },
+            { q: 'Should I choose a 60-month or 72-month auto loan?', a: 'A 60-month (5-year) loan is the recommended benchmark. 72-month and 84-month loans lower your monthly payment but cause you to pay significantly more interest and risk becoming upside-down (owing more than the car is worth).' },
+            { q: 'Does a trade-in reduce car sales tax?', a: 'In most US states and countries, the value of your trade-in vehicle is subtracted from the purchase price before sales tax is calculated, saving you hundreds of dollars in taxes.' },
+            { q: 'How much should my down payment be for a car?', a: 'Financial experts recommend the 20/4/10 rule: put down at least 20%, finance for no more than 4 years (48 months), and keep total vehicle expenses under 10% of your gross income.' }
+          ],
+          tips: [
+            'Getting pre-approved by your credit union or bank before visiting a car dealership gives you powerful leverage to beat dealership markup rates.',
+            'Aim to put at least 10% to 20% down to prevent negative equity (being upside-down on your auto loan) as the vehicle depreciates.'
           ]
         }
       },
@@ -441,6 +505,40 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
           ]
         }
       },
+      autoloan: {
+        name: 'Calculadora de Préstamos para Coche',
+        shortDesc: 'Calcula tu cuota mensual de financiación de vehículo con entrada, tasación y cuadro de amortización.',
+        category: 'finance',
+        seo: {
+          title: 'Calculadora de Préstamos para Coche | Simulador de Financiación de Auto',
+          subtitle: 'Simula la cuota mensual de tu coche nuevo o de ocasión, intereses y ahorro de entrada.',
+          metaDesc: 'Calculadora de préstamos para auto gratis. Calcula tu cuota mensual, intereses totales y amortización para financiar tu vehículo.',
+          badge: 'Simulador de Financiación Auto',
+          introParagraphs: [
+            'Comprar un coche es una de las decisiones financieras más importantes. Nuestra calculadora de préstamos para coche te permite estimar con total precisión tu cuota mensual de financiación.',
+            'Compara plazos entre 24 y 84 meses y descubre cómo la entrada reduce drásticamente los intereses acumulados.'
+          ],
+          howItWorksTitle: 'Cómo Calcular la Financiación de un Coche',
+          howItWorksSteps: [
+            { step: '1. Introduce el Precio del Coche', desc: 'Indica el precio final de compra del automóvil nuevo o usado.' },
+            { step: '2. Entrada y Valor de Recompra', desc: 'Añade el dinero en efectivo que aportas como entrada o el valor de tu coche actual.' },
+            { step: '3. Elige Plazo e Interés (TIN/TAE)', desc: 'Selecciona la duración en meses (48, 60, 72) y el tipo de interés anual ofertado.' }
+          ],
+          formulaTitle: 'Fórmula de Cuota de Financiación de Coche',
+          formulaMath: 'Cuota Mensual = [P × r × (1 + r)^n] / [(1 + r)^n – 1]',
+          formulaExplanation: 'Donde P es el importe financiado neto, r es el tipo mensual y n es el plazo en meses.',
+          exampleTitle: 'Ejemplo Práctico',
+          exampleText: 'Para un coche de 25.000 € con 5.000 € de entrada al 6,5% de interés a 60 meses, la cuota es de 391,32 € al mes.',
+          faqsTitle: 'Preguntas Frecuentes sobre Financiación de Autos',
+          faqs: [
+            { q: '¿Cuál es el plazo recomendado para pagar un coche?', a: 'Se recomienda financiar a un máximo de 48 o 60 meses para no pagar intereses excesivos mientras el vehículo se devalúa.' },
+            { q: '¿Es mejor dar una entrada grande?', a: 'Sí, dar al menos un 20% de entrada reduce el riesgo de deber más de lo que vale el coche en el mercado.' }
+          ],
+          tips: [
+            'Compara la oferta del concesionario con un préstamo personal en tu banco antes de firmar.'
+          ]
+        }
+      },
       currency: {
         name: 'Conversor de Divisas en Tiempo Real',
         shortDesc: 'Convierte divisas mundiales con tipos de cambio actualizados: Euro, Dólar, Pesos y más.',
@@ -703,6 +801,40 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
           tips: [
             'سداد مبالغ إضافية مبكراً يقلل من الرصيد الأساسي ويختصر سنوات طويلة من الفوائد التراكمية.',
             'تأكد دائماً من مراجعة النسبة السنوية الفعلية (APR) التي تشمل الرسوم الإدارية ورسوم التأمين.'
+          ]
+        }
+      },
+      autoloan: {
+        name: 'حاسبة تمويل وقروض السيارات',
+        shortDesc: 'احسب القسط الشهري لتمويل شراء السيارة مع الدفعة الأولى ومعدل الفائدة وجدول السداد.',
+        category: 'finance',
+        seo: {
+          title: 'حاسبة تمويل السيارات | حاسبة أقساط قروض السيارات الشهرية',
+          subtitle: 'تقدير دقيق لأقساط تمويل السيارات الجديدة والمستعملة مع الدفعة الأولى وهامش الربح.',
+          metaDesc: 'حاسبة قروض وتمويل السيارات مجاناً. احسب القسط الشهري لشراء سيارتك مع الدفعة الأولى وجدول السداد الشامل.',
+          badge: 'أداة تمويل السيارات',
+          introParagraphs: [
+            'تمويل شراء سيارة جديدة أو مستعملة يتطلب معرفة دقيقة بالتكاليف الإجمالية والأقساط الشهرية. تتيح لك حاسبة تمويل السيارات المجانية معرفة القسط الشهري الدقيق بناءً على سعر المركبة والدفعة الأولى ومدة التمويل.',
+            'قارن بين عروض البنوك وشركات التمويل واحصل على جدول سداد تفصيلي يوضح أصل القرض والفوائد.'
+          ],
+          howItWorksTitle: 'كيفية حساب قسط السيارة الشهري',
+          howItWorksSteps: [
+            { step: '١. أدخل سعر المركبة', desc: 'حدد السعر الإجمالي للسيارة متضمناً ضريبة القيمة المضافة.' },
+            { step: '٢. حدد الدفعة الأولى', desc: 'أدخل المبلغ النقدي أو قيمة سيارتك القديمة المقدمة كدفعة أولى.' },
+            { step: '٣. اختر مدة السداد ومعدل الفائدة', desc: 'اختر مدة التمويل بالأشهر (٣٦، ٤٨، ٦٠ شهراً) والنسبة المئوية السنوية.' }
+          ],
+          formulaTitle: 'معادلة حساب قسط تمويل السيارة',
+          formulaMath: 'القسط الشهري = [P × r × (1 + r)^n] / [(1 + r)^n – 1]',
+          formulaExplanation: 'حيث P هو المبلغ الممول الصافي، وr هو معدل الفائدة الشهري، وn هو عدد أشهر التمويل.',
+          exampleTitle: 'مثال واقعي',
+          exampleText: 'شراء سيارة بقيمة ٨٠,٠٠٠ ر.س مع دفعة أولى ١٥,٠٠٠ ر.س بفائدة ٥٪ على ٥ سنوات ينتج قسطاً شهرياً قدره ١,٢٢٦ ر.س.',
+          faqsTitle: 'الأسئلة الشائعة حول تمويل السيارات',
+          faqs: [
+            { q: 'ما هي أفضل مدة لتمويل السيارة؟', a: 'المدة المثالية هي بين ٤٨ إلى ٦٠ شهراً لتجنب دفع فوائد مرتفعة مقارنة بانخفاض قيمة السيارة.' },
+            { q: 'هل تقلل الدفعة الأولى من التكلفة الإجمالية؟', a: 'نعم، زيادة الدفعة الأولى تخفض أصل القرض وتقلل الفوائد التراكمية بشكل كبير.' }
+          ],
+          tips: [
+            'احرص دائماً على مراجعة شروط التأمين الشامل الإلزامي في عقود التمويل التأجيري.'
           ]
         }
       },
@@ -971,6 +1103,40 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
           ]
         }
       },
+      autoloan: {
+        name: 'कार लोन एवं ऑटो ईएमआई कैलकुलेटर',
+        shortDesc: 'वाहन की कीमत, डाउन पेमेंट, ब्याज दर और अवधि के आधार पर सटीक मासिक कार ईएमआई जानें।',
+        category: 'finance',
+        seo: {
+          title: 'कार लोन कैलकुलेटर | ऑटो लोन ईएमआई एवं ब्याज दर एस्टीमेटर',
+          subtitle: 'अपनी नई या पुरानी कार के लिए मासिक ईएमआई, कुल ब्याज और रीपेमेंट शेड्यूल तुरंत निकालें।',
+          metaDesc: 'मुफ्त कार लोन ईएमआई कैलकुलेटर। नई या सेकंड हैंड कार के लिए मासिक किस्त, डाउन पेमेंट और ब्याज का सटीक हिसाब लगाएं।',
+          badge: 'सटीक ऑटो फाइनेंस टूल',
+          introParagraphs: [
+            'कार खरीदना हर परिवार का एक बड़ा सपना और वित्तीय फैसला होता है। हमारा मुफ्त कार लोन कैलकुलेटर आपको मासिक ईएमआई, डाउन पेमेंट और ब्याज लागत का पारदर्शी विवरण प्रदान करता है।',
+            'विभिन्न बैंकों की ब्याज दरों और अवधियों (३ से ७ वर्ष) की तुलना करके अपने बजट के अनुसार सही फैसला लें।'
+          ],
+          howItWorksTitle: 'कार लोन ईएमआई की गणना कैसे करें',
+          howItWorksSteps: [
+            { step: '१. कार की ऑन-रोड कीमत दर्ज करें', desc: 'वाहन की वास्तविक शोरूम या ऑन-रोड खरीद कीमत लिखें।' },
+            { step: '२. डाउन पेमेंट और एक्सचेंज मूल्य', desc: 'अपनी जमा पूंजी या पुरानी कार के बदले मिलने वाली राशि दर्ज करें।' },
+            { step: '३. अवधि और ब्याज दर चुनें', desc: 'बैंक द्वारा दी गई वार्षिक ब्याज दर और लोन की अवधि (महीनों में) चुनें।' }
+          ],
+          formulaTitle: 'ऑटो लोन ईएमआई फॉर्मूला',
+          formulaMath: 'EMI = [P × r × (1 + r)^n] / [(1 + r)^n – 1]',
+          formulaExplanation: 'जहाँ P वास्तविक ऋण राशि है, r मासिक ब्याज दर है, और n कुल महीनों की संख्या है।',
+          exampleTitle: 'व्यावहारिक उदाहरण',
+          exampleText: '₹८,००,००० की कार के लिए ₹१,५०,००० डाउन पेमेंट देकर ८.५% ब्याज पर ५ वर्ष (६० माह) के लिए लोन लेने पर मासिक ईएमआई ₹१३,३३२ होगी।',
+          faqsTitle: 'कार लोन से संबंधित अक्सर पूछे जाने वाले सवाल',
+          faqs: [
+            { q: 'कार लोन के लिए कितना डाउन पेमेंट सही है?', a: 'कम से कम २०% डाउन पेमेंट देने की सलाह दी जाती है ताकि लोन का बोझ कम रहे और ब्याज की बचत हो।' },
+            { q: 'क्या कार लोन को समय से पहले चुकाया जा सकता है?', a: 'हाँ, प्री-पेमेंट या फोरक्लोज़र के ज़रिये आप लोन समय से पहले चुका सकते हैं, हालांकि कुछ बैंक मामूली शुल्क लेते हैं।' }
+          ],
+          tips: [
+            'डीलरशिप से लोन लेने से पहले अपने मौजूदा बैंक से प्री-एप्रूव्ड कार लोन ऑफर ज़रूर चेक करें।'
+          ]
+        }
+      },
       currency: {
         name: 'लाइव मुद्रा परिवर्तक (Currency Converter)',
         shortDesc: 'डॉलर, यूरो, रुपया (INR), रियाल, दिरहम आदि के लाइव एक्सचेंज रेट देखें।',
@@ -1146,5 +1312,8 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       contactTitle: 'संपर्क करें एवं फीडबैक',
       disclaimerTitle: 'अस्वीकरण एवं कानूनी सूचना'
     }
-  }
+  },
+  pt,
+  fr,
+  de
 };

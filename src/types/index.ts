@@ -1,7 +1,8 @@
-export type Language = 'en' | 'es' | 'ar' | 'hi';
+export type Language = 'en' | 'es' | 'ar' | 'hi' | 'pt' | 'fr' | 'de';
 
 export type ToolId = 
   | 'loan' 
+  | 'autoloan'
   | 'currency' 
   | 'bmi' 
   | 'percentage' 

@@ -10,6 +10,7 @@ import { SEOHead } from './components/SEOHead';
 
 // Calculator components
 import { LoanCalculator } from './components/calculators/LoanCalculator';
+import { AutoLoanCalculator } from './components/calculators/AutoLoanCalculator';
 import { CurrencyConverter } from './components/calculators/CurrencyConverter';
 import { BMICalculator } from './components/calculators/BMICalculator';
 import { PercentageCalculator } from './components/calculators/PercentageCalculator';
@@ -26,7 +27,7 @@ import { Disclaimer } from './components/pages/Disclaimer';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 
 const VALID_PAGES: PageId[] = [
-  'home', 'loan', 'currency', 'bmi', 'percentage', 'compound', 'salary',
+  'home', 'loan', 'autoloan', 'currency', 'bmi', 'percentage', 'compound', 'salary',
   'privacy', 'terms', 'about', 'contact', 'disclaimer'
 ];
 
@@ -36,12 +37,12 @@ export default function App() {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       const urlLang = params.get('lang') as Language;
-      if (['en', 'es', 'ar', 'hi'].includes(urlLang)) {
+      if (['en', 'es', 'ar', 'hi', 'pt', 'fr', 'de'].includes(urlLang)) {
         return urlLang;
       }
       try {
         const savedLang = localStorage.getItem('user_lang') as Language;
-        if (['en', 'es', 'ar', 'hi'].includes(savedLang)) {
+        if (['en', 'es', 'ar', 'hi', 'pt', 'fr', 'de'].includes(savedLang)) {
           return savedLang;
         }
       } catch (e) {}
@@ -58,6 +59,9 @@ export default function App() {
         return rawPath as PageId;
       }
       // Handle legacy URL aliases
+      if (rawPath === 'autoloan' || rawPath === 'auto-loan' || rawPath === 'car-loan' || rawPath === 'car-payment-calculator') {
+        return 'autoloan';
+      }
       if (rawPath.includes('mortgage') || rawPath.includes('lease') || rawPath.includes('real-estate')) {
         return 'loan';
       }
@@ -130,6 +134,10 @@ export default function App() {
         setCurrentPage(rawPath as PageId);
         return;
       }
+      if (rawPath === 'autoloan' || rawPath === 'auto-loan' || rawPath === 'car-loan' || rawPath === 'car-payment-calculator') {
+        setCurrentPage('autoloan');
+        return;
+      }
       if (rawPath.includes('mortgage') || rawPath.includes('lease') || rawPath.includes('real-estate')) {
         setCurrentPage('loan');
         return;
@@ -172,6 +180,7 @@ export default function App() {
 
   const isToolPage = [
     'loan',
+    'autoloan',
     'currency',
     'bmi',
     'percentage',
@@ -230,6 +239,7 @@ export default function App() {
 
             {/* The Active Calculator */}
             {currentPage === 'loan' && <LoanCalculator currentLang={currentLang} />}
+            {currentPage === 'autoloan' && <AutoLoanCalculator currentLang={currentLang} />}
             {currentPage === 'currency' && <CurrencyConverter currentLang={currentLang} />}
             {currentPage === 'bmi' && <BMICalculator currentLang={currentLang} />}
             {currentPage === 'percentage' && <PercentageCalculator currentLang={currentLang} />}

@@ -11,7 +11,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage }) =>
   const t = TRANSLATIONS[currentLang];
 
   useEffect(() => {
-    const isTool = ['loan', 'currency', 'bmi', 'percentage', 'compound', 'salary'].includes(currentPage);
+    const isTool = ['loan', 'autoloan', 'currency', 'bmi', 'percentage', 'compound', 'salary'].includes(currentPage);
     
     let title = `${t.siteName} - ${t.tagline}`;
     let desc = 'Free online calculators for loan EMI, live currency exchange, BMI, percentages, and salary. Available in English, Spanish, Arabic, and Hindi.';
