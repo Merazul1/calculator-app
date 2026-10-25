@@ -270,12 +270,89 @@ export const BMICalculator: React.FC<BMICalculatorProps> = ({ currentLang }) => 
             </div>
           </div>
 
-          <div className="mt-6 p-3 rounded-xl bg-rose-950/60 border border-rose-800/40 text-xs text-rose-200 flex items-start gap-2">
-            <Heart className="w-4 h-4 flex-shrink-0 text-rose-400 mt-0.5" />
-            <span>
-              Maintaining a healthy weight lowers lifetime cardiovascular risk and promotes longevity.
-            </span>
+          <div className="mt-6 space-y-3">
+            <div className="p-3 rounded-xl bg-slate-950/60 border border-rose-900/40 text-[11px] font-mono text-slate-300">
+              <span className="text-rose-300 font-bold">Metric Formula: </span>
+              {unit === 'metric' 
+                ? `${weightKg} kg ÷ (${(heightCm / 100).toFixed(2)} m)² = ${bmi.toFixed(2)} kg/m²`
+                : `703 × ${weightLbs} lbs ÷ (${feet * 12 + inches} in)² = ${bmi.toFixed(2)}`}
+            </div>
+
+            <div className="p-3 rounded-xl bg-rose-950/60 border border-rose-800/40 text-xs text-rose-200 flex items-start gap-2">
+              <Heart className="w-4 h-4 flex-shrink-0 text-rose-400 mt-0.5" />
+              <span>
+                Maintaining a healthy weight lowers lifetime cardiovascular risk and promotes longevity.
+              </span>
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* WHO Body Mass Index Classification Table */}
+      <div className="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <Scale className="w-5 h-5 text-rose-500" />
+            Official WHO Body Mass Index (BMI) Standards
+          </h2>
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+            kg &amp; cm Standards
+          </span>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr className="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300">
+                <th className="py-2.5 px-3 font-semibold">BMI Range (kg/m²)</th>
+                <th className="py-2.5 px-3 font-semibold">Classification (WHO)</th>
+                <th className="py-2.5 px-3 font-semibold">Sample Scores</th>
+                <th className="py-2.5 px-3 font-semibold">Health Risk Level</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              <tr className={bmi < 18.5 ? 'bg-amber-50/80 dark:bg-amber-950/30 font-semibold text-amber-700 dark:text-amber-400' : 'text-slate-700 dark:text-slate-300'}>
+                <td className="py-2.5 px-3 font-mono">&lt; 18.5</td>
+                <td className="py-2.5 px-3">Underweight</td>
+                <td className="py-2.5 px-3 font-mono text-slate-500 dark:text-slate-400">16.5, 17.8</td>
+                <td className="py-2.5 px-3">Nutritional deficiency risk</td>
+              </tr>
+              <tr className={bmi >= 18.5 && bmi <= 24.9 ? 'bg-emerald-50/80 dark:bg-emerald-950/30 font-semibold text-emerald-700 dark:text-emerald-400' : 'text-slate-700 dark:text-slate-300'}>
+                <td className="py-2.5 px-3 font-mono">18.5 – 24.9</td>
+                <td className="py-2.5 px-3 flex items-center gap-1.5">
+                  Normal / Healthy Weight
+                  {bmi >= 18.5 && bmi <= 24.9 && (
+                    <span className="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold">You</span>
+                  )}
+                </td>
+                <td className="py-2.5 px-3 font-mono text-slate-500 dark:text-slate-400">19.34, 21.3, 23.1</td>
+                <td className="py-2.5 px-3">Lowest overall mortality risk</td>
+              </tr>
+              <tr className={bmi >= 25.0 && bmi <= 29.9 ? 'bg-orange-50/80 dark:bg-orange-950/30 font-semibold text-orange-700 dark:text-orange-400' : 'text-slate-700 dark:text-slate-300'}>
+                <td className="py-2.5 px-3 font-mono">25.0 – 29.9</td>
+                <td className="py-2.5 px-3 flex items-center gap-1.5">
+                  Overweight (Pre-obese)
+                  {bmi >= 25.0 && bmi <= 29.9 && (
+                    <span className="text-[10px] bg-orange-600 text-white px-2 py-0.5 rounded-full font-bold">You</span>
+                  )}
+                </td>
+                <td className="py-2.5 px-3 font-mono text-slate-500 dark:text-slate-400">26.2, 28.5</td>
+                <td className="py-2.5 px-3">Moderate cardiovascular risk</td>
+              </tr>
+              <tr className={bmi >= 30.0 && bmi <= 34.9 ? 'bg-red-50/80 dark:bg-red-950/30 font-semibold text-red-700 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'}>
+                <td className="py-2.5 px-3 font-mono">30.0 – 34.9</td>
+                <td className="py-2.5 px-3">Obesity Class I</td>
+                <td className="py-2.5 px-3 font-mono text-slate-500 dark:text-slate-400">31.0, 33.4</td>
+                <td className="py-2.5 px-3">High risk of hypertension &amp; diabetes</td>
+              </tr>
+              <tr className={bmi >= 35.0 ? 'bg-red-50/80 dark:bg-red-950/30 font-semibold text-red-700 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'}>
+                <td className="py-2.5 px-3 font-mono">&ge; 35.0</td>
+                <td className="py-2.5 px-3">Obesity Class II &amp; III</td>
+                <td className="py-2.5 px-3 font-mono text-slate-500 dark:text-slate-400">36.0, 41.2</td>
+                <td className="py-2.5 px-3">Very severe clinical health risk</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

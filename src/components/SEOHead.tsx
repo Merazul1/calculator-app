@@ -14,7 +14,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage }) =>
     const isTool = ['loan', 'autoloan', 'currency', 'bmi', 'percentage', 'compound', 'salary'].includes(currentPage);
     
     let title = `${t.siteName} - ${t.tagline}`;
-    let desc = 'Free online calculators for loan EMI, live currency exchange, BMI, percentages, and salary. Available in English, Spanish, Arabic, and Hindi.';
+    let desc = 'Free online calculators for mortgage loans, car payments, live currency exchange, BMI (kg & cm), and annual to gross salary in 7 global languages.';
     let canonicalUrl = `https://smartcalclab.com/${currentPage !== 'home' ? currentPage : ''}`;
 
     if (isTool) {

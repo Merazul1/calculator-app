@@ -276,17 +276,17 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
         }
       },
       bmi: {
-        name: 'BMI & Body Health Calculator',
-        shortDesc: 'Calculate your Body Mass Index (BMI), ideal weight range, and health status.',
+        name: 'BMI Calculator (Body Mass Index kg & cm)',
+        shortDesc: 'Calculate Body Mass Index (BMI) in kg & cm, check WHO healthy weight charts, and ideal body weight.',
         category: 'health',
         seo: {
-          title: 'BMI Calculator | Body Mass Index & Ideal Healthy Weight',
-          subtitle: 'Calculate your BMI in Metric (cm/kg) or Imperial (ft/in/lbs) with instant health guidance.',
-          metaDesc: 'Free online BMI calculator. Check whether you are underweight, normal weight, overweight, or obese based on WHO health standards.',
-          badge: 'Everyday Health Essential',
+          title: 'Body Mass Index (BMI) Calculator (kg & cm) | WHO Chart',
+          subtitle: 'Accurately calculate BMI using metric (cm & kg) or imperial units. Check WHO health categories and ideal weight ranges.',
+          metaDesc: 'Free Body Mass Index (BMI) calculator for kg and cm. Instant metric BMI calculation, WHO category classification, and healthy weight range.',
+          badge: 'WHO Metric Standards',
           introParagraphs: [
             'Body Mass Index (BMI) is a recognized screening benchmark used by physicians and public health organizations worldwide to assess whether a person has a healthy body weight for their height.',
-            'While it does not directly measure body fat percentage, it serves as an effective, reliable indicator for health risks related to being underweight or overweight.'
+            'While it does not directly measure body fat percentage, it serves as an effective, reliable indicator for health risks related to being underweight or overweight. Our calculator supports both metric measurements (weight in kg and height in cm) and imperial units (lbs, feet, inches).'
           ],
           howItWorksTitle: 'How BMI is Determined',
           howItWorksSteps: [
@@ -301,6 +301,8 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
           exampleText: 'An adult standing 175 cm tall (1.75 m) and weighing 70 kg has a BMI of: 70 / (1.75 × 1.75) = 22.86, placing them squarely in the healthy Normal Weight range.',
           faqsTitle: 'BMI FAQs & Limitations',
           faqs: [
+            { q: 'How do you calculate body mass index with kg and cm?', a: 'To calculate BMI in metric units (kg & cm), convert height from centimeters to meters by dividing by 100, square the result, and divide your weight in kilograms by this number: BMI = Weight (kg) / [Height (cm) / 100]².' },
+            { q: 'What does a BMI of 19.34, 21.3, or 23.1 mean?', a: 'A BMI between 18.5 and 24.9 (including scores like 19.34, 21.3, and 23.1) is classified as Normal or Healthy Weight by the World Health Organization (WHO). This range is statistically associated with optimal health and lowest cardiovascular risk.' },
             { q: 'Is BMI accurate for athletes and bodybuilders?', a: 'Muscular individuals may register as overweight or obese because muscle is denser than fat. In these cases, body fat percentage and waist circumference provide better metrics.' },
             { q: 'What is a healthy BMI for adults?', a: 'For adult men and women, a healthy BMI falls between 18.5 and 24.9.' }
           ],
@@ -381,21 +383,21 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
         }
       },
       salary: {
-        name: 'Salary & Net Pay Calculator',
-        shortDesc: 'Estimate take-home pay after income tax, social security, and deductions.',
+        name: 'Annual to Gross & Net Salary Calculator',
+        shortDesc: 'Calculate annual to gross wages, hourly to yearly pay, income tax deductions, and net take-home salary.',
         category: 'finance',
         seo: {
-          title: 'Salary & In-Hand Net Pay Calculator | Gross to Net Paycheck',
-          subtitle: 'Calculate your true take-home pay, estimated income tax brackets, and monthly deductions.',
-          metaDesc: 'Free salary net pay calculator. Estimate your monthly, bi-weekly, and annual take-home paycheck after tax and standard payroll deductions.',
-          badge: 'High Value Workplace Utility',
+          title: 'Annual to Gross & Net Salary Calculator | Paycheck (2026)',
+          subtitle: 'Convert between annual salary, monthly pay, and hourly wages to calculate your exact net take-home paycheck.',
+          metaDesc: 'Free annual to gross & net salary calculator. Convert hourly, monthly, and yearly wages to net take-home pay after income taxes and payroll deductions.',
+          badge: 'Annual & Gross Wage Converter',
           introParagraphs: [
-            'Negotiating a new job offer or planning your personal monthly budget requires knowing your true in-hand salary, not just the gross headline number.',
-            'Taxes, pension contributions, and healthcare deductions can reduce gross pay by 20% to 40%. This tool gives you a clear estimation of your spendable take-home income.'
+            'Calculating your net take-home pay from your gross compensation is essential when evaluating job offers, negotiating raises, or budgeting monthly living expenses. Our free Annual to Gross and Net Salary Calculator converts between hourly, monthly, and annual gross pay and projects your spendable paycheck after income taxes and social deductions.',
+            'Whether you need an annual to gross calculator, an hourly wage converter, or a 12 vs. 14 payment salary simulator, this tool provides an instant schedule across annual, monthly, bi-weekly, weekly, and hourly pay.'
           ],
           howItWorksTitle: 'Calculating Take-Home Pay',
           howItWorksSteps: [
-            { step: '1. Enter Gross Compensation', desc: 'Input your total annual or monthly salary before any deductions.' },
+            { step: '1. Select Wage Frequency', desc: 'Choose between Annual Salary, Monthly Wage, or Hourly Pay Rate.' },
             { step: '2. Specify Estimated Tax Rate', desc: 'Use average income tax rates or standard progressive tax tiers.' },
             { step: '3. Add Social Contributions & Deductions', desc: 'Include employee pension, social security, or insurance withholdings.' }
           ],
@@ -403,9 +405,11 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
           formulaMath: 'Net Pay = Gross Salary - (Income Tax + Social Contributions + Other Withholdings)',
           formulaExplanation: 'Take-home pay equals total gross earnings minus all mandatory tax brackets and voluntary retirement contributions.',
           exampleTitle: 'Sample Salary Breakdown',
-          exampleText: 'An annual gross salary of $60,000 with an effective 18% tax rate and 7% social security contributions leaves an estimated net annual pay of $45,000, or approximately $3,750 per month in spendable income.',
+          exampleText: 'An annual gross salary of $60,000 with an effective 18% tax rate and 6.5% social security contributions leaves an estimated net annual pay of $45,300, or approximately $3,775 per month in spendable income.',
           faqsTitle: 'Salary & Payroll FAQs',
           faqs: [
+            { q: 'How does an annual to gross calculator work?', a: 'An annual to gross calculator determines your total gross earnings before any taxes or withholdings are deducted. If you earn an hourly rate, multiply the hourly pay by 40 hours per week and 52 weeks (2,080 hours) to calculate total annual gross compensation.' },
+            { q: 'How do you convert hourly wage to gross annual salary?', a: 'Multiply your hourly rate by 2,080 (40 hours/week × 52 weeks). For example, $30/hour × 2,080 hours = $62,400 gross annual salary.' },
             { q: 'What is the difference between gross pay and net pay?', a: 'Gross pay is the total amount earned before any deductions. Net pay (take-home pay) is the remaining amount deposited into your bank account.' },
             { q: 'What are progressive tax brackets?', a: 'Progressive tax means only the income within a specific bracket is taxed at that bracket\'s rate, rather than your entire income.' }
           ],

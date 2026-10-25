@@ -9,20 +9,33 @@ interface SalaryCalculatorProps {
 
 export const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ currentLang }) => {
   const t = TRANSLATIONS[currentLang];
-  const [grossAnnual, setGrossAnnual] = useState<number>(36000);
-  const [taxRate, setTaxRate] = useState<number>(15.0);
-  const [socialSecurityRate, setSocialSecurityRate] = useState<number>(6.35);
+  const [payMode, setPayMode] = useState<'annual' | 'monthly' | 'hourly'>('annual');
+  const [inputValue, setInputValue] = useState<number>(60000);
+  const [taxRate, setTaxRate] = useState<number>(18.0);
+  const [socialSecurityRate, setSocialSecurityRate] = useState<number>(6.5);
   const [paymentsCount, setPaymentsCount] = useState<number>(12); // 12 or 14 payments
 
-  const currencySymbol = currentLang === 'es' ? '€' : currentLang === 'ar' ? 'ر.س' : currentLang === 'hi' ? '₹' : '$';
+  const currencySymbol = currentLang === 'es' || currentLang === 'de' || currentLang === 'fr' ? '€' : currentLang === 'pt' ? 'R$' : currentLang === 'ar' ? 'ر.س' : currentLang === 'hi' ? '₹' : '$';
 
-  const { netAnnual, netPerPaycheck, totalTax, totalSocial, hourlyRate } = useMemo(() => {
+  // Compute normalized gross annual salary based on payMode
+  const grossAnnual = useMemo(() => {
+    const val = Math.max(0, inputValue);
+    if (payMode === 'hourly') {
+      return val * 40 * 52; // 2,080 standard annual working hours
+    } else if (payMode === 'monthly') {
+      return val * 12;
+    }
+    return val;
+  }, [inputValue, payMode]);
+
+  const { netAnnual, netPerPaycheck, totalTax, totalSocial, hourlyRate, grossMonthly, netMonthly, grossBiweekly, netBiweekly, grossWeekly, netWeekly } = useMemo(() => {
     const gross = Math.max(0, grossAnnual);
     const tax = gross * (Math.max(0, taxRate) / 100);
     const social = gross * (Math.max(0, socialSecurityRate) / 100);
     const net = Math.max(0, gross - tax - social);
     const perPaycheck = paymentsCount > 0 ? net / paymentsCount : 0;
     const hourly = gross > 0 ? gross / (52 * 40) : 0;
+    const netHourly = net > 0 ? net / (52 * 40) : 0;
 
     return {
       netAnnual: net,
@@ -30,6 +43,13 @@ export const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ currentLang 
       totalTax: tax,
       totalSocial: social,
       hourlyRate: hourly,
+      grossMonthly: gross / 12,
+      netMonthly: net / 12,
+      grossBiweekly: gross / 26,
+      netBiweekly: net / 26,
+      grossWeekly: gross / 52,
+      netWeekly: net / 52,
+      netHourly,
     };
   }, [grossAnnual, taxRate, socialSecurityRate, paymentsCount]);
 
@@ -56,22 +76,83 @@ export const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ currentLang 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
         {/* Input Column */}
         <div className="lg:col-span-7 space-y-6">
-          {/* Gross Salary */}
+          {/* Pay Input Mode Toggle */}
+          <div>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
+              Select Wage Frequency (Annual, Monthly, or Hourly)
+            </label>
+            <div className="grid grid-cols-3 gap-2 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+              <button
+                type="button"
+                onClick={() => {
+                  setPayMode('annual');
+                  if (payMode === 'hourly') setInputValue(Math.round(inputValue * 2080));
+                  else if (payMode === 'monthly') setInputValue(Math.round(inputValue * 12));
+                }}
+                className={`py-2 rounded-lg text-xs font-bold transition-all ${
+                  payMode === 'annual'
+                    ? 'bg-white dark:bg-slate-900 text-cyan-600 dark:text-cyan-400 shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                Annual Salary
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setPayMode('monthly');
+                  if (payMode === 'annual') setInputValue(Math.round(inputValue / 12));
+                  else if (payMode === 'hourly') setInputValue(Math.round(inputValue * 173.33));
+                }}
+                className={`py-2 rounded-lg text-xs font-bold transition-all ${
+                  payMode === 'monthly'
+                    ? 'bg-white dark:bg-slate-900 text-cyan-600 dark:text-cyan-400 shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                Monthly Wage
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setPayMode('hourly');
+                  if (payMode === 'annual') setInputValue(Math.round(inputValue / 2080));
+                  else if (payMode === 'monthly') setInputValue(Math.round(inputValue / 173.33));
+                }}
+                className={`py-2 rounded-lg text-xs font-bold transition-all ${
+                  payMode === 'hourly'
+                    ? 'bg-white dark:bg-slate-900 text-cyan-600 dark:text-cyan-400 shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                Hourly Rate
+              </button>
+            </div>
+          </div>
+
+          {/* Wage Input Field */}
           <div>
             <div className="flex justify-between text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">
-              <label>Gross Annual Salary (Salario Bruto Anual)</label>
+              <label>
+                {payMode === 'annual' ? 'Gross Annual Salary' : payMode === 'monthly' ? 'Gross Monthly Wage' : 'Hourly Pay Rate (40 hrs/wk)'}
+              </label>
               <span className="text-cyan-600 dark:text-cyan-400 font-mono font-bold">
-                {currencySymbol} {grossAnnual.toLocaleString()}
+                {currencySymbol} {inputValue.toLocaleString()} {payMode === 'hourly' ? '/ hr' : payMode === 'monthly' ? '/ mo' : '/ yr'}
               </span>
             </div>
             <input
               type="number"
               min="0"
-              step="1000"
-              value={grossAnnual}
-              onChange={(e) => setGrossAnnual(Number(e.target.value) || 0)}
+              step={payMode === 'hourly' ? '1' : '500'}
+              value={inputValue}
+              onChange={(e) => setInputValue(Number(e.target.value) || 0)}
               className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-mono text-base font-bold focus:ring-2 focus:ring-cyan-500 focus:outline-none"
             />
+            {payMode !== 'annual' && (
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 font-mono">
+                = Gross Annual Equivalent: <span className="text-cyan-600 dark:text-cyan-400 font-bold">{currencySymbol} {grossAnnual.toLocaleString()}</span> / year
+              </p>
+            )}
           </div>
 
           {/* Income Tax Rate */}
@@ -193,6 +274,64 @@ export const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ currentLang 
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Annual to Gross & Net Salary Conversion Schedule Table */}
+      <div className="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <FileSpreadsheet className="w-5 h-5 text-cyan-500" />
+            Annual to Gross &amp; Net Salary Breakdown Table
+          </h2>
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+            Based on {taxRate}% Tax + {socialSecurityRate}% Deductions
+          </span>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr className="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300">
+                <th className="py-2.5 px-3 font-semibold">Pay Frequency</th>
+                <th className="py-2.5 px-3 font-semibold">Gross Pay</th>
+                <th className="py-2.5 px-3 font-semibold">Taxes &amp; Deductions</th>
+                <th className="py-2.5 px-3 font-semibold text-emerald-600 dark:text-emerald-400">Net Take-Home Pay</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
+              <tr className="text-slate-800 dark:text-slate-200">
+                <td className="py-2.5 px-3 font-sans font-bold">Annual (1 Year)</td>
+                <td className="py-2.5 px-3 font-bold">{currencySymbol} {grossAnnual.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+                <td className="py-2.5 px-3 text-amber-500">-{currencySymbol} {(totalTax + totalSocial).toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+                <td className="py-2.5 px-3 font-bold text-emerald-600 dark:text-emerald-400">{currencySymbol} {netAnnual.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+              </tr>
+              <tr className="text-slate-800 dark:text-slate-200">
+                <td className="py-2.5 px-3 font-sans font-bold">Monthly (12x)</td>
+                <td className="py-2.5 px-3">{currencySymbol} {grossMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td className="py-2.5 px-3 text-amber-500">-{currencySymbol} {((totalTax + totalSocial) / 12).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td className="py-2.5 px-3 font-bold text-emerald-600 dark:text-emerald-400">{currencySymbol} {netMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+              </tr>
+              <tr className="text-slate-800 dark:text-slate-200">
+                <td className="py-2.5 px-3 font-sans font-bold">Bi-Weekly (26x)</td>
+                <td className="py-2.5 px-3">{currencySymbol} {grossBiweekly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td className="py-2.5 px-3 text-amber-500">-{currencySymbol} {((totalTax + totalSocial) / 26).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td className="py-2.5 px-3 font-bold text-emerald-600 dark:text-emerald-400">{currencySymbol} {netBiweekly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+              </tr>
+              <tr className="text-slate-800 dark:text-slate-200">
+                <td className="py-2.5 px-3 font-sans font-bold">Weekly (52x)</td>
+                <td className="py-2.5 px-3">{currencySymbol} {grossWeekly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td className="py-2.5 px-3 text-amber-500">-{currencySymbol} {((totalTax + totalSocial) / 52).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td className="py-2.5 px-3 font-bold text-emerald-600 dark:text-emerald-400">{currencySymbol} {netWeekly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+              </tr>
+              <tr className="text-slate-800 dark:text-slate-200">
+                <td className="py-2.5 px-3 font-sans font-bold">Hourly (2,080 hrs)</td>
+                <td className="py-2.5 px-3">{currencySymbol} {hourlyRate.toFixed(2)}/hr</td>
+                <td className="py-2.5 px-3 text-amber-500">-{currencySymbol} {((totalTax + totalSocial) / 2080).toFixed(2)}/hr</td>
+                <td className="py-2.5 px-3 font-bold text-emerald-600 dark:text-emerald-400">{currencySymbol} {(netAnnual / 2080).toFixed(2)}/hr</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
