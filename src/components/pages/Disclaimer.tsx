@@ -32,7 +32,7 @@ export const Disclaimer: React.FC<DisclaimerProps> = ({ currentLang }) => {
           <span>Financial, Investment & Loan Disclaimer</span>
         </div>
         <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-          The Loan Calculator, Currency Converter, Compound Interest Calculator, and Salary Calculator provided on this website are intended solely for simulation, demonstration, and general educational purposes. 
+          The Mortgage Loan Calculator, Auto Loan Calculator, Currency Converter, Compound Interest Calculator, Percentage Calculator, and Salary Calculator provided on this website are intended solely for simulation, demonstration, and general educational purposes. 
           They do not constitute financial advice, tax planning, or loan commitment. Actual loan APRs, taxes, and bank exchange rates depend on individual credit scores, government regulations, and banking institutions.
           Always consult with a qualified financial advisor, CPA, or certified loan officer before signing lending contracts or committing investment capital.
         </p>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ToolSEOData } from '../types';
-import { ChevronDown, ChevronUp, BookOpen, Calculator, HelpCircle, Lightbulb, CheckCircle2 } from 'lucide-react';
+import { ChevronDown, ChevronUp, BookOpen, Calculator, HelpCircle, Lightbulb, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 interface SEOContentSectionProps {
   seo: ToolSEOData;
@@ -17,6 +17,19 @@ export const SEOContentSection: React.FC<SEOContentSectionProps> = ({ seo }) => 
     <div className="mt-12 space-y-10 text-slate-800 dark:text-slate-200">
       {/* 1. In-depth Overview / Introduction */}
       <section className="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+        {/* E-E-A-T Editorial Review & Standards Byline */}
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 mb-6 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+            <span><strong className="text-slate-800 dark:text-slate-200">Editorial Verification:</strong> Reviewed by SmartCalcLab Financial &amp; Health Analysis Team</span>
+          </div>
+          <div className="flex items-center gap-2 text-[11px]">
+            <span>Last Recalibrated: <strong className="text-slate-700 dark:text-slate-300">October 2026</strong></span>
+            <span>•</span>
+            <span>Standards: <strong className="text-slate-700 dark:text-slate-300">CFPB / WHO / IRS Benchmarks</strong></span>
+          </div>
+        </div>
+
         <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">
           <BookOpen className="w-4 h-4" />
           <span>Detailed Educational Guide</span>
