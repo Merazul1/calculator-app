@@ -388,35 +388,40 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
         shortDesc: 'Calculate annual to gross wages, hourly to yearly pay, income tax deductions, and net take-home salary.',
         category: 'finance',
         seo: {
-          title: 'Annual to Gross & Net Salary Calculator | Paycheck (2026)',
-          subtitle: 'Convert between annual salary, monthly pay, and hourly wages to calculate your exact net take-home paycheck.',
-          metaDesc: 'Free annual to gross & net salary calculator. Convert hourly, monthly, and yearly wages to net take-home pay after income taxes and payroll deductions.',
+          title: 'Salary Calculator: Convert Hourly to Annual & Net Take-Home Pay (2026)',
+          subtitle: 'Convert between annual salary, monthly pay, and hourly wages to calculate your exact net take-home paycheck after federal, state, and local taxes.',
+          metaDesc: 'Free salary calculator to convert hourly, monthly, and annual gross pay to net take-home paycheck after federal income tax, state tax, and pre-tax deductions.',
           badge: 'Annual & Gross Wage Converter',
           introParagraphs: [
-            'Calculating your net take-home pay from your gross compensation is essential when evaluating job offers, negotiating raises, or budgeting monthly living expenses. Our free Annual to Gross and Net Salary Calculator converts between hourly, monthly, and annual gross pay and projects your spendable paycheck after income taxes and social deductions.',
-            'Whether you need an annual to gross calculator, an hourly wage converter, or a 12 vs. 14 payment salary simulator, this tool provides an instant schedule across annual, monthly, bi-weekly, weekly, and hourly pay.'
+            'Calculating your net take-home pay from your gross pay is essential when evaluating job offers, planning income growth, or budgeting monthly household expenses against median income benchmarks. Our free Annual to Gross and Net Salary Calculator converts between hourly rate, monthly wage, and annual salary, projecting your spendable paycheck after federal income tax, state income tax, local income tax, and statutory payroll deductions.',
+            'Whether your compensation is distributed across 52 weekly pay periods, 26 bi-weekly periods, or 24 semi-monthly pay intervals, this tool gives you an accurate schedule. It factors in non-wage income, pre-tax contributions (such as traditional 401k and health plans), post-tax contributions (like Roth IRAs), standard W-4 information aligned with IRS Publication 15-T withholding methods, self-employment tax (SECA), and potential wages garnishment.'
           ],
-          howItWorksTitle: 'Calculating Take-Home Pay',
+          howItWorksTitle: 'How to Calculate Net Take-Home Pay',
           howItWorksSteps: [
-            { step: '1. Select Wage Frequency', desc: 'Choose between Annual Salary, Monthly Wage, or Hourly Pay Rate.' },
-            { step: '2. Specify Estimated Tax Rate', desc: 'Use average income tax rates or standard progressive tax tiers.' },
-            { step: '3. Add Social Contributions & Deductions', desc: 'Include employee pension, social security, or insurance withholdings.' }
+            { step: '1. Select Wage Frequency & Gross Pay', desc: 'Specify your annual salary, monthly compensation, or hourly rate across 2,080 annual working hours (or 24 semi-monthly pay periods).' },
+            { step: '2. Estimate Federal, State & Local Withholding', desc: 'Apply IRS Publication 15-T withholding guidelines, state income tax brackets, and local taxes to determine your taxable income.' },
+            { step: '3. Include Pre-Tax Deductions & Contributions', desc: 'Factor in pre-tax contributions (401k, HSA, health insurance), self-employment tax, or court-ordered wages garnishment to find net take-home pay.' }
           ],
-          formulaTitle: 'Net Salary Formula',
-          formulaMath: 'Net Pay = Gross Salary - (Income Tax + Social Contributions + Other Withholdings)',
-          formulaExplanation: 'Take-home pay equals total gross earnings minus all mandatory tax brackets and voluntary retirement contributions.',
-          exampleTitle: 'Sample Salary Breakdown',
-          exampleText: 'An annual gross salary of $60,000 with an effective 18% tax rate and 6.5% social security contributions leaves an estimated net annual pay of $45,300, or approximately $3,775 per month in spendable income.',
-          faqsTitle: 'Salary & Payroll FAQs',
+          formulaTitle: 'Net Salary & Paycheck Formula',
+          formulaMath: 'Net Pay = Gross Pay - (Federal Income Tax + State Tax + Local Tax + FICA) - (Pre-Tax Deductions + Post-Tax Withholdings)',
+          formulaExplanation: 'Gross pay is your total earned compensation before any withholdings. Taxable income equals gross earnings minus allowable pre-tax deductions. Your net take-home pay is the final amount deposited into your bank account after all income tax withholding and benefit deductions.',
+          exampleTitle: 'Sample Salary Breakdown ($65,000 Annual Salary)',
+          exampleText: 'An annual gross salary of $65,000 equals $5,416.67 per month, $2,500.00 semi-monthly (24 pay periods), or $31.25/hour. Subtracting 14% federal income tax ($9,100), 5% state income tax ($3,250), 7.65% FICA ($4,972.50), and $200/mo in pre-tax retirement contributions ($2,400) leaves an estimated net annual take-home pay of $45,277.50, or $3,773.13 per month.',
+          faqsTitle: 'Salary, Paycheck & Tax Withholding FAQs',
           faqs: [
-            { q: 'How does an annual to gross calculator work?', a: 'An annual to gross calculator determines your total gross earnings before any taxes or withholdings are deducted. If you earn an hourly rate, multiply the hourly pay by 40 hours per week and 52 weeks (2,080 hours) to calculate total annual gross compensation.' },
-            { q: 'How do you convert hourly wage to gross annual salary?', a: 'Multiply your hourly rate by 2,080 (40 hours/week × 52 weeks). For example, $30/hour × 2,080 hours = $62,400 gross annual salary.' },
-            { q: 'What is the difference between gross pay and net pay?', a: 'Gross pay is the total amount earned before any deductions. Net pay (take-home pay) is the remaining amount deposited into your bank account.' },
-            { q: 'What are progressive tax brackets?', a: 'Progressive tax means only the income within a specific bracket is taxed at that bracket\'s rate, rather than your entire income.' }
+            { q: 'How does an annual to gross calculator work?', a: 'An annual to gross calculator determines your total gross earnings before any taxes or withholdings are deducted. If you earn an hourly rate, multiply the hourly pay by 40 hours per week and 52 weeks (2,080 standard hours) to calculate total annual gross compensation.' },
+            { q: 'How do IRS Publication 15-T and Form W-4 determine income tax withholding?', a: 'IRS Publication 15-T provides federal income tax withholding tables used by payroll departments. Your withholding depends on filing status, dependents, and additional withholdings declared on your Form W-4, which determines how much federal income tax is deducted from your gross pay each pay period.' },
+            { q: 'What is the difference between bi-weekly and semi-monthly pay periods?', a: 'Bi-weekly pay occurs every two weeks, resulting in 26 pay periods per year (with two months having three paychecks). Semi-monthly pay occurs twice per month (typically on the 15th and last day of the month), totaling 24 pay periods per year. Divide your annual salary by 26 for bi-weekly gross pay, or by 24 for semi-monthly pay.' },
+            { q: 'What is the difference between pre-tax and post-tax contributions?', a: 'Pre-tax contributions (such as traditional 401k retirement plans, HSA, FSA, and health insurance premiums) reduce your gross taxable income before federal and state income taxes are calculated. Post-tax contributions (such as Roth 401k or Roth IRA) are deducted after taxes, allowing tax-free withdrawals in retirement.' },
+            { q: 'How does self-employment tax differ from standard W-2 payroll withholding?', a: 'W-2 employees split FICA taxes with their employer (paying 6.2% for Social Security and 1.45% for Medicare, total 7.65%). Self-employed individuals pay the full 15.3% self-employment tax (SECA), though half of this amount is deductible when calculating federal adjusted gross income.' },
+            { q: 'What are court-ordered wage garnishments?', a: 'Wage garnishment is a legal procedure where an employer is required to withhold a portion of an employee’s gross earnings for payment of a debt, such as child support, back taxes, or defaulted student loans, under Title III of the Consumer Credit Protection Act.' },
+            { q: 'How do you convert hourly wage to gross annual salary?', a: 'Multiply your hourly rate by 2,080 (40 hours/week × 52 weeks). For example, $30/hour × 2,080 hours = $62,400 gross annual salary. For part-time workers, multiply your specific weekly hours by 52.' },
+            { q: 'What is the difference between gross pay and net pay?', a: 'Gross pay is the total amount earned before any deductions or withholdings. Net pay (take-home pay) is the remaining amount deposited into your bank account after all taxes, benefits, and garnishments.' },
+            { q: 'What are progressive income tax brackets?', a: 'Under progressive income tax systems, your income is taxed in layers: only the income within a specific bracket is taxed at that bracket\'s marginal rate, rather than your entire income being taxed at the highest percentage.' }
           ],
           tips: [
-            'Maxing out pre-tax retirement accounts (like 401k or employer pension) lowers your taxable income bracket.',
-            'Review your paycheck paystubs periodically to ensure tax withholding amounts align with year-end tax returns.'
+            'Maxing out pre-tax retirement accounts (like 401k or employer pension) lowers your taxable income bracket and reduces current-year federal income tax.',
+            'Review your Form W-4 with your employer periodically, especially after life events like marriage or having a child, to prevent under-withholding or excessive tax refunds.'
           ]
         }
       }
