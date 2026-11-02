@@ -156,6 +156,90 @@ export const SEOContentSection: React.FC<SEOContentSectionProps> = ({ seo }) => 
           })}
         </div>
       </section>
+
+      {/* 5. Recommended Interlinked Calculators (Internal SEO Linking Network) */}
+      <section className="bg-slate-50 dark:bg-slate-850 rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800">
+        <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">
+          <BookOpen className="w-4 h-4" />
+          <span>Explore Related Calculators</span>
+        </div>
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+          Free Financial &amp; Health Analysis Tools
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+          <a
+            href="/salary"
+            className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-sm group"
+          >
+            <div className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 mb-1">
+              Salary &amp; Net Pay Calculator &rarr;
+            </div>
+            <p className="text-slate-500 dark:text-slate-400 leading-normal">
+              Convert hourly wage or gross annual pay to monthly net in-hand take-home salary after taxes.
+            </p>
+          </a>
+
+          <a
+            href="/loan"
+            className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-sm group"
+          >
+            <div className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 mb-1">
+              Mortgage Cost Estimator &rarr;
+            </div>
+            <p className="text-slate-500 dark:text-slate-400 leading-normal">
+              Estimate monthly mortgage payments including property taxes, homeowners insurance, and PMI.
+            </p>
+          </a>
+
+          <a
+            href="/autoloan"
+            className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-sm group"
+          >
+            <div className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 mb-1">
+              Auto Loan &amp; Car Payment &rarr;
+            </div>
+            <p className="text-slate-500 dark:text-slate-400 leading-normal">
+              Calculate monthly car financing, trade-in credit, sales tax, APR, and total interest costs.
+            </p>
+          </a>
+
+          <a
+            href="/compound"
+            className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-sm group"
+          >
+            <div className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 mb-1">
+              Compound Interest Simulator &rarr;
+            </div>
+            <p className="text-slate-500 dark:text-slate-400 leading-normal">
+              Forecast long-term savings growth with periodic monthly contributions and compounding APY.
+            </p>
+          </a>
+
+          <a
+            href="/bmi"
+            className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-sm group"
+          >
+            <div className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 mb-1">
+              Body Mass Index (BMI) &rarr;
+            </div>
+            <p className="text-slate-500 dark:text-slate-400 leading-normal">
+              Assess optimal body weight ranges in kg and cm using World Health Organization standards.
+            </p>
+          </a>
+
+          <a
+            href="/currency"
+            className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:shadow-sm group"
+          >
+            <div className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 mb-1">
+              Live Currency Converter &rarr;
+            </div>
+            <p className="text-slate-500 dark:text-slate-400 leading-normal">
+              Real-time foreign exchange benchmark rates across USD, EUR, GBP, MXN, SAR, AED, and INR.
+            </p>
+          </a>
+        </div>
+      </section>
     </div>
   );
 };

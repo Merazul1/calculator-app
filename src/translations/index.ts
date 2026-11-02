@@ -353,7 +353,7 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
         shortDesc: 'See how your investments and savings grow over time with compounding returns.',
         category: 'finance',
         seo: {
-          title: 'Compound Interest Calculator | Investment & Wealth Simulator',
+          title: 'Compound Interest Calculator – Savings & Investment Growth',
           subtitle: 'Simulate the power of compounding interest, regular contributions, and annual growth.',
           metaDesc: 'Free compound interest calculator. Calculate future investment value, interest earned, and wealth accumulation with monthly or annual contributions.',
           badge: 'Wealth & Investment Tool',
@@ -388,7 +388,7 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
         shortDesc: 'Calculate annual to gross wages, hourly to yearly pay, income tax deductions, and net take-home salary.',
         category: 'finance',
         seo: {
-          title: 'Salary Calculator: Convert Hourly to Annual & Net Take-Home Pay (2026)',
+          title: 'Salary Calculator – Gross to Net Pay & Take-Home Salary (2026)',
           subtitle: 'Convert between annual salary, monthly pay, and hourly wages to calculate your exact net take-home paycheck after federal, state, and local taxes.',
           metaDesc: 'Free salary calculator to convert hourly, monthly, and annual gross pay to net take-home paycheck after federal income tax, state tax, and pre-tax deductions.',
           badge: 'Annual & Gross Wage Converter',
