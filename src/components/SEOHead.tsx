@@ -131,6 +131,23 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage }) =>
             },
           },
           {
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://smartcalclab.com/',
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': tool.name,
+                'item': canonicalUrl,
+              },
+            ],
+          },
+          {
             '@type': 'FAQPage',
             'mainEntity': tool.seo.faqs.map((faq) => ({
               '@type': 'Question',

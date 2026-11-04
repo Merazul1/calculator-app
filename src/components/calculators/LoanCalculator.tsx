@@ -870,6 +870,129 @@ export const LoanCalculator: React.FC<LoanCalculatorProps> = ({ currentLang }) =
           </div>
         </div>
       )}
+
+      {/* Popular Loan & Mortgage Benchmarks (Matches exact search queries like '16500 loan over 5 years') */}
+      <div className="pt-6 border-t border-slate-100 dark:border-slate-800">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-amber-500" />
+              Popular Loan &amp; Mortgage Benchmarks
+            </h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              Quickly compare common mortgage amounts, down payments, and personal loan terms.
+            </p>
+          </div>
+          <span className="text-[11px] font-semibold text-blue-600 dark:text-blue-400 self-start sm:self-auto">
+            Click row to simulate
+          </span>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs sm:text-sm border-collapse font-mono">
+            <thead>
+              <tr className="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300">
+                <th className="py-2.5 px-3 font-semibold font-sans">Scenario</th>
+                <th className="py-2.5 px-3 font-semibold">Principal</th>
+                <th className="py-2.5 px-3 font-semibold">Interest Rate</th>
+                <th className="py-2.5 px-3 font-semibold">Term</th>
+                <th className="py-2.5 px-3 font-semibold text-emerald-600 dark:text-emerald-400 font-sans">Estimated Payment</th>
+                <th className="py-2.5 px-3 font-semibold text-right font-sans">Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              {[
+                { 
+                  name: '$16,500 Loan over 5 Years', 
+                  tag: 'Top Searched Query', 
+                  mode: 'simple', 
+                  amount: 16500, 
+                  rate: 7.5, 
+                  term: 5, 
+                  monthly: 330.63 
+                },
+                { 
+                  name: '$25,000 Personal Loan', 
+                  mode: 'simple', 
+                  amount: 25000, 
+                  rate: 7.5, 
+                  term: 5, 
+                  monthly: 500.95 
+                },
+                { 
+                  name: '$300,000 Home (20% Down)', 
+                  mode: 'mortgage', 
+                  homePrice: 300000, 
+                  downPercent: 20, 
+                  amount: 240000, 
+                  rate: 6.5, 
+                  term: 30, 
+                  monthly: 1516.97 
+                },
+                { 
+                  name: '$400,000 Home (20% Down)', 
+                  mode: 'mortgage', 
+                  homePrice: 400000, 
+                  downPercent: 20, 
+                  amount: 320000, 
+                  rate: 6.5, 
+                  term: 30, 
+                  monthly: 2022.62 
+                },
+                { 
+                  name: '$500,000 Home (20% Down)', 
+                  mode: 'mortgage', 
+                  homePrice: 500000, 
+                  downPercent: 20, 
+                  amount: 400000, 
+                  rate: 6.5, 
+                  term: 30, 
+                  monthly: 2528.27 
+                },
+              ].map((item, idx) => (
+                <tr
+                  key={idx}
+                  onClick={() => {
+                    if (item.mode === 'mortgage') {
+                      setMode('mortgage');
+                      if (item.homePrice) setHomePrice(item.homePrice);
+                      if (item.downPercent) setDownPaymentPercent(item.downPercent);
+                      setInterestRate(item.rate);
+                      setYears(item.term);
+                    } else {
+                      setMode('simple');
+                      setSimplePrincipal(item.amount);
+                      setSimpleRate(item.rate);
+                      setSimpleYears(item.term);
+                    }
+                  }}
+                  className="cursor-pointer transition-colors hover:bg-blue-50/50 dark:hover:bg-blue-950/20 text-slate-800 dark:text-slate-200"
+                >
+                  <td className="py-2.5 px-3 font-sans font-bold flex items-center gap-1.5">
+                    {item.name}
+                    {item.tag && (
+                      <span className="text-[10px] bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 px-1.5 py-0.5 rounded-full font-bold">
+                        {item.tag}
+                      </span>
+                    )}
+                  </td>
+                  <td className="py-2.5 px-3">{currency} {item.amount.toLocaleString()}</td>
+                  <td className="py-2.5 px-3">{item.rate}%</td>
+                  <td className="py-2.5 px-3">{item.term} Years</td>
+                  <td className="py-2.5 px-3 font-bold text-emerald-600 dark:text-emerald-400">
+                    {currency} {item.monthly.toFixed(2)}/mo
+                  </td>
+                  <td className="py-2.5 px-3 text-right font-sans">
+                    <span className="text-[11px] text-blue-600 dark:text-blue-400 font-bold hover:underline">
+                      Load &rarr;
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
