@@ -1,0 +1,26 @@
+# SmartCalcLab
+
+> Free multilingual online multi-calculators for personal finance, mortgage estimating, vehicle financing, currency conversions, body mass index (BMI), percentages, and net salary.
+
+SmartCalcLab (https://smartcalclab.com) is a high-speed, client-side calculator suite designed for accuracy, sub-200ms speed, and privacy. All calculations run locally in the browser with zero user tracking or data retention.
+
+## Available Calculators
+
+- [Annual to Gross & Net Salary Calculator](https://smartcalclab.com/salary): Converts hourly, monthly, or annual wages to gross and net take-home pay with regional tax presets (US FICA, UK PAYE, Spain IRPF, Canada CPP/EI, India New Regime) and standard 2,080 working-hour benchmarks.
+- [Mortgage Cost Estimator & Loan Calculator](https://smartcalclab.com/loan): Calculates monthly mortgage payments (PITI), total interest, down payments, and full yearly amortization schedules.
+- [Auto Loan & Car Payment Calculator](https://smartcalclab.com/autoloan): Estimates monthly car loan payments, trade-in value, sales tax, APR interest rates, and loan terms from 24 to 84 months.
+- [Body Mass Index (BMI) Calculator](https://smartcalclab.com/bmi): Computes BMI in metric (kg/cm) and imperial (lbs/ft) units with WHO weight category charts and healthy weight ranges.
+- [Compound Interest & Wealth Simulator](https://smartcalclab.com/compound): Forecasts exponential investment growth, annual returns, and regular monthly contributions.
+- [Live Currency Converter](https://smartcalclab.com/currency): Real-time foreign exchange rates for USD, EUR, GBP, MXN, SAR, AED, INR, and global fiat currencies.
+- [Percentage & Discount Calculator](https://smartcalclab.com/percentage): Solves percentage increase/decrease, retail shopping discounts, and local sales tax.
+
+## Supported Languages
+
+SmartCalcLab supports 7 global languages with self-referencing canonical URLs and hreflang annotations:
+- English: https://smartcalclab.com/?lang=en
+- Spanish: https://smartcalclab.com/?lang=es
+- Portuguese: https://smartcalclab.com/?lang=pt
+- French: https://smartcalclab.com/?lang=fr
+- German: https://smartcalclab.com/?lang=de
+- Arabic: https://smartcalclab.com/?lang=ar
+- Hindi: https://smartcalclab.com/?lang=hi
