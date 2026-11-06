@@ -66,7 +66,56 @@
       "permanent": true
     }
   ],
+  "cleanUrls": true,
   "rewrites": [
+    {
+      "source": "/salary",
+      "destination": "/salary.html"
+    },
+    {
+      "source": "/loan",
+      "destination": "/loan.html"
+    },
+    {
+      "source": "/autoloan",
+      "destination": "/autoloan.html"
+    },
+    {
+      "source": "/currency",
+      "destination": "/currency.html"
+    },
+    {
+      "source": "/bmi",
+      "destination": "/bmi.html"
+    },
+    {
+      "source": "/compound",
+      "destination": "/compound.html"
+    },
+    {
+      "source": "/percentage",
+      "destination": "/percentage.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/disclaimer",
+      "destination": "/disclaimer.html"
+    },
     {
       "source": "/:path*",
       "destination": "/index.html"
