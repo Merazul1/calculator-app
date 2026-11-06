@@ -100,35 +100,112 @@
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased min-h-screen">
     <div id="root">
-      <!-- Semantic Crawler & Pre-render Fallback for SEO crawlers and Ahrefs -->
-      <main style="padding: 24px; max-width: 1200px; margin: 0 auto;">
-        <h1>SmartCalcLab - Free Financial, Health &amp; Daily Multi-Calculators</h1>
-        <p>
-          Welcome to SmartCalcLab. We provide fast, accurate, and 100% free online calculation tools for auto loans, daily finance, mortgages, currency exchange, body mass index (BMI), percentages, compound interest, and take-home pay in English, Spanish, Portuguese, French, German, Arabic, and Hindi.
+      <!-- Semantic Crawler & Pre-render Fallback for SEO crawlers and AdSense bots -->
+      <header style="border-bottom: 1px solid #e2e8f0; padding: 1rem 1.5rem; background: #ffffff;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <a href="/" style="font-weight: 800; font-size: 1.35rem; color: #2563eb; text-decoration: none;">SmartCalcLab</a>
+          <nav style="display: flex; gap: 1.25rem; font-size: 0.875rem; flex-wrap: wrap;">
+            <a href="/salary" style="color: #475569; text-decoration: none; font-weight: 500;">Salary</a>
+            <a href="/loan" style="color: #475569; text-decoration: none; font-weight: 500;">Mortgage & Loan</a>
+            <a href="/autoloan" style="color: #475569; text-decoration: none; font-weight: 500;">Auto Loan</a>
+            <a href="/currency" style="color: #475569; text-decoration: none; font-weight: 500;">Currency</a>
+            <a href="/bmi" style="color: #475569; text-decoration: none; font-weight: 500;">BMI</a>
+            <a href="/compound" style="color: #475569; text-decoration: none; font-weight: 500;">Compound</a>
+            <a href="/percentage" style="color: #475569; text-decoration: none; font-weight: 500;">Percentage</a>
+          </nav>
+        </div>
+      </header>
+
+      <main style="padding: 2rem 1.5rem; max-width: 1200px; margin: 0 auto; font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1e293b;">
+        <!-- Editorial Verification Byline -->
+        <div style="padding: 0.875rem 1.25rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; font-size: 0.8125rem; color: #475569; margin-bottom: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+          <span>🛡️ <strong>Editorial Verification:</strong> Reviewed by SmartCalcLab Financial &amp; Health Analysis Team</span>
+          <span>Standards: <strong>CFPB / WHO / IRS Benchmarks (2026)</strong></span>
+        </div>
+
+        <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem;">SmartCalcLab — Free High-Precision Financial, Health &amp; Daily Multi-Calculators</h1>
+        <p style="font-size: 1.125rem; color: #475569; margin-bottom: 2rem; max-width: 900px;">
+          Welcome to SmartCalcLab. We provide fast, accurate, client-side online calculation tools for auto loans, daily finance, mortgages, currency exchange, body mass index (BMI), percentages, compound interest, and take-home pay in English, Spanish, Portuguese, French, German, Arabic, and Hindi. All computations execute locally in your web browser with zero server latency and absolute privacy.
         </p>
-        <nav aria-label="Available Calculators">
-          <h2>Popular Free Calculators</h2>
-          <ul>
-            <li><a href="/autoloan">Auto Loan &amp; Car Payment Calculator</a> - Calculate monthly car loan payments, total interest costs, sales tax, trade-in value, and amortization breakdown.</li>
-            <li><a href="/loan">Mortgage Cost Estimator &amp; Loan Calculator</a> - Compute monthly mortgage payments with taxes and insurance, down payment, interest costs, and full amortization schedule.</li>
-            <li><a href="/currency">Live Currency Converter</a> - Real-time exchange rates across USD, EUR, GBP, MXN, SAR, AED, INR, and world currencies.</li>
-            <li><a href="/bmi">Body Mass Index (BMI) Calculator (kg &amp; cm)</a> - Calculate Body Mass Index in kg and cm, check the official WHO healthy weight chart, and evaluate optimal body weight ranges.</li>
-            <li><a href="/percentage">Percentage &amp; Discount Calculator</a> - Solve percentage increases, retail sale discounts, and sales tax.</li>
-            <li><a href="/compound">Compound Interest Calculator</a> - Forecast long-term investment growth, monthly contributions, and wealth milestones.</li>
-            <li><a href="/salary">Annual to Gross &amp; Net Salary Calculator</a> - Convert hourly, monthly, or annual wages to gross and net take-home salary after income taxes and payroll withholdings.</li>
+
+        <section style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1.25rem;">Available Online Calculators &amp; Educational Tools</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+            <div style="padding: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem;">
+              <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="/salary" style="color: #2563eb; text-decoration: none;">Annual to Gross &amp; Net Salary Calculator</a></h3>
+              <p style="font-size: 0.875rem; color: #475569; margin-bottom: 0.75rem;">Convert hourly, monthly, or annual wages to gross and net take-home salary after federal income tax, state taxes, FICA withholdings, and pre-tax retirement deductions.</p>
+              <a href="/salary" style="font-size: 0.8125rem; font-weight: 600; color: #2563eb;">Use Salary Calculator &rarr;</a>
+            </div>
+
+            <div style="padding: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem;">
+              <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="/loan" style="color: #2563eb; text-decoration: none;">Mortgage Cost Estimator &amp; Loan Calculator</a></h3>
+              <p style="font-size: 0.875rem; color: #475569; margin-bottom: 0.75rem;">Compute monthly mortgage payments (PITI) factoring in down payments, property taxes, homeowners hazard insurance, interest rates, and full yearly amortization schedules.</p>
+              <a href="/loan" style="font-size: 0.8125rem; font-weight: 600; color: #2563eb;">Use Mortgage Calculator &rarr;</a>
+            </div>
+
+            <div style="padding: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem;">
+              <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="/autoloan" style="color: #2563eb; text-decoration: none;">Auto Loan &amp; Car Payment Calculator</a></h3>
+              <p style="font-size: 0.875rem; color: #475569; margin-bottom: 0.75rem;">Calculate vehicle financing payments, trade-in value credits, state/local auto sales tax, loan APR, and total interest over 24 to 84 months.</p>
+              <a href="/autoloan" style="font-size: 0.8125rem; font-weight: 600; color: #2563eb;">Use Auto Loan Calculator &rarr;</a>
+            </div>
+
+            <div style="padding: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem;">
+              <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="/compound" style="color: #2563eb; text-decoration: none;">Compound Interest &amp; Wealth Calculator</a></h3>
+              <p style="font-size: 0.875rem; color: #475569; margin-bottom: 0.75rem;">Simulate long-term wealth accumulation, regular monthly deposits, annual returns, and compounding growth milestones over 1 to 40 years.</p>
+              <a href="/compound" style="font-size: 0.8125rem; font-weight: 600; color: #2563eb;">Use Compound Calculator &rarr;</a>
+            </div>
+
+            <div style="padding: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem;">
+              <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="/currency" style="color: #2563eb; text-decoration: none;">Live Currency Converter</a></h3>
+              <p style="font-size: 0.875rem; color: #475569; margin-bottom: 0.75rem;">Real-time mid-market foreign exchange rates across USD, EUR, GBP, MXN, SAR, AED, INR, and 30+ global fiat currencies with fee comparisons.</p>
+              <a href="/currency" style="font-size: 0.8125rem; font-weight: 600; color: #2563eb;">Use Currency Converter &rarr;</a>
+            </div>
+
+            <div style="padding: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem;">
+              <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="/bmi" style="color: #2563eb; text-decoration: none;">Body Mass Index (BMI) Calculator (kg &amp; cm)</a></h3>
+              <p style="font-size: 0.875rem; color: #475569; margin-bottom: 0.75rem;">Compute Body Mass Index in metric (cm &amp; kg) and imperial units with official World Health Organization (WHO) category brackets and ideal weight ranges.</p>
+              <a href="/bmi" style="font-size: 0.8125rem; font-weight: 600; color: #2563eb;">Use BMI Calculator &rarr;</a>
+            </div>
+
+            <div style="padding: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem;">
+              <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="/percentage" style="color: #2563eb; text-decoration: none;">Percentage &amp; Discount Calculator</a></h3>
+              <p style="font-size: 0.875rem; color: #475569; margin-bottom: 0.75rem;">Fast 3-in-1 math tool to solve percentage of a number, percentage increase or decrease, and retail shopping markdowns with sales tax.</p>
+              <a href="/percentage" style="font-size: 0.8125rem; font-weight: 600; color: #2563eb;">Use Percentage Calculator &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <section style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Our Editorial Mission &amp; Verified Accuracy Standards</h2>
+          <p style="color: #334155; font-size: 0.9375rem; margin-bottom: 1rem; line-height: 1.7;">
+            SmartCalcLab was created to provide everyday consumers, students, small business owners, and financial professionals with verified, transparent calculation tools. Every formula in our platform is benchmarked against recognized statutory publications:
+          </p>
+          <ul style="color: #334155; font-size: 0.875rem; padding-left: 1.25rem; line-height: 1.7; margin-bottom: 1rem;">
+            <li><strong>Personal Finance &amp; Tax:</strong> IRS Publication 15-T withholding guidelines, standard deduction schedules, and statutory payroll benchmarks.</li>
+            <li><strong>Mortgage &amp; Loans:</strong> CFPB (Consumer Financial Protection Bureau) standard amortization formula definitions.</li>
+            <li><strong>Health &amp; Fitness:</strong> World Health Organization (WHO) adult Body Mass Index classification brackets.</li>
           </ul>
-        </nav>
-        <nav aria-label="Company &amp; Legal Information">
-          <h2>Trust &amp; Legal Policies</h2>
-          <ul>
-            <li><a href="/privacy">Privacy Policy &amp; Cookie Disclosures</a></li>
-            <li><a href="/terms">Terms of Service</a></li>
-            <li><a href="/about">About SmartCalcLab</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-            <li><a href="/disclaimer">Legal &amp; Medical Disclaimer</a></li>
-          </ul>
-        </nav>
+          <p style="color: #475569; font-size: 0.875rem;">
+            Have a question, formula correction, or partnership inquiry? Reach out to our team at <a href="mailto:support@smartcalclab.com" style="color: #2563eb;">support@smartcalclab.com</a>.
+          </p>
+        </section>
       </main>
+
+      <footer style="border-top: 1px solid #e2e8f0; padding: 2.5rem 1.5rem; background: #ffffff; font-size: 0.875rem; color: #64748b;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <strong style="color: #0f172a;">SmartCalcLab</strong> — 100% Free Financial, Health &amp; Daily Multi-Calculators.
+            <p style="font-size: 0.75rem; margin-top: 0.35rem;">&copy; 2026 SmartCalcLab. All calculations execute client-side with zero data tracking.</p>
+          </div>
+          <div style="display: flex; gap: 1.25rem; font-size: 0.8125rem;">
+            <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+            <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
+            <a href="/about" style="color: #64748b; text-decoration: none;">About Us</a>
+            <a href="/contact" style="color: #64748b; text-decoration: none;">Contact</a>
+            <a href="/disclaimer" style="color: #64748b; text-decoration: none;">Disclaimer</a>
+          </div>
+        </div>
+      </footer>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
