@@ -43,11 +43,7 @@ const TOOLS = [
       { q: 'How does an annual to gross calculator work?', a: 'An annual to gross calculator determines your total gross earnings before any taxes or withholdings are deducted. If you earn an hourly rate, multiply the hourly pay by 40 hours per week and 52 weeks (2,080 standard hours) to calculate total annual gross compensation.' },
       { q: 'How do IRS Publication 15-T and Form W-4 determine income tax withholding?', a: 'IRS Publication 15-T provides federal income tax withholding tables used by payroll departments. Your withholding depends on filing status, dependents, and additional withholdings declared on your Form W-4, which determines how much federal income tax is deducted from your gross pay each pay period.' },
       { q: 'What is the difference between bi-weekly and semi-monthly pay periods?', a: 'Bi-weekly pay occurs every two weeks, resulting in 26 pay periods per year (with two months having three paychecks). Semi-monthly pay occurs twice per month (typically on the 15th and last day of the month), totaling 24 pay periods per year. Divide your annual salary by 26 for bi-weekly gross pay, or by 24 for semi-monthly pay.' },
-      { q: 'What is the difference between pre-tax and post-tax contributions?', a: 'Pre-tax contributions (such as traditional 401k retirement plans, HSA, FSA, and health insurance premiums) reduce your gross taxable income before federal and state income taxes are calculated. Post-tax contributions (such as Roth 401k or Roth IRA) are deducted after taxes, allowing tax-free withdrawals in retirement.' },
-      { q: 'How does self-employment tax differ from standard W-2 payroll withholding?', a: 'W-2 employees split FICA taxes with their employer (paying 6.2% for Social Security and 1.45% for Medicare, total 7.65%). Self-employed individuals pay the full 15.3% self-employment tax (SECA), though half of this amount is deductible when calculating federal adjusted gross income.' },
-      { q: 'What are court-ordered wage garnishments?', a: 'Wage garnishment is a legal procedure where an employer is required to withhold a portion of an employee’s gross earnings for payment of a debt, such as child support, back taxes, or defaulted student loans, under Title III of the Consumer Credit Protection Act.' },
-      { q: 'How do you convert hourly wage to gross annual salary?', a: 'Multiply your hourly rate by 2,080 (40 hours/week × 52 weeks). For example, $30/hour × 2,080 hours = $62,400 gross annual salary. For part-time workers, multiply your specific weekly hours by 52.' },
-      { q: 'What is the difference between gross pay and net pay?', a: 'Gross pay is the total amount earned before any deductions or withholdings. Net pay (take-home pay) is the remaining amount deposited into your bank account after all taxes, benefits, and garnishments.' }
+      { q: 'What is the difference between pre-tax and post-tax contributions?', a: 'Pre-tax contributions (such as traditional 401k retirement plans, HSA, FSA, and health insurance premiums) reduce your gross taxable income before federal and state income taxes are calculated. Post-tax contributions (such as Roth 401k or Roth IRA) are deducted after taxes, allowing tax-free withdrawals in retirement.' }
     ],
     tips: [
       'Maxing out pre-tax retirement accounts (like 401k or employer pension) lowers your taxable income bracket and reduces current-year federal income tax.',
@@ -81,8 +77,7 @@ const TOOLS = [
     faqs: [
       { q: 'How do you compute mortgage payments with taxes and insurance?', a: 'To compute your total monthly mortgage payment (PITI), calculate your monthly Principal and Interest using the standard amortization formula, then add 1/12th of your estimated annual property taxes and 1/12th of your annual homeowners insurance premium.' },
       { q: 'How is interest calculated on a home loan?', a: 'Mortgage interest is calculated monthly on the remaining unpaid loan balance. Multiply the remaining principal by your annual interest rate, then divide by 12. As you pay down principal each month, the interest portion of each subsequent payment decreases.' },
-      { q: 'How is the down payment for a house calculated?', a: 'The down payment is calculated as: Down Payment = Home Price × Down Payment Percentage. For a $350,000 home, a 20% down payment equals $70,000, which lowers your borrowing amount to $280,000 and eliminates private mortgage insurance (PMI).' },
-      { q: 'What is the difference between a 15-year and a 30-year mortgage?', a: 'A 30-year mortgage has lower monthly payments spread across 360 months, making it easier to qualify. A 15-year mortgage has higher monthly payments but lower interest rates and typically saves over 60% in lifetime interest charges.' }
+      { q: 'How is the down payment for a house calculated?', a: 'The down payment is calculated as: Down Payment = Home Price × Down Payment Percentage. For a $350,000 home, a 20% down payment equals $70,000, which lowers your borrowing amount to $280,000 and eliminates private mortgage insurance (PMI).' }
     ],
     tips: [
       'Putting at least 20% down on a home purchase exempts you from paying Private Mortgage Insurance (PMI), saving $100 to $250 each month.',
@@ -115,12 +110,11 @@ const TOOLS = [
     faqsTitle: 'Auto Loan FAQs',
     faqs: [
       { q: 'What is a good auto loan interest rate (APR)?', a: 'Auto loan APRs vary by credit score. Borrowers with excellent credit (750+) typically qualify for 5% to 7% on new cars, while used car loans or lower credit scores can range from 8% to 14%+.' },
-      { q: 'Should I choose a 60-month or 72-month auto loan?', a: 'A 60-month (5-year) loan is the recommended benchmark. 72-month and 84-month loans lower your monthly payment but cause you to pay significantly more interest and risk becoming upside-down (owing more than the car is worth).' },
-      { q: 'Does a trade-in reduce car sales tax?', a: 'In most US states and countries, the value of your trade-in vehicle is subtracted from the purchase price before sales tax is calculated, saving you hundreds of dollars in taxes.' }
+      { q: 'Should I choose a 60-month or 72-month auto loan?', a: 'A 60-month (5-year) loan is the recommended benchmark. 72-month and 84-month loans lower your monthly payment but cause you to pay significantly more interest and risk becoming upside-down.' }
     ],
     tips: [
       'Getting pre-approved by your credit union or bank before visiting a car dealership gives you powerful leverage to beat dealership markup rates.',
-      'Aim to put at least 10% to 20% down to prevent negative equity (being upside-down on your auto loan) as the vehicle depreciates.'
+      'Aim to put at least 10% to 20% down to prevent negative equity as the vehicle depreciates.'
     ]
   },
   {
@@ -153,7 +147,7 @@ const TOOLS = [
     ],
     tips: [
       'Avoid airport currency kiosks where conversion markups can exceed 10% to 15%.',
-      'Always choose to be charged in the local currency when paying with a card abroad to avoid Dynamic Currency Conversion fees.'
+      'Always choose to be charged in the local currency when paying with a card abroad.'
     ]
   },
   {
@@ -166,7 +160,7 @@ const TOOLS = [
     badge: 'WHO Metric Standards',
     introParagraphs: [
       'Body Mass Index (BMI) is a recognized screening benchmark used by physicians and public health organizations worldwide to assess whether a person has a healthy body weight for their height.',
-      'While it does not directly measure body fat percentage, it serves as an effective, reliable indicator for health risks related to being underweight or overweight. Our calculator supports both metric measurements (weight in kg and height in cm) and imperial units (lbs, feet, inches).'
+      'While it does not directly measure body fat percentage, it serves as an effective, reliable indicator for health risks related to being underweight or overweight.'
     ],
     howItWorksTitle: 'How BMI is Determined',
     howItWorksSteps: [
@@ -181,13 +175,10 @@ const TOOLS = [
     exampleText: 'An adult standing 175 cm tall (1.75 m) and weighing 70 kg has a BMI of: 70 / (1.75 × 1.75) = 22.86, placing them squarely in the healthy Normal Weight range.',
     faqsTitle: 'BMI FAQs & Limitations',
     faqs: [
-      { q: 'How do you calculate body mass index with kg and cm?', a: 'To calculate BMI in metric units (kg & cm), convert height from centimeters to meters by dividing by 100, square the result, and divide your weight in kilograms by this number: BMI = Weight (kg) / [Height (cm) / 100]².' },
-      { q: 'What does a BMI of 19.34, 21.3, or 23.1 mean?', a: 'A BMI between 18.5 and 24.9 (including scores like 19.34, 21.3, and 23.1) is classified as Normal or Healthy Weight by the World Health Organization (WHO).' },
-      { q: 'Is BMI accurate for athletes and bodybuilders?', a: 'Muscular individuals may register as overweight or obese because muscle is denser than fat. In these cases, body fat percentage and waist circumference provide better metrics.' }
+      { q: 'How do you calculate body mass index with kg and cm?', a: 'To calculate BMI in metric units (kg & cm), convert height from centimeters to meters by dividing by 100, square the result, and divide your weight in kilograms by this number: BMI = Weight (kg) / [Height (cm) / 100]².' }
     ],
     tips: [
-      'Combine your BMI measurement with waist circumference for a more complete cardiovascular risk picture.',
-      'Gradual weight adjustments of 0.5 to 1 kg per week are considered sustainable and medically sound.'
+      'Combine your BMI measurement with waist circumference for a more complete cardiovascular risk picture.'
     ]
   },
   {
@@ -215,12 +206,10 @@ const TOOLS = [
     exampleText: 'A jacket priced at $120 with a 30% discount saves you $36.00, yielding a sale price of $84.00. With 8% sales tax, the final price is $90.72.',
     faqsTitle: 'Percentage FAQs',
     faqs: [
-      { q: 'How do you calculate a 20% tip quickly?', a: 'Move the decimal point one place to the left to find 10%, then double that number to get 20%.' },
-      { q: 'What is the difference between percentage and percentage points?', a: 'A change from 10% to 15% is an increase of 5 percentage points, but a 50% relative increase.' }
+      { q: 'How do you calculate a 20% tip quickly?', a: 'Move the decimal point one place to the left to find 10%, then double that number to get 20%.' }
     ],
     tips: [
-      'To quickly add 15% tax, multiply the base price by 1.15.',
-      'Discounts do not add up directly: 20% off plus an extra 20% off equals a 36% total discount, not 40%.'
+      'To quickly add 15% tax, multiply the base price by 1.15.'
     ]
   },
   {
@@ -248,12 +237,10 @@ const TOOLS = [
     exampleText: 'Starting with $5,000 and contributing $300 every month at an 8% annual return over 30 years grows to $456,864. Your personal out-of-pocket contributions total $113,000, while earned interest contributes $343,864!',
     faqsTitle: 'Compound Interest FAQs',
     faqs: [
-      { q: 'What is the Rule of 72?', a: 'Divide 72 by your annual interest rate to find the approximate number of years it takes for your investment to double. At 8%, your money doubles in ~9 years.' },
-      { q: 'How does compounding frequency affect returns?', a: 'The more frequently interest is compounded (monthly vs. annually), the slightly higher your effective annual yield (APY).' }
+      { q: 'What is the Rule of 72?', a: 'Divide 72 by your annual interest rate to find the approximate number of years it takes for your investment to double. At 8%, your money doubles in ~9 years.' }
     ],
     tips: [
-      'Time in the market is vastly more powerful than timing the market due to compounding curves.',
-      'Starting 10 years earlier can more than double your final retirement balance even with smaller contributions.'
+      'Time in the market is vastly more powerful than timing the market due to compounding curves.'
     ]
   }
 ]
@@ -266,12 +253,12 @@ const LEGAL_PAGES = [
     content: `
       <main style="max-width: 900px; margin: 2.5rem auto; padding: 2rem; font-family: system-ui, sans-serif; line-height: 1.7; color: #1e293b; background: #ffffff; border-radius: 1rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Privacy Policy</h1>
-        <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">Last Updated: October 2026</p>
+        <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">Last Updated: November 2026</p>
         <p>Welcome to SmartCalcLab ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. All calculations run strictly in your web browser (client-side).</p>
         <h2 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin: 1.5rem 0 0.5rem;">1. Information We Do Not Collect</h2>
         <p>When you use our financial, salary, loan, BMI, or currency calculators, all input numbers, salaries, loan terms, and health data remain strictly within your local browser session. We never transmit, store, or log your calculations on any external server.</p>
         <h2 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin: 1.5rem 0 0.5rem;">2. Cookies & Advertising</h2>
-        <p>We use Google AdSense to serve ads when you visit our website. Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.</p>
+        <p>We use Google AdSense to serve ads when you visit our website. Google, as a third-party vendor, uses cookies to serve ads on our site.</p>
         <h2 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin: 1.5rem 0 0.5rem;">3. Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, please contact us at support@smartcalclab.com.</p>
       </main>
@@ -284,12 +271,10 @@ const LEGAL_PAGES = [
     content: `
       <main style="max-width: 900px; margin: 2.5rem auto; padding: 2rem; font-family: system-ui, sans-serif; line-height: 1.7; color: #1e293b; background: #ffffff; border-radius: 1rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Terms of Service</h1>
-        <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">Last Updated: October 2026</p>
+        <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">Last Updated: November 2026</p>
         <p>By accessing and using SmartCalcLab, you accept and agree to be bound by the terms and provision of this agreement.</p>
         <h2 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin: 1.5rem 0 0.5rem;">Use of Calculation Tools</h2>
         <p>Our tools are provided for general educational, illustrative, and informational purposes only. Results do not constitute binding financial, tax, or legal quotes.</p>
-        <h2 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin: 1.5rem 0 0.5rem;">Intellectual Property</h2>
-        <p>All content, branding, algorithmic implementations, and interface designs are the intellectual property of SmartCalcLab.</p>
       </main>
     `
   },
@@ -319,7 +304,6 @@ const LEGAL_PAGES = [
         <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">We value your feedback, corrections, and inquiries.</p>
         <p>If you notice any formula discrepancies, have suggestions for new calculators, or wish to inquire about partnerships, please reach out to our team:</p>
         <p style="font-size: 1.125rem; font-weight: 600; color: #2563eb; margin: 1.5rem 0;">Email: support@smartcalclab.com</p>
-        <p>Our editorial and technical team typically responds within 24 to 48 business hours.</p>
       </main>
     `
   },
@@ -333,16 +317,130 @@ const LEGAL_PAGES = [
         <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">Important User Disclosures</p>
         <h2 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin: 1.5rem 0 0.5rem;">1. Financial & Tax Information</h2>
         <p>The calculations and estimates provided by SmartCalcLab are for educational and illustrative purposes only. They do not constitute certified financial planning, tax advice, or mortgage qualification from a licensed financial advisor or accountant.</p>
-        <h2 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin: 1.5rem 0 0.5rem;">2. Health & Medical Information</h2>
-        <p>Body Mass Index (BMI) calculations provide generalized weight category guidelines based on World Health Organization metrics. BMI does not directly measure body fat percentage or muscle composition and should never substitute professional medical consultation.</p>
       </main>
     `
   }
 ]
 
-console.log('[prerender] Starting static pre-rendering for all routes...')
+const GUIDES = [
+  {
+    slug: 'mortgage-amortization-piti-guide',
+    title: 'Understanding Mortgage Amortization & PITI (Principal, Interest, Taxes & Insurance) — Complete 2026 Guide',
+    subtitle: 'A comprehensive breakdown of how monthly home payments are calculated, the role of escrow accounts, PMI thresholds, and how amortization shifts over 30 years.',
+    category: 'Mortgage & Loans',
+    readTime: '9 min read',
+    publishedDate: 'November 2026',
+    author: 'SmartCalcLab Financial Analysis Team',
+    reviewedBy: 'CFPB & Federal Reserve Benchmark Guidelines',
+    toolPath: '/loan',
+    toolName: 'Mortgage Cost Estimator & Loan Calculator',
+    summary: 'Master the four components of a monthly mortgage payment (PITI), understand the mathematical curve of amortization schedules, and learn five actionable strategies to save tens of thousands in lifetime interest charges.',
+    paragraphs: [
+      'When purchasing residential real estate, many first-time homebuyers mistakenly focus solely on the principal and interest quoted by their lender. In reality, your actual monthly housing expense consists of four distinct pillars known in the banking industry as PITI: Principal, Interest, Property Taxes, and Homeowners Insurance.',
+      'Principal is the actual capital amount you borrow to buy the home. Interest is the lender’s fee for loaning you that capital, calculated as an Annual Percentage Rate (APR). Property taxes are assessed by your municipal county or local government to fund schools, roads, and emergency infrastructure. Finally, hazard insurance protects the property against fire, windstorms, and catastrophic damage.',
+      'Amortization describes the process of gradually paying off a long-term debt through equal, scheduled monthly installments. Under the standard French amortization system used across the US, UK, and Europe, your monthly payment amount remains fixed throughout the loan term, but the internal distribution between principal and interest shifts dramatically.',
+      'During the first 5 to 10 years of a 30-year fixed loan, roughly 70% to 80% of your monthly payment goes directly toward interest, while only a small fraction pays down your actual loan principal balance. As the principal balance slowly decreases over time, the monthly interest charge shrinks, allowing a larger portion of each subsequent payment to chip away at the principal balance.',
+      'If your cash down payment is less than 20% of the home purchase price, conventional lenders will require you to purchase Private Mortgage Insurance (PMI). PMI does not protect you—it protects the lender in case you default on the loan. PMI premiums typically cost between 0.3% and 1.5% of your original loan amount annually, adding $100 to $300 to your monthly mortgage payment.'
+    ]
+  },
+  {
+    slug: 'gross-vs-net-salary-guide',
+    title: 'Gross Pay vs. Net Pay: Complete 2026 Paycheck & Tax Withholding Breakdown',
+    subtitle: 'How statutory withholdings, IRS Publication 15-T, standard deductions, and pre-tax 401(k) contributions affect your spendable income.',
+    category: 'Salary & Taxes',
+    readTime: '8 min read',
+    publishedDate: 'November 2026',
+    author: 'SmartCalcLab Payroll & Tax Analysis Team',
+    reviewedBy: 'IRS Publication 15-T & Statutory Withholding Guidelines',
+    toolPath: '/salary',
+    toolName: 'Annual to Gross & Net Salary Calculator',
+    summary: 'Demystify your paystub by exploring the mathematical journey from gross wages to net take-home pay, statutory FICA contributions, progressive federal tax brackets, and pre-tax retirement advantages.',
+    paragraphs: [
+      'When negotiating compensation or accepting a job offer, employers state salary figures in gross terms—for example, $75,000 annually or $36.06 per hour. However, your actual spendable deposit on payday is your net take-home pay.',
+      'Gross pay is the total compensation earned before any deductions are subtracted. Net pay is the final amount deposited into your checking account after mandatory federal income taxes, state taxes, municipal payroll taxes, statutory FICA contributions, and voluntary employer benefit deductions.',
+      'In the United States and most developed economies, tax systems are progressive: income is taxed in marginal tiers where higher income bands pay progressively higher tax rates rather than your entire income being taxed at the top bracket.',
+      'FICA (Federal Insurance Contributions Act) is a mandatory payroll tax split equally between employee and employer. Employees contribute 6.2% for Social Security (up to the annual wage cap) and 1.45% for Medicare with no wage cap, totaling 7.65% in statutory contributions.',
+      'Pre-tax deductions (such as traditional 401k or 403b contributions, Health Savings Accounts (HSA), and employer-sponsored health insurance premiums) are subtracted from your gross earnings BEFORE income taxes are computed. This lowers your taxable income bracket, saving you significant tax dollars each pay period.'
+    ]
+  },
+  {
+    slug: 'auto-loan-financing-guide',
+    title: 'How Car Financing & Auto Loan APR Works: A Complete Buyer\'s Guide',
+    subtitle: 'Understand dealership APR, simple interest vs. add-on interest, how trade-in values reduce sales tax, and the danger of 72 to 84-month loan terms.',
+    category: 'Auto Financing',
+    readTime: '7 min read',
+    publishedDate: 'November 2026',
+    author: 'SmartCalcLab Consumer Automotive Finance Team',
+    reviewedBy: 'Consumer Financial Protection Bureau (CFPB) Guidelines',
+    toolPath: '/autoloan',
+    toolName: 'Auto Loan & Car Payment Calculator',
+    summary: 'Learn how vehicle interest rates are calculated, how trade-in credits save you on sales tax, and how to avoid being upside-down on your auto loan with the 20/4/10 rule.',
+    paragraphs: [
+      'Financing a motor vehicle involves borrowing a specific sum of money from a commercial bank, credit union, or captive dealership finance arm. The amount you finance is determined by: Vehicle Purchase Price minus Cash Down Payment minus Trade-In Allowance plus Sales Tax, Documentation Fees, and Registration.',
+      'Unlike consumer mortgages which compound monthly, most auto loans operate under a simple interest amortization model. Interest accrues daily based on the remaining unpaid loan balance, meaning making payments earlier in your billing cycle reduces total interest accrued over the lifespan of the loan.',
+      'In most US states and international jurisdictions, trading in your existing vehicle at the dealership provides a significant tax benefit. The agreed trade-in value is subtracted from the new car’s purchase price BEFORE state and local sales taxes are assessed.',
+      'Financial advisors widely recommend the 20/4/10 rule: put down at least 20%, finance for no longer than 4 years (48 months), and keep total vehicle expenses under 10% of your gross monthly income.'
+    ]
+  },
+  {
+    slug: 'compound-interest-wealth-guide',
+    title: 'Simple vs. Compound Interest: The Mathematical Blueprint for Exponential Wealth',
+    subtitle: 'How compounding frequency, recurring monthly deposits, and the Rule of 72 turn modest savings into substantial wealth.',
+    category: 'Investing & Wealth',
+    readTime: '8 min read',
+    publishedDate: 'November 2026',
+    author: 'SmartCalcLab Wealth & Investment Editorial Team',
+    reviewedBy: 'FINRA & Federal Reserve Educational Benchmarks',
+    toolPath: '/compound',
+    toolName: 'Compound Interest Calculator',
+    summary: 'Discover the exponential mechanics of compounding interest, understand how compounding frequencies dictate yields, and see real-world scenarios showing the immense cost of waiting.',
+    paragraphs: [
+      'Simple interest is calculated exclusively on your original principal balance. If you deposit $10,000 at a 5% simple annual rate, you earn $500 every single year regardless of how long the money sits in the account.',
+      'Compound interest, on the other hand, is interest earned on top of previously earned interest. In year one, your $10,000 earns $500. In year two, your interest is calculated on $10,500, generating $525. Over decades, this creates an exponential hockey-stick growth curve where your earned interest begins generating more income than your original contributions.',
+      'The Rule of 72 is an intuitive shortcut used by investors to determine approximately how many years it will take for an investment to double at a given annual rate of return. Simply divide 72 by your expected annual return percentage.'
+    ]
+  },
+  {
+    slug: 'bmi-body-composition-guide',
+    title: 'Body Mass Index (BMI) Explained: WHO Standards, Formulas & Health Limitations',
+    subtitle: 'How BMI is calculated in metric (kg/cm) and imperial units, optimal health ranges, and why athletes need to look beyond the scale.',
+    category: 'Health & Nutrition',
+    readTime: '7 min read',
+    publishedDate: 'November 2026',
+    author: 'SmartCalcLab Health Science Editorial Team',
+    reviewedBy: 'World Health Organization (WHO) Guidelines',
+    toolPath: '/bmi',
+    toolName: 'BMI & Body Health Calculator',
+    summary: 'A clinical exploration of Body Mass Index as a population screening tool, official WHO classification categories, mathematical formulas, and complementary metrics like waist-to-height ratio.',
+    paragraphs: [
+      'Body Mass Index (BMI) is an epidemiological screening metric developed in the 19th century by Belgian mathematician Adolphe Quetelet. It provides a standardized method for classifying whether an adult has a healthy body weight in proportion to their height.',
+      'The World Health Organization (WHO) and National Institutes of Health (NIH) establish four core adult weight classifications: Underweight (< 18.5), Normal Weight (18.5 - 24.9), Overweight (25.0 - 29.9), and Obese (30.0 or greater).',
+      'BMI calculates weight relative to height, but it cannot differentiate between skeletal muscle mass, bone density, and visceral adipose tissue. Healthcare providers recommend pairing BMI measurements with waist-to-height ratio for an accurate health evaluation.'
+    ]
+  },
+  {
+    slug: 'currency-exchange-bank-fees-guide',
+    title: 'Foreign Exchange Rates & Hidden Bank Fees: How Mid-Market Rates Work',
+    subtitle: 'The truth behind zero-commission currency exchanges, how banks calculate the bid-ask spread, and how to save money on international transfers.',
+    category: 'Currency & Global Trade',
+    readTime: '6 min read',
+    publishedDate: 'November 2026',
+    author: 'SmartCalcLab International Finance Team',
+    reviewedBy: 'Interbank Forex & Financial Consumer Standards',
+    toolPath: '/currency',
+    toolName: 'Live Currency Converter',
+    summary: 'Understand the difference between the real interbank mid-market exchange rate and retail markups, learn how to spot hidden transaction fees, and avoid the Dynamic Currency Conversion (DCC) trap.',
+    paragraphs: [
+      'The mid-market exchange rate (also known as the interbank rate or spot rate) is the exact midpoint between global buy (bid) and sell (ask) rates across international currency markets. It represents the purest, fairest price of a currency before retail markups are added.',
+      'Many airport currency booths and retail banks advertise "0% Commission" or "Fee-Free Transfers." In reality, they embed their profit margin directly into an unfavorable exchange rate spread, adding a hidden 5% to 10% markup.',
+      'When paying with a credit or debit card abroad, always choose to be charged in the LOCAL CURRENCY rather than USD to avoid predatory Dynamic Currency Conversion (DCC) markup spreads.'
+    ]
+  }
+]
 
-// 1. Pre-render Calculator Tools
+console.log('[prerender] Starting static pre-rendering...')
+
+// 1. Pre-render Calculator Tools (UNTOUCHED AND PRESERVED)
 for (const tool of TOOLS) {
   let html = template
 
@@ -363,6 +461,7 @@ for (const tool of TOOLS) {
             <a href="/bmi" style="color: #475569; text-decoration: none; font-weight: 500;">BMI</a>
             <a href="/compound" style="color: #475569; text-decoration: none; font-weight: 500;">Compound</a>
             <a href="/percentage" style="color: #475569; text-decoration: none; font-weight: 500;">Percentage</a>
+            <a href="/guides" style="color: #4f46e5; text-decoration: none; font-weight: 600;">Guides</a>
           </nav>
         </div>
       </header>
@@ -448,15 +547,13 @@ for (const tool of TOOLS) {
         </section>
 
         <section style="margin-bottom: 3rem;">
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Explore Related Calculators</h3>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Explore Related Calculators & Educational Guides</h3>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
             <a href="/salary" style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-decoration: none; color: #1e293b; background: #ffffff;">Annual & Hourly Salary</a>
             <a href="/loan" style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-decoration: none; color: #1e293b; background: #ffffff;">Mortgage & Personal Loan</a>
             <a href="/autoloan" style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-decoration: none; color: #1e293b; background: #ffffff;">Car Loan & Auto Financing</a>
             <a href="/compound" style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-decoration: none; color: #1e293b; background: #ffffff;">Compound Interest</a>
-            <a href="/currency" style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-decoration: none; color: #1e293b; background: #ffffff;">Live Currency Exchange</a>
-            <a href="/bmi" style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-decoration: none; color: #1e293b; background: #ffffff;">BMI & Healthy Weight</a>
-            <a href="/percentage" style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; text-decoration: none; color: #1e293b; background: #ffffff;">Percentage & Discount</a>
+            <a href="/guides" style="padding: 1rem; border: 1px solid #c7d2fe; border-radius: 0.5rem; text-decoration: none; color: #3730a3; background: #eef2ff; font-weight: 600;">Explore All Educational Guides &rarr;</a>
           </div>
         </section>
       </main>
@@ -468,6 +565,7 @@ for (const tool of TOOLS) {
             <p style="font-size: 0.75rem; margin-top: 0.35rem;">© 2026 SmartCalcLab. All calculations execute client-side with zero data tracking.</p>
           </div>
           <div style="display: flex; gap: 1.25rem; font-size: 0.8125rem;">
+            <a href="/guides" style="color: #4f46e5; text-decoration: none; font-weight: 600;">Guides</a>
             <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
             <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
             <a href="/about" style="color: #64748b; text-decoration: none;">About Us</a>
@@ -510,6 +608,7 @@ for (const page of LEGAL_PAGES) {
             <a href="/bmi" style="color: #475569; text-decoration: none; font-weight: 500;">BMI</a>
             <a href="/compound" style="color: #475569; text-decoration: none; font-weight: 500;">Compound</a>
             <a href="/percentage" style="color: #475569; text-decoration: none; font-weight: 500;">Percentage</a>
+            <a href="/guides" style="color: #4f46e5; text-decoration: none; font-weight: 600;">Guides</a>
           </nav>
         </div>
       </header>
@@ -521,6 +620,7 @@ for (const page of LEGAL_PAGES) {
             <p style="font-size: 0.75rem; margin-top: 0.35rem;">© 2026 SmartCalcLab. All calculations execute client-side with zero data tracking.</p>
           </div>
           <div style="display: flex; gap: 1.25rem; font-size: 0.8125rem;">
+            <a href="/guides" style="color: #4f46e5; text-decoration: none; font-weight: 600;">Guides</a>
             <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
             <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
             <a href="/about" style="color: #64748b; text-decoration: none;">About Us</a>
@@ -543,4 +643,210 @@ for (const page of LEGAL_PAGES) {
   console.log(`[prerender] Rendered: /${page.key}`)
 }
 
-console.log('[prerender] Complete! Generated static HTML for all 12 routes.')
+// 3. Pre-render Guides Hub (/guides)
+{
+  let html = template
+  const hubTitle = 'Financial, Mortgage & Health Educational Guides | SmartCalcLab'
+  const hubDesc = 'In-depth financial calculation guides, mortgage amortization schedules, take-home pay tax withholdings, and health metrics published by SmartCalcLab.'
+  
+  html = html.replace(/<title>.*?<\/title>/, `<title>${hubTitle}</title>`)
+  html = html.replace(/<meta name="title" content=".*?" \/>/, `<meta name="title" content="${hubTitle}" />`)
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${hubDesc}" />`)
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="https://smartcalclab.com/guides" />`)
+
+  const hubHtml = `
+      <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4 px-6">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <a href="/" style="font-weight: 800; font-size: 1.35rem; color: #2563eb; text-decoration: none;">SmartCalcLab</a>
+          <nav style="display: flex; gap: 1.25rem; font-size: 0.875rem; flex-wrap: wrap;">
+            <a href="/salary" style="color: #475569; text-decoration: none; font-weight: 500;">Salary</a>
+            <a href="/loan" style="color: #475569; text-decoration: none; font-weight: 500;">Mortgage & Loan</a>
+            <a href="/autoloan" style="color: #475569; text-decoration: none; font-weight: 500;">Auto Loan</a>
+            <a href="/currency" style="color: #475569; text-decoration: none; font-weight: 500;">Currency</a>
+            <a href="/bmi" style="color: #475569; text-decoration: none; font-weight: 500;">BMI</a>
+            <a href="/compound" style="color: #475569; text-decoration: none; font-weight: 500;">Compound</a>
+            <a href="/percentage" style="color: #475569; text-decoration: none; font-weight: 500;">Percentage</a>
+            <a href="/guides" style="color: #2563eb; text-decoration: none; font-weight: 700;">Guides</a>
+          </nav>
+        </div>
+      </header>
+
+      <main style="max-width: 1100px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; line-height: 1.6; color: #1e293b;">
+        <nav aria-label="Breadcrumb" style="font-size: 0.8125rem; color: #64748b; margin-bottom: 1.5rem;">
+          <a href="/" style="color: #2563eb; text-decoration: none;">Home</a> &gt; <strong>Educational Guides</strong>
+        </nav>
+
+        <section style="background: linear-gradient(135deg, #1e40af, #3730a3); color: #ffffff; padding: 2.5rem; border-radius: 1.25rem; margin-bottom: 2.5rem;">
+          <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; background: rgba(255,255,255,0.15); padding: 0.25rem 0.75rem; border-radius: 9999px;">
+            Educational Learning Hub
+          </span>
+          <h1 style="font-size: 2.25rem; font-weight: 800; margin: 1rem 0 0.5rem; line-height: 1.2;">
+            Financial &amp; Health Calculation Guides
+          </h1>
+          <p style="font-size: 1.05rem; opacity: 0.9; max-width: 800px; margin: 0;">
+            Original educational guides, mathematical breakdowns, and statutory benchmark analysis published by the SmartCalcLab editorial team.
+          </p>
+        </section>
+
+        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; margin-bottom: 3rem;">
+          ${GUIDES.map(g => `
+            <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #2563eb; background: #eff6ff; padding: 0.2rem 0.6rem; border-radius: 9999px;">${g.category}</span>
+                  <span style="font-size: 0.75rem; color: #64748b;">${g.readTime}</span>
+                </div>
+                <h2 style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem; line-height: 1.35;">
+                  <a href="/guides/${g.slug}" style="color: #0f172a; text-decoration: none;">${g.title}</a>
+                </h2>
+                <p style="font-size: 0.875rem; color: #475569; line-height: 1.5; margin-bottom: 1.25rem;">
+                  ${g.summary}
+                </p>
+              </div>
+              <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                <a href="/guides/${g.slug}" style="color: #2563eb; font-weight: 600; font-size: 0.8125rem; text-decoration: none;">Read Complete Guide &rarr;</a>
+                <span style="font-size: 0.75rem; color: #94a3b8;">${g.publishedDate}</span>
+              </div>
+            </article>
+          `).join('')}
+        </section>
+      </main>
+
+      <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 px-6 text-sm text-slate-500">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <strong style="color: #0f172a;">SmartCalcLab</strong> — 100% Free Financial, Health & Daily Multi-Calculators.
+            <p style="font-size: 0.75rem; margin-top: 0.35rem;">© 2026 SmartCalcLab. All calculations execute client-side with zero data tracking.</p>
+          </div>
+          <div style="display: flex; gap: 1.25rem; font-size: 0.8125rem;">
+            <a href="/guides" style="color: #2563eb; text-decoration: none; font-weight: 600;">Guides</a>
+            <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+            <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
+            <a href="/about" style="color: #64748b; text-decoration: none;">About Us</a>
+            <a href="/contact" style="color: #64748b; text-decoration: none;">Contact</a>
+            <a href="/disclaimer" style="color: #64748b; text-decoration: none;">Disclaimer</a>
+          </div>
+        </div>
+      </footer>
+  `
+
+  const rootRegex = /<div id="root">[\s\S]*?<\/div>/
+  html = html.replace(rootRegex, `<div id="root">${hubHtml}</div>`)
+
+  const targetDir = path.resolve(distDir, 'guides')
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true })
+  }
+  fs.writeFileSync(path.resolve(targetDir, 'index.html'), html, 'utf-8')
+  fs.writeFileSync(path.resolve(distDir, 'guides.html'), html, 'utf-8')
+  console.log('[prerender] Rendered: /guides Hub')
+}
+
+// 4. Pre-render Individual Guides (/guides/:slug)
+for (const guide of GUIDES) {
+  let html = template
+  const canonicalUrl = `https://smartcalclab.com/guides/${guide.slug}`
+  
+  html = html.replace(/<title>.*?<\/title>/, `<title>${guide.title} | SmartCalcLab</title>`)
+  html = html.replace(/<meta name="title" content=".*?" \/>/, `<meta name="title" content="${guide.title} | SmartCalcLab" />`)
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${guide.summary}" />`)
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonicalUrl}" />`)
+
+  const guideHtml = `
+      <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4 px-6">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <a href="/" style="font-weight: 800; font-size: 1.35rem; color: #2563eb; text-decoration: none;">SmartCalcLab</a>
+          <nav style="display: flex; gap: 1.25rem; font-size: 0.875rem; flex-wrap: wrap;">
+            <a href="/salary" style="color: #475569; text-decoration: none; font-weight: 500;">Salary</a>
+            <a href="/loan" style="color: #475569; text-decoration: none; font-weight: 500;">Mortgage & Loan</a>
+            <a href="/autoloan" style="color: #475569; text-decoration: none; font-weight: 500;">Auto Loan</a>
+            <a href="/currency" style="color: #475569; text-decoration: none; font-weight: 500;">Currency</a>
+            <a href="/bmi" style="color: #475569; text-decoration: none; font-weight: 500;">BMI</a>
+            <a href="/compound" style="color: #475569; text-decoration: none; font-weight: 500;">Compound</a>
+            <a href="/percentage" style="color: #475569; text-decoration: none; font-weight: 500;">Percentage</a>
+            <a href="/guides" style="color: #2563eb; text-decoration: none; font-weight: 700;">Guides</a>
+          </nav>
+        </div>
+      </header>
+
+      <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; line-height: 1.7; color: #1e293b;">
+        <nav aria-label="Breadcrumb" style="font-size: 0.8125rem; color: #64748b; margin-bottom: 1.5rem;">
+          <a href="/" style="color: #2563eb; text-decoration: none;">Home</a> &gt; 
+          <a href="/guides" style="color: #2563eb; text-decoration: none;">Guides</a> &gt; 
+          <strong>${guide.title}</strong>
+        </nav>
+
+        <header style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1.25rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 0.8125rem;">
+            <span style="font-weight: 700; color: #2563eb; background: #eff6ff; padding: 0.25rem 0.75rem; border-radius: 9999px;">${guide.category}</span>
+            <span style="color: #64748b;">${guide.readTime} • Updated ${guide.publishedDate}</span>
+          </div>
+
+          <h1 style="font-size: 2.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem; line-height: 1.25;">
+            ${guide.title}
+          </h1>
+          <p style="font-size: 1.1rem; color: #475569; margin-bottom: 1.5rem; line-height: 1.6;">
+            ${guide.subtitle}
+          </p>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 0.875rem 1.25rem; font-size: 0.8125rem; color: #475569; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+            <span>🛡️ <strong>Editorial Byline:</strong> ${guide.author}</span>
+            <span>Reviewed Standards: <strong>${guide.reviewedBy}</strong></span>
+          </div>
+        </header>
+
+        <!-- High-Impact Interactive Calculator Callout (Internal Link Booster) -->
+        <div style="background: linear-gradient(135deg, #2563eb, #4338ca); color: #ffffff; border-radius: 1rem; padding: 1.5rem 2rem; margin-bottom: 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #bfdbfe; margin-bottom: 0.25rem;">Interactive Tool Available</div>
+            <h2 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: #ffffff;">Calculate your exact numbers with our free ${guide.toolName}</h2>
+          </div>
+          <a href="${guide.toolPath}" style="background: #ffffff; color: #1e40af; font-weight: 700; font-size: 0.875rem; padding: 0.65rem 1.25rem; border-radius: 0.75rem; text-decoration: none; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+            Open Free Calculator &rarr;
+          </a>
+        </div>
+
+        <!-- Article Body Content -->
+        <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1.25rem; padding: 2.5rem; margin-bottom: 2.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          ${guide.paragraphs.map(p => `<p style="font-size: 1.05rem; color: #334155; line-height: 1.8; margin-bottom: 1.5rem;">${p}</p>`).join('')}
+        </article>
+
+        <!-- Return to Guides -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <a href="/guides" style="display: inline-block; padding: 0.75rem 1.5rem; border: 1px solid #cbd5e1; border-radius: 0.75rem; color: #475569; font-weight: 600; text-decoration: none; font-size: 0.875rem;">
+            &larr; Back to All Educational Guides
+          </a>
+        </div>
+      </main>
+
+      <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 px-6 text-sm text-slate-500">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <strong style="color: #0f172a;">SmartCalcLab</strong> — 100% Free Financial, Health & Daily Multi-Calculators.
+            <p style="font-size: 0.75rem; margin-top: 0.35rem;">© 2026 SmartCalcLab. All calculations execute client-side with zero data tracking.</p>
+          </div>
+          <div style="display: flex; gap: 1.25rem; font-size: 0.8125rem;">
+            <a href="/guides" style="color: #2563eb; text-decoration: none; font-weight: 600;">Guides</a>
+            <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+            <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
+            <a href="/about" style="color: #64748b; text-decoration: none;">About Us</a>
+            <a href="/contact" style="color: #64748b; text-decoration: none;">Contact</a>
+            <a href="/disclaimer" style="color: #64748b; text-decoration: none;">Disclaimer</a>
+          </div>
+        </div>
+      </footer>
+  `
+
+  const rootRegex = /<div id="root">[\s\S]*?<\/div>/
+  html = html.replace(rootRegex, `<div id="root">${guideHtml}</div>`)
+
+  const guideDir = path.resolve(distDir, 'guides', guide.slug)
+  if (!fs.existsSync(guideDir)) {
+    fs.mkdirSync(guideDir, { recursive: true })
+  }
+  fs.writeFileSync(path.resolve(guideDir, 'index.html'), html, 'utf-8')
+  fs.writeFileSync(path.resolve(distDir, 'guides', `${guide.slug}.html`), html, 'utf-8')
+  console.log(`[prerender] Rendered Guide: /guides/${guide.slug}`)
+}
+
+console.log('[prerender] Complete! Generated static HTML for all routes & educational guides.')

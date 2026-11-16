@@ -84,6 +84,18 @@ export const Header: React.FC<HeaderProps> = ({
                 <span className="truncate max-w-[130px]">{tool.name.split('(')[0]}</span>
               </button>
             ))}
+
+            <button
+              onClick={() => onNavigate('guides')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                currentPage === 'guides'
+                  ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400'
+                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white'
+              }`}
+            >
+              <Briefcase className="w-4 h-4 text-indigo-500" />
+              <span>Guides</span>
+            </button>
           </nav>
 
           {/* Language Switcher & Controls */}
@@ -191,6 +203,21 @@ export const Header: React.FC<HeaderProps> = ({
                 {tool.name}
               </button>
             ))}
+
+            <button
+              onClick={() => {
+                onNavigate('guides');
+                setMobileMenuOpen(false);
+              }}
+              className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium ${
+                currentPage === 'guides'
+                  ? 'bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-400'
+                  : 'text-slate-700 dark:text-slate-300'
+              }`}
+            >
+              <Briefcase className="w-4 h-4 text-indigo-500" />
+              <span>Educational Guides</span>
+            </button>
 
             <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2 text-xs">
               <button onClick={() => { onNavigate('about'); setMobileMenuOpen(false); }} className="text-slate-500 hover:underline">

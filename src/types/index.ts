@@ -16,7 +16,8 @@ export type PageId =
   | 'terms' 
   | 'about' 
   | 'contact' 
-  | 'disclaimer';
+  | 'disclaimer'
+  | 'guides';
 
 export interface LanguageInfo {
   code: Language;

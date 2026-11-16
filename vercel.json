@@ -128,6 +128,38 @@
       "destination": "/disclaimer.html"
     },
     {
+      "source": "/guides",
+      "destination": "/guides.html"
+    },
+    {
+      "source": "/guides/mortgage-amortization-piti-guide",
+      "destination": "/guides/mortgage-amortization-piti-guide.html"
+    },
+    {
+      "source": "/guides/gross-vs-net-salary-guide",
+      "destination": "/guides/gross-vs-net-salary-guide.html"
+    },
+    {
+      "source": "/guides/auto-loan-financing-guide",
+      "destination": "/guides/auto-loan-financing-guide.html"
+    },
+    {
+      "source": "/guides/compound-interest-wealth-guide",
+      "destination": "/guides/compound-interest-wealth-guide.html"
+    },
+    {
+      "source": "/guides/bmi-body-composition-guide",
+      "destination": "/guides/bmi-body-composition-guide.html"
+    },
+    {
+      "source": "/guides/currency-exchange-bank-fees-guide",
+      "destination": "/guides/currency-exchange-bank-fees-guide.html"
+    },
+    {
+      "source": "/guides/:path*",
+      "destination": "/guides/:path*.html"
+    },
+    {
       "source": "/:path*",
       "destination": "/index.html"
     }

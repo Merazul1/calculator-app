@@ -24,11 +24,15 @@ import { AboutUs } from './components/pages/AboutUs';
 import { ContactUs } from './components/pages/ContactUs';
 import { Disclaimer } from './components/pages/Disclaimer';
 
+// Educational Guides Hub
+import { GuidesPage } from './components/pages/GuidesPage';
+import { GuideDetailPage } from './components/pages/GuideDetailPage';
+
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 
 const VALID_PAGES: PageId[] = [
   'home', 'loan', 'autoloan', 'currency', 'bmi', 'percentage', 'compound', 'salary',
-  'privacy', 'terms', 'about', 'contact', 'disclaimer'
+  'privacy', 'terms', 'about', 'contact', 'disclaimer', 'guides'
 ];
 
 export default function App() {
@@ -50,11 +54,25 @@ export default function App() {
     return 'en'; // Default English
   });
   
+  // Read active guide slug if on /guides/:slug
+  const [activeGuideSlug, setActiveGuideSlug] = useState<string | null>(() => {
+    if (typeof window !== 'undefined') {
+      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      if (rawPath.startsWith('guides/')) {
+        return rawPath.replace('guides/', '');
+      }
+    }
+    return null;
+  });
+
   // Read initial page from pathname, query param, or hash
   const [currentPage, setCurrentPage] = useState<PageId>(() => {
     if (typeof window !== 'undefined') {
       // 1. Pathname (e.g. /loan)
       const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      if (rawPath === 'guides' || rawPath.startsWith('guides/')) {
+        return 'guides';
+      }
       if (VALID_PAGES.includes(rawPath as PageId)) {
         return rawPath as PageId;
       }
@@ -130,8 +148,14 @@ export default function App() {
   useEffect(() => {
     const handlePopState = () => {
       const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      if (rawPath === 'guides' || rawPath.startsWith('guides/')) {
+        setCurrentPage('guides');
+        setActiveGuideSlug(rawPath.startsWith('guides/') ? rawPath.replace('guides/', '') : null);
+        return;
+      }
       if (VALID_PAGES.includes(rawPath as PageId)) {
         setCurrentPage(rawPath as PageId);
+        setActiveGuideSlug(null);
         return;
       }
       if (rawPath === 'autoloan' || rawPath === 'auto-loan' || rawPath === 'car-loan' || rawPath === 'car-payment-calculator') {
@@ -158,6 +182,7 @@ export default function App() {
         }
       }
       setCurrentPage('home');
+      setActiveGuideSlug(null);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -170,10 +195,24 @@ export default function App() {
 
   // Clean URL routing on navigate
   const handleNavigate = (page: PageId) => {
+    if (page === 'guides') {
+      setActiveGuideSlug(null);
+    }
     setCurrentPage(page);
     const targetUrl = page === 'home' ? '/' : `/${page}`;
     if (window.location.pathname !== targetUrl) {
       window.history.pushState({ page }, '', targetUrl);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Dedicated guide selection routing
+  const handleSelectGuide = (slug: string) => {
+    setActiveGuideSlug(slug);
+    setCurrentPage('guides');
+    const targetUrl = `/guides/${slug}`;
+    if (window.location.pathname !== targetUrl) {
+      window.history.pushState({ page: 'guides', slug }, '', targetUrl);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -255,6 +294,22 @@ export default function App() {
             {/* Bottom Ad Unit */}
             <AdSlot currentLang={currentLang} format="in-article" />
           </div>
+        )}
+
+        {/* Educational Guides Section */}
+        {currentPage === 'guides' && (
+          activeGuideSlug ? (
+            <GuideDetailPage
+              slug={activeGuideSlug}
+              onNavigate={handleNavigate}
+              onSelectGuide={handleSelectGuide}
+            />
+          ) : (
+            <GuidesPage
+              onSelectGuide={handleSelectGuide}
+              onNavigate={handleNavigate}
+            />
+          )
         )}
 
         {/* Legal & Trust Pages for AdSense Compliance */}

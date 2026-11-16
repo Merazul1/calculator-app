@@ -73,6 +73,11 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
                 </button>
               </li>
               <li>
+                <button onClick={() => onNavigate('guides')} className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">
+                  Educational Guides &amp; Articles
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onNavigate('home')} className="hover:text-blue-400 transition-colors">
                   {t.categories.all}
                 </button>

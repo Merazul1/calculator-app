@@ -105,6 +105,50 @@
     <xhtml:link rel="alternate" hreflang="hi" href="https://smartcalclab.com/salary?lang=hi" />
   </url>
 
+  <!-- Educational Guides Hub & Reference Articles -->
+  <url>
+    <loc>https://smartcalclab.com/guides</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/guides/mortgage-amortization-piti-guide</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/guides/gross-vs-net-salary-guide</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/guides/auto-loan-financing-guide</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/guides/compound-interest-wealth-guide</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/guides/bmi-body-composition-guide</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartcalclab.com/guides/currency-exchange-bank-fees-guide</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal & Trust Pages -->
   <url>
     <loc>https://smartcalclab.com/privacy</loc>
