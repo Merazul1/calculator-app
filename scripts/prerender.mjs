@@ -19,9 +19,9 @@ const TOOLS = [
     key: 'salary',
     name: 'Annual to Gross & Net Salary Calculator',
     shortDesc: 'Calculate annual to gross wages, hourly to yearly pay, income tax deductions, and net take-home salary.',
-    title: 'Salary Calculator – Gross to Net Pay & Take-Home Salary (2026)',
+    title: 'Salary Calculator - Gross to Net Take Home Pay',
     subtitle: 'Convert between annual salary, monthly pay, and hourly wages to calculate your exact net take-home paycheck after federal, state, and local taxes.',
-    metaDesc: 'Free salary calculator to convert hourly, monthly, and annual gross pay to net take-home paycheck after federal income tax, state tax, and pre-tax deductions.',
+    metaDesc: 'Free salary calculator to convert hourly, monthly, and annual pay to net take-home pay after federal and state taxes. Calculate your paycheck now.',
     badge: 'Annual & Gross Wage Converter',
     introParagraphs: [
       'Calculating your net take-home pay from your gross pay is essential when evaluating job offers, planning income growth, or budgeting monthly household expenses against median income benchmarks. Our free Annual to Gross and Net Salary Calculator converts between hourly rate, monthly wage, and annual salary, projecting your spendable paycheck after federal income tax, state income tax, local income tax, and statutory payroll deductions.',
@@ -40,10 +40,30 @@ const TOOLS = [
     exampleText: 'An annual gross salary of $65,000 equals $5,416.67 per month, $2,500.00 semi-monthly (24 pay periods), or $31.25/hour. Subtracting 14% federal income tax ($9,100), 5% state income tax ($3,250), 7.65% FICA ($4,972.50), and $200/mo in pre-tax retirement contributions ($2,400) leaves an estimated net annual take-home pay of $45,277.50, or $3,773.13 per month.',
     faqsTitle: 'Salary, Paycheck & Tax Withholding FAQs',
     faqs: [
-      { q: 'How does an annual to gross calculator work?', a: 'An annual to gross calculator determines your total gross earnings before any taxes or withholdings are deducted. If you earn an hourly rate, multiply the hourly pay by 40 hours per week and 52 weeks (2,080 standard hours) to calculate total annual gross compensation.' },
-      { q: 'How do IRS Publication 15-T and Form W-4 determine income tax withholding?', a: 'IRS Publication 15-T provides federal income tax withholding tables used by payroll departments. Your withholding depends on filing status, dependents, and additional withholdings declared on your Form W-4, which determines how much federal income tax is deducted from your gross pay each pay period.' },
-      { q: 'What is the difference between bi-weekly and semi-monthly pay periods?', a: 'Bi-weekly pay occurs every two weeks, resulting in 26 pay periods per year (with two months having three paychecks). Semi-monthly pay occurs twice per month (typically on the 15th and last day of the month), totaling 24 pay periods per year. Divide your annual salary by 26 for bi-weekly gross pay, or by 24 for semi-monthly pay.' },
-      { q: 'What is the difference between pre-tax and post-tax contributions?', a: 'Pre-tax contributions (such as traditional 401k retirement plans, HSA, FSA, and health insurance premiums) reduce your gross taxable income before federal and state income taxes are calculated. Post-tax contributions (such as Roth 401k or Roth IRA) are deducted after taxes, allowing tax-free withdrawals in retirement.' }
+      {
+        q: 'How do you convert annual salary to hourly rate using the 120,000 / 52 / 40 formula?',
+        a: 'To calculate your hourly rate from an annual salary, divide your annual gross wages by 52 weeks and then by 40 hours per week (or divide directly by 2,080 standard annual working hours). For example: $120,000 / 52 / 40 = $57.69 per hour. Similarly, a $75,000 annual salary equals $36.06 per hour.'
+      },
+      {
+        q: 'How do you calculate gross salary to net take-home pay?',
+        a: 'To find your net take-home pay, subtract all statutory deductions from your gross earnings: Net Pay = Gross Pay - (Federal Income Tax + State Tax + Local Tax + 7.65% FICA) - Pre-tax & Post-tax Deductions. Pre-tax contributions such as traditional 401(k), HSA, and health insurance reduce your taxable gross income before income taxes are calculated.'
+      },
+      {
+        q: 'What is the difference between bi-weekly (26 pay periods) and semi-monthly (24 pay periods)?',
+        a: 'Bi-weekly pay occurs every other week, resulting in 26 pay periods per year (with two months having three paychecks). Semi-monthly pay occurs twice per month (typically on the 15th and last day of the month), totaling 24 pay periods per year. Divide your annual salary by 26 for bi-weekly gross pay, or by 24 for semi-monthly pay.'
+      },
+      {
+        q: 'How do IRS Publication 15-T and Form W-4 determine income tax withholding?',
+        a: 'IRS Publication 15-T provides the federal income tax withholding tables used by employer payroll departments. Your exact withholding depends on filing status, dependents, and additional withholding amounts specified on your Form W-4, which sets the portion of federal income tax deducted each pay cycle.'
+      },
+      {
+        q: 'What are statutory FICA deductions on your paycheck?',
+        a: 'FICA (Federal Insurance Contributions Act) is a mandatory federal payroll deduction split equally between employee and employer. Employees contribute 6.2% for Social Security (up to the statutory wage ceiling) and 1.45% for Medicare (with no wage ceiling), totaling a 7.65% statutory deduction from gross earnings.'
+      },
+      {
+        q: 'What is the difference between pre-tax and post-tax payroll contributions?',
+        a: 'Pre-tax deductions (such as traditional 401k retirement plans, HSA, FSA, and health insurance premiums) reduce your taxable gross earnings before federal and state income taxes are assessed. Post-tax contributions (such as Roth 401k or Roth IRA) are deducted after taxes, allowing tax-free qualified withdrawals in retirement.'
+      }
     ],
     tips: [
       'Maxing out pre-tax retirement accounts (like 401k or employer pension) lowers your taxable income bracket and reduces current-year federal income tax.',
@@ -546,6 +566,53 @@ for (const tool of TOOLS) {
           </div>
         </section>
 
+        ${tool.key === 'salary' ? `
+        <section style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: #2563eb; text-transform: uppercase; margin-bottom: 0.35rem;">Salary Benchmarks &amp; Conversion</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Annual Salary to Hourly, Monthly &amp; Bi-Weekly Pay Chart (2026)</h3>
+          <p style="font-size: 0.875rem; color: #475569; margin-bottom: 1.25rem; line-height: 1.5;">
+            Standard full-time employment assumes 2,080 annual working hours (52 weeks × 40 hours per week). Compare common gross earnings benchmarks across pay frequencies:
+          </p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; text-align: left;">
+              <thead>
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0; color: #334155;">
+                  <th style="padding: 0.75rem 1rem; font-weight: 700;">Annual Gross</th>
+                  <th style="padding: 0.75rem 1rem; font-weight: 700;">Monthly Pay (12x)</th>
+                  <th style="padding: 0.75rem 1rem; font-weight: 700;">Bi-Weekly Pay (26x)</th>
+                  <th style="padding: 0.75rem 1rem; font-weight: 700;">Hourly Rate (2,080 hrs)</th>
+                </tr>
+              </thead>
+              <tbody style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #1e293b;">
+                <tr style="border-bottom: 1px solid #f1f5f9;"><td style="padding: 0.75rem 1rem; font-weight: 700;">$35,000</td><td style="padding: 0.75rem 1rem;">$2,916.67</td><td style="padding: 0.75rem 1rem;">$1,346.15</td><td style="padding: 0.75rem 1rem; color: #059669; font-weight: 700;">$16.83/hr</td></tr>
+                <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;"><td style="padding: 0.75rem 1rem; font-weight: 700;">$50,000</td><td style="padding: 0.75rem 1rem;">$4,166.67</td><td style="padding: 0.75rem 1rem;">$1,923.08</td><td style="padding: 0.75rem 1rem; color: #059669; font-weight: 700;">$24.04/hr</td></tr>
+                <tr style="border-bottom: 1px solid #f1f5f9;"><td style="padding: 0.75rem 1rem; font-weight: 700;">$65,000</td><td style="padding: 0.75rem 1rem;">$5,416.67</td><td style="padding: 0.75rem 1rem;">$2,500.00</td><td style="padding: 0.75rem 1rem; color: #059669; font-weight: 700;">$31.25/hr</td></tr>
+                <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;"><td style="padding: 0.75rem 1rem; font-weight: 700;">$75,000</td><td style="padding: 0.75rem 1rem;">$6,250.00</td><td style="padding: 0.75rem 1rem;">$2,884.62</td><td style="padding: 0.75rem 1rem; color: #059669; font-weight: 700;">$36.06/hr</td></tr>
+                <tr style="border-bottom: 1px solid #f1f5f9;"><td style="padding: 0.75rem 1rem; font-weight: 700;">$100,000</td><td style="padding: 0.75rem 1rem;">$8,333.33</td><td style="padding: 0.75rem 1rem;">$3,846.15</td><td style="padding: 0.75rem 1rem; color: #059669; font-weight: 700;">$48.08/hr</td></tr>
+                <tr style="border-bottom: 1px solid #f1f5f9; background: #eff6ff;"><td style="padding: 0.75rem 1rem; font-weight: 800; color: #1e40af;">$120,000 <span style="font-size: 0.65rem; background: #dbeafe; color: #1e40af; padding: 0.15rem 0.4rem; border-radius: 9999px; font-family: system-ui;">120000/52/40</span></td><td style="padding: 0.75rem 1rem; font-weight: 600;">$10,000.00</td><td style="padding: 0.75rem 1rem; font-weight: 600;">$4,615.38</td><td style="padding: 0.75rem 1rem; color: #059669; font-weight: 800;">$57.69/hr</td></tr>
+                <tr style="background: #fafafa;"><td style="padding: 0.75rem 1rem; font-weight: 700;">$150,000</td><td style="padding: 0.75rem 1rem;">$12,500.00</td><td style="padding: 0.75rem 1rem;">$5,769.23</td><td style="padding: 0.75rem 1rem; color: #059669; font-weight: 700;">$72.12/hr</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top: 1.5rem; padding: 1rem 1.25rem; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 0.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="font-size: 0.875rem; color: #166534;">
+              <strong>Looking for deep tax guidance?</strong> Read our full breakdown on federal tax brackets and FICA withholding.
+            </div>
+            <a href="/guides/gross-vs-net-salary-guide" style="font-size: 0.8125rem; font-weight: 700; color: #15803d; text-decoration: none;">
+              Read 2026 Salary &amp; Tax Guide &rarr;
+            </a>
+          </div>
+          <div style="margin-top: 0.75rem; padding: 1rem 1.25rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 0.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="font-size: 0.875rem; color: #1e40af;">
+              <strong>Buying a home or planning a mortgage?</strong> Estimate your maximum loan approval based on your net paycheck.
+            </div>
+            <a href="/loan" style="font-size: 0.8125rem; font-weight: 700; color: #2563eb; text-decoration: none;">
+              Calculate Mortgage &amp; Loan &rarr;
+            </a>
+          </div>
+        </section>
+        ` : ''}
+
         <section style="margin-bottom: 3rem;">
           <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Explore Related Calculators & Educational Guides</h3>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
@@ -575,6 +642,63 @@ for (const tool of TOOLS) {
         </div>
       </footer>
   `
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': 'https://smartcalclab.com/#website',
+        'url': 'https://smartcalclab.com/',
+        'name': 'SmartCalcLab'
+      },
+      {
+        '@type': 'WebApplication',
+        '@id': `https://smartcalclab.com/${tool.key}#webapp`,
+        'name': `${tool.title} | SmartCalcLab`,
+        'url': `https://smartcalclab.com/${tool.key}`,
+        'applicationCategory': tool.key === 'bmi' ? 'HealthApplication' : 'FinanceApplication',
+        'operatingSystem': 'All',
+        'description': tool.metaDesc,
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD'
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': 'https://smartcalclab.com/'
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': tool.name,
+            'item': `https://smartcalclab.com/${tool.key}`
+          }
+        ]
+      },
+      {
+        '@type': 'FAQPage',
+        'mainEntity': tool.faqs.map(f => ({
+          '@type': 'Question',
+          'name': f.q,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': f.a
+          }
+        }))
+      }
+    ]
+  }
+
+  const jsonLdRegex = /<script type="application\/ld\+json">[\s\S]*?<\/script>/
+  html = html.replace(jsonLdRegex, `<script type="application/ld+json">\n${JSON.stringify(faqSchema, null, 2)}\n    </script>`)
 
   const rootRegex = /<div id="root">[\s\S]*?<\/div>/
   html = html.replace(rootRegex, `<div id="root">${contentHtml}</div>`)
