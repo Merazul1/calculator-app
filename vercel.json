@@ -82,32 +82,32 @@
     {
       "source": "/loan",
       "has": [{ "type": "query", "key": "lang", "value": "es" }],
-      "destination": "/loan-es.html"
+      "destination": "/loan-es"
     },
     {
       "source": "/loan",
       "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/loan-ar.html"
+      "destination": "/loan-ar"
     },
     {
       "source": "/compound",
       "has": [{ "type": "query", "key": "lang", "value": "es" }],
-      "destination": "/compound-es.html"
+      "destination": "/compound-es"
     },
     {
       "source": "/salary",
       "has": [{ "type": "query", "key": "lang", "value": "es" }],
-      "destination": "/salary-es.html"
+      "destination": "/salary-es"
     },
     {
       "source": "/salary",
       "has": [{ "type": "query", "key": "lang", "value": "pt" }],
-      "destination": "/salary-pt.html"
+      "destination": "/salary-pt"
     },
     {
       "source": "/bmi",
       "has": [{ "type": "query", "key": "lang", "value": "es" }],
-      "destination": "/bmi-es.html"
+      "destination": "/bmi-es"
     },
     {
       "source": "/salary",
