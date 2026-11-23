@@ -703,19 +703,13 @@ for (const tool of TOOLS) {
   const rootRegex = /<div id="root">[\s\S]*?<\/div>/
   html = html.replace(rootRegex, `<div id="root">${contentHtml}</div>`)
 
-  const multiToolKeys = ['loan', 'salary', 'compound', 'bmi']
-  if (multiToolKeys.includes(tool.key)) {
-    fs.writeFileSync(path.resolve(distDir, `${tool.key}-en.html`), html, 'utf-8')
-    console.log(`[prerender] Rendered: /${tool.key}-en.html`)
-  } else {
-    const targetDir = path.resolve(distDir, tool.key)
-    if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true })
-    }
-    fs.writeFileSync(path.resolve(targetDir, 'index.html'), html, 'utf-8')
-    fs.writeFileSync(path.resolve(distDir, `${tool.key}.html`), html, 'utf-8')
-    console.log(`[prerender] Rendered: /${tool.key}`)
+  const targetDir = path.resolve(distDir, tool.key)
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true })
   }
+  fs.writeFileSync(path.resolve(targetDir, 'index.html'), html, 'utf-8')
+  fs.writeFileSync(path.resolve(distDir, `${tool.key}.html`), html, 'utf-8')
+  console.log(`[prerender] Rendered: /${tool.key}`)
 }
 
 // 2. Pre-render Legal Pages

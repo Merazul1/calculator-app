@@ -80,50 +80,12 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/loan",
-      "has": [{ "type": "query", "key": "lang", "value": "es" }],
-      "destination": "/loan-es.html"
-    },
-    {
-      "source": "/loan",
-      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
-      "destination": "/loan-ar.html"
+      "source": "/salary",
+      "destination": "/salary.html"
     },
     {
       "source": "/loan",
-      "destination": "/loan-en.html"
-    },
-    {
-      "source": "/compound",
-      "has": [{ "type": "query", "key": "lang", "value": "es" }],
-      "destination": "/compound-es.html"
-    },
-    {
-      "source": "/compound",
-      "destination": "/compound-en.html"
-    },
-    {
-      "source": "/salary",
-      "has": [{ "type": "query", "key": "lang", "value": "es" }],
-      "destination": "/salary-es.html"
-    },
-    {
-      "source": "/salary",
-      "has": [{ "type": "query", "key": "lang", "value": "pt" }],
-      "destination": "/salary-pt.html"
-    },
-    {
-      "source": "/salary",
-      "destination": "/salary-en.html"
-    },
-    {
-      "source": "/bmi",
-      "has": [{ "type": "query", "key": "lang", "value": "es" }],
-      "destination": "/bmi-es.html"
-    },
-    {
-      "source": "/bmi",
-      "destination": "/bmi-en.html"
+      "destination": "/loan.html"
     },
     {
       "source": "/autoloan",
@@ -132,6 +94,14 @@
     {
       "source": "/currency",
       "destination": "/currency.html"
+    },
+    {
+      "source": "/bmi",
+      "destination": "/bmi.html"
+    },
+    {
+      "source": "/compound",
+      "destination": "/compound.html"
     },
     {
       "source": "/percentage",
