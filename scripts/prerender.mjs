@@ -19,9 +19,9 @@ const TOOLS = [
     key: 'salary',
     name: 'Annual to Gross & Net Salary Calculator',
     shortDesc: 'Calculate annual to gross wages, hourly to yearly pay, income tax deductions, and net take-home salary.',
-    title: 'Salary Calculator - Gross to Net Take Home Pay',
+    title: 'US Salary Calculator - Gross to Net Paycheck',
     subtitle: 'Convert between annual salary, monthly pay, and hourly wages to calculate your exact net take-home paycheck after federal, state, and local taxes.',
-    metaDesc: 'Free salary calculator to convert hourly, monthly, and annual pay to net take-home pay after federal and state taxes. Calculate your paycheck now.',
+    metaDesc: 'Free US salary calculator to convert hourly, monthly, and annual pay to net take-home pay after federal and state taxes. Calculate your paycheck now.',
     badge: 'Annual & Gross Wage Converter',
     introParagraphs: [
       'Calculating your net take-home pay from your gross pay is essential when evaluating job offers, planning income growth, or budgeting monthly household expenses against median income benchmarks. Our free Annual to Gross and Net Salary Calculator converts between hourly rate, monthly wage, and annual salary, projecting your spendable paycheck after federal income tax, state income tax, local income tax, and statutory payroll deductions.',
@@ -72,12 +72,12 @@ const TOOLS = [
   },
   {
     key: 'loan',
-    name: 'Mortgage Cost Estimator & Loan Calculator',
-    shortDesc: 'Compute monthly mortgage payments, down payment, property taxes, insurance, and amortization schedule.',
-    title: 'Mortgage Cost Estimator & Calculator (with Taxes & Insurance)',
-    subtitle: 'Accurately compute monthly mortgage payments, calculate down payment savings, property taxes, homeowners insurance, and analyze your principal vs interest chart.',
-    metaDesc: 'Free mortgage cost estimator to compute monthly home payments with taxes, insurance, down payment, interest rates, and full amortization schedule.',
-    badge: 'High Precision Mortgage Tool',
+    name: 'Loan Calculator & Mortgage Payment Estimator',
+    shortDesc: 'Compute monthly loan and mortgage payments, down payment, property taxes, insurance, and amortization schedule.',
+    title: 'Loan Calculator - Mortgage & Payment Estimator',
+    subtitle: 'Accurately compute monthly loan and mortgage payments, calculate down payment savings, property taxes, homeowners insurance, and analyze your principal vs interest chart.',
+    metaDesc: 'Free loan calculator to compute monthly mortgage and loan payments with taxes, insurance, down payment, interest rates, and full amortization schedule.',
+    badge: 'High Precision Loan & Mortgage Tool',
     introParagraphs: [
       'Estimating your total monthly homeownership cost is the most critical step before shopping for real estate or negotiating a home loan. Our free Mortgage Cost Estimator and Loan Calculator allows you to compute your exact monthly mortgage payment, factoring in principal, interest, property taxes, homeowners insurance (hazard insurance), and private mortgage insurance (PMI).',
       'Whether you are computing down payment options for a first-time home purchase, evaluating a 15-year vs. 30-year fixed loan, or calculating amortization payoff schedules, this comprehensive simulator gives you full financial clarity.'
@@ -971,6 +971,392 @@ for (const guide of GUIDES) {
   fs.writeFileSync(path.resolve(guideDir, 'index.html'), html, 'utf-8')
   fs.writeFileSync(path.resolve(distDir, 'guides', `${guide.slug}.html`), html, 'utf-8')
   console.log(`[prerender] Rendered Guide: /guides/${guide.slug}`)
+}
+
+// 5. Pre-render Multilingual Search Landing Pages (?lang=es, ?lang=ar, ?lang=pt)
+const MULTILINGUAL_PAGES = [
+  {
+    toolKey: 'loan',
+    lang: 'es',
+    dir: 'ltr',
+    canonical: 'https://smartcalclab.com/loan?lang=es',
+    title: 'Calculadora de Préstamos e Hipotecas Online | SmartCalcLab',
+    metaDesc: 'Calculadora de préstamos y simulador de hipoteca gratis. Calcula tu cuota mensual, amortización e intereses totales en segundos.',
+    name: 'Calculadora de Préstamos e Hipotecas',
+    subtitle: 'Simula préstamos personales, hipotecas y créditos bancarios con cuota mensual exacta en España y Latinoamérica.',
+    badge: 'Alta Rentabilidad Financiera',
+    shortDesc: 'Calcula tu cuota mensual, intereses acumulados y cuadro de amortización completo.',
+    introParagraphs: [
+      'Conocer el coste real de un crédito bancario antes de firmar es fundamental para proteger tu salud financiera. Ya sea que busques comprar una vivienda mediante hipoteca o financiar un coche o proyecto personal, esta herramienta calcula al instante la cuota mensual (sistema francés de amortización).',
+      'Compara diferentes tipos de interés y plazos para descubrir exactamente cuánto pagarás al banco en concepto de intereses.'
+    ],
+    howItWorksTitle: 'Cómo Calcular la Cuota de tu Préstamo',
+    howItWorksSteps: [
+      { step: '1. Introduce el Capital', desc: 'La cantidad exacta de dinero que necesitas solicitar a la entidad bancaria.' },
+      { step: '2. Indica el Tipo de Interés Anual (TIN/TAE)', desc: 'El porcentaje que cobrará el banco cada año por prestarte el dinero.' },
+      { step: '3. Elige el Plazo de Devolución', desc: 'El número de años o meses para pagar el préstamo. A mayor plazo, menor cuota mensual pero mayores intereses totales.' }
+    ],
+    formulaTitle: 'Fórmula de Amortización Francesa',
+    formulaMath: 'Cuota = [C × i × (1 + i)^n] / [(1 + i)^n - 1]',
+    formulaExplanation: 'Donde C es el Capital prestado, i es el tipo de interés mensual (TIN anual / 12 / 100) y n es el número total de mensualidades.',
+    exampleTitle: 'Ejemplo Práctico',
+    exampleText: 'Para una hipoteca de 150.000 € a un interés fijo del 3,25% a 25 años (300 meses), la cuota mensual será de 731,43 €. Los intereses totales ascenderán a 69.429 €, con un coste total final de 219.429 €.',
+    faqsTitle: 'Preguntas Frecuentes sobre Préstamos',
+    faqs: [
+      { q: '¿Qué diferencia hay entre TIN y TAE?', a: 'El TIN es el Tipo de Interés Nominal puro. La TAE (Tasa Anual Equivalente) incluye además comisiones bancarias, gastos y seguros asociados, reflejando el coste real global.' },
+      { q: '¿Conviene amortizar cuota o amortizar plazo?', a: 'Amortizar plazo ahorra muchos más intereses bancarios a lo largo de la vida del préstamo, mientras que amortizar cuota da más desahogo financiero cada mes.' }
+    ],
+    tips: [
+      'Los expertos recomiendan que la cuota de tu hipoteca o préstamo no supere el 30%-35% de tus ingresos netos mensuales.',
+      'Revisa si tu banco aplica comisiones por amortización anticipada parcial o total.'
+    ]
+  },
+  {
+    toolKey: 'compound',
+    lang: 'es',
+    dir: 'ltr',
+    canonical: 'https://smartcalclab.com/compound?lang=es',
+    title: 'Calculadora de Interés Compuesto | Inversión y Ahorro | SmartCalcLab',
+    metaDesc: 'Calculadora de interés compuesto gratis. Simula la rentabilidad de tus inversiones y fondos indexados a 5, 10, 20 o 30 años.',
+    name: 'Calculadora de Interés Compuesto',
+    subtitle: 'Descubre el poder del interés compuesto con aportaciones mensuales y rentabilidad anual.',
+    badge: 'Crecimiento Patrimonial',
+    shortDesc: 'Proyecta el crecimiento de tus ahorros e inversiones a largo plazo gracias al interés compuesto.',
+    introParagraphs: [
+      'El interés compuesto es la fuerza financiera que permite hacer crecer el patrimonio con el paso del tiempo. Consiste en reinvertir los beneficios o intereses generados, de modo que en el siguiente periodo se generan intereses sobre los intereses previos.',
+      'Esta herramienta te muestra con precisión matemática cómo pequeñas aportaciones mensuales pueden convertirse en sumas millonarias a largo plazo.'
+    ],
+    howItWorksTitle: 'Cómo Configurar tu Simulación',
+    howItWorksSteps: [
+      { step: '1. Capital Inicial', desc: 'El dinero con el que comienzas tu cuenta de inversión o depósito.' },
+      { step: '2. Aportación Periódica Mensual', desc: 'La cantidad que tienes previsto ahorrar e ingresar cada mes.' },
+      { step: '3. Rentabilidad Anual Estimada y Años', desc: 'El rendimiento anual medio previsto (ej. 7%-9% en fondos indexados globales) y el horizonte temporal.' }
+    ],
+    formulaTitle: 'Ecuación del Interés Compuesto',
+    formulaMath: 'A = P(1 + r/n)^(nt) + PMT × [((1 + r/n)^(nt) - 1) / (r/n)]',
+    formulaExplanation: 'Donde P es el Capital inicial, r es la tasa anual, n es la frecuencia anual de capitalización, t son los años y PMT la aportación mensual.',
+    exampleTitle: 'Ejemplo de Inversión a 25 Años',
+    exampleText: 'Comenzando con 3.000 € y aportando 200 € al mes con un 8% anual durante 25 años, acumulas 208.570 €. Tu aportación personal es de 63.000 €, ¡y los intereses generados son 145.570 €!',
+    faqsTitle: 'Preguntas Frecuentes sobre Interés Compuesto',
+    faqs: [
+      { q: '¿Qué es la Regla del 72?', a: 'Divide 72 entre la rentabilidad anual esperada para calcular cuántos años tardará tu dinero en duplicarse. Al 8%, tu capital se duplica cada 9 años aproximadamente.' },
+      { q: '¿Es mejor aportar mensual o anualmente?', a: 'Aportar mensualmente maximiza la capitalización de intereses, ya que cada aportación empieza a rentar antes.' }
+    ],
+    tips: [
+      'Cuanto antes empieces a invertir, mayor será el efecto multiplicador del interés compuesto sobre tus ahorros.',
+      'Reinvertir todos los dividendos acelera el crecimiento exponencial de tu cartera.'
+    ]
+  },
+  {
+    toolKey: 'loan',
+    lang: 'ar',
+    dir: 'rtl',
+    canonical: 'https://smartcalclab.com/loan?lang=ar',
+    title: 'حاسبة القروض والتمويل العقاري والشخصي | SmartCalcLab',
+    metaDesc: 'حاسبة قروض مجانية لحساب القسط الشهري للتمويل الشخصي والعقاري مع جدول السداد والفوائد البنكية بدقة متناهية.',
+    name: 'حاسبة القروض والتمويل العقاري',
+    subtitle: 'احسب قسطك الشهري بدقة وإجمالي الأرباح وجدول الاستهلاك للتمويل الشخصي والسكني.',
+    badge: 'دقة مصرفية عالية',
+    shortDesc: 'حساب القسط الشهري وجدول سداد القرض والفوائد البنكية.',
+    introParagraphs: [
+      'تعتبر حاسبة القروض والتمويل العقاري أداة مصرفية أساسية لمعرفة القسط الشهري وإجمالي الفوائد قبل التوقيع على أي التزام مالي مع البنك.',
+      'تعتمد الحاسبة معادلة الاستهلاك التناقصي المعتمدة في كافة البنوك لحساب حصة الفائدة ورأس المال لكل قسط شهري.'
+    ],
+    howItWorksTitle: 'كيفية حساب القسط الشهري',
+    howItWorksSteps: [
+      { step: '1. أدخل مبلغ التمويل', desc: 'إجمالي المبلغ الذي ترغب في اقتراضه من البنك.' },
+      { step: '2. نسبة الفائدة السنوية', desc: 'النسبة المئوية المحددة من البنك سنوياً.' },
+      { step: '3. مدة التمويل بالسنين', desc: 'عدد سنوات السداد المتبقية للقرض.' }
+    ],
+    formulaTitle: 'معادلة القسط الشهري',
+    formulaMath: 'القسط = [المبلغ × الفائدة × (1 + الفائدة)^الشهور] / [(1 + الفائدة)^الشهور - 1]',
+    formulaExplanation: 'حساب رياضي بنكي دقيق يضمن لك معرفة صافي الاستقطاع الشهري من الراتب.',
+    exampleTitle: 'مثال واقعي',
+    exampleText: 'لقرض شخصي بقيمة 100,000 ريال بفائدة 4% لمدة 5 سنوات (60 شهراً)، يكون القسط الشهري 1,841.65 ريال وإجمالي الأرباح 10,499 ريال.',
+    faqsTitle: 'الأسئلة الشائعة حول القروض',
+    faqs: [
+      { q: 'ما هو القسط المتناقص والقسط الثابت؟', a: 'القسط الثابت هو دفع مبلغ متساوٍ كل شهر حتى نهاية المدة، بينما تنخفض حصة الفائدة شهرياً وترتفع حصة الأصل المسدد.' }
+    ],
+    tips: [
+      'احرص دائماً على ألا يتجاوز إجمالي الالتزامات الشهرية 33% من صافي راتبك الشهري.'
+    ]
+  },
+  {
+    toolKey: 'bmi',
+    lang: 'es',
+    dir: 'ltr',
+    canonical: 'https://smartcalclab.com/bmi?lang=es',
+    title: 'Calculadora de IMC (Índice de Masa Corporal kg y cm) | SmartCalcLab',
+    metaDesc: 'Calculadora de IMC en kg y cm según la OMS. Calcula tu Índice de Masa Corporal, peso ideal y clasificación nutricional al instante.',
+    name: 'Calculadora de IMC (Índice de Masa Corporal)',
+    subtitle: 'Calcula tu IMC en kilos y centímetros según los baremos oficiales de la Organización Mundial de la Salud (OMS).',
+    badge: 'Estándar OMS',
+    shortDesc: 'Calcula tu Índice de Masa Corporal (IMC) en kg y cm y comprueba tu rango de peso saludable.',
+    introParagraphs: [
+      'El Índice de Masa Corporal (IMC) es la medida internacional estandarizada por la Organización Mundial de la Salud (OMS) para evaluar si una persona adulta tiene un peso adecuado respecto a su estatura.',
+      'Permite detectar situaciones de bajo peso, peso normal, sobrepeso u obesidad para prevenir riesgos cardiovasculares y metabólicos.'
+    ],
+    howItWorksTitle: 'Cómo se Calcula el IMC',
+    howItWorksSteps: [
+      { step: '1. Selecciona el Sistema Métrico', desc: 'Introduce tu estatura en centímetros y tu peso en kilogramos.' },
+      { step: '2. Pulsa Calcular', desc: 'El sistema aplica la fórmula oficial de la OMS en tiempo real.' },
+      { step: '3. Revisa tu Rango', desc: 'Comprueba si estás en Normopeso (18.5 - 24.9), Sobrepeso (25 - 29.9) u Obesidad (> 30).' }
+    ],
+    formulaTitle: 'Fórmula Oficial de la OMS',
+    formulaMath: 'IMC = Peso (kg) / [Altura (m)]²',
+    formulaExplanation: 'Se divide el peso en kilogramos entre la estatura en metros elevada al cuadrado.',
+    exampleTitle: 'Ejemplo de Cálculo',
+    exampleText: 'Para una persona que mide 175 cm (1,75 m) y pesa 70 kg: 70 / (1,75 × 1,75) = 22,86 kg/m², situándose en rango de peso normal saludable.',
+    faqsTitle: 'Preguntas Frecuentes sobre el IMC',
+    faqs: [
+      { q: '¿Qué limitaciones tiene el IMC?', a: 'El IMC no distingue entre masa muscular y grasa corporal. Personas deportistas con mucha masa muscular pueden tener un IMC elevado sin tener exceso de grasa.' }
+    ],
+    tips: [
+      'Combina el valor del IMC con la medida del perímetro de cintura para una valoración cardiovascular más completa.'
+    ]
+  },
+  {
+    toolKey: 'salary',
+    lang: 'es',
+    dir: 'ltr',
+    canonical: 'https://smartcalclab.com/salary?lang=es',
+    title: 'Calculadora de Sueldo Neto a Bruto | SmartCalcLab',
+    metaDesc: 'Calculadora de sueldo bruto a neto. Calcula tu salario neto mensual y anual tras IRPF, Seguridad Social y retenciones en España y Latinoamérica.',
+    name: 'Calculadora de Sueldo Bruto a Neto',
+    subtitle: 'Calcula tu sueldo neto mensual en 12 o 14 pagas tras aplicar retenciones de IRPF y cotizaciones a la Seguridad Social.',
+    badge: 'Cálculo Laboral y Nómina',
+    shortDesc: 'Calcula tu sueldo neto a partir del bruto anual o mensual.',
+    introParagraphs: [
+      'Al negociar una oferta de empleo o revisar tu nómina, las empresas indican el salario en términos brutos anuales. Sin embargo, tu dinero disponible real cada mes es el sueldo neto.',
+      'Nuestra calculadora laboral te permite estimar el salario neto en 12 o 14 pagas descontando IRPF y Seguridad Social.'
+    ],
+    howItWorksTitle: 'Cómo Calcular el Sueldo Neto',
+    howItWorksSteps: [
+      { step: '1. Introduce tu Salario Bruto Anual', desc: 'Indica la retribución total pactada con tu empresa antes de impuestos.' },
+      { step: '2. Selecciona Número de Pagas', desc: 'Elige entre 12 pagas (pagas extras prorrateadas) o 14 pagas anuales.' },
+      { step: '3. Revisa tu Nómina Estimada', desc: 'Comprueba el desglose entre IRPF, cotizaciones sociales y tu líquido mensual a percibir.' }
+    ],
+    formulaTitle: 'Fórmula de Cálculo de Nómina',
+    formulaMath: 'Sueldo Neto = Sueldo Bruto - Retención IRPF - Cotizaciones Seguridad Social',
+    formulaExplanation: 'El sueldo neto es la cantidad líquida que ingresa la empresa en tu cuenta bancaria cada mes.',
+    exampleTitle: 'Ejemplo de Salario Bruto de 30.000 €',
+    exampleText: 'Para un salario bruto de 30.000 € con un 15% de IRPF (4.500 €) y 6,35% de Seguridad Social (1.905 €), el sueldo neto anual es de 23.595 €, lo que equivale a 1.966,25 € al mes en 12 pagas (o 1.685,36 € en 14 pagas).',
+    faqsTitle: 'Preguntas Frecuentes sobre Salarios',
+    faqs: [
+      { q: '¿Qué es mejor, 12 o 14 pagas?', a: 'La cantidad total anual es exactamente la misma. En 12 pagas cobras una cantidad fija mensual más alta todo el año, mientras que en 14 pagas recibes dos pagas extraordinarias (verano y Navidad).' }
+    ],
+    tips: [
+      'Revisa tu tipo de retención de IRPF al cambiar de trabajo o tener hijos para evitar sorpresas en la Declaración de la Renta.'
+    ]
+  },
+  {
+    toolKey: 'salary',
+    lang: 'pt',
+    dir: 'ltr',
+    canonical: 'https://smartcalclab.com/salary?lang=pt',
+    title: 'Calculadora de Salário Líquido | SmartCalcLab',
+    metaDesc: 'Calculadora de salário líquido a partir do salário bruto. Calcule descontos de INSS, IRRF e seu salário a receber no Brasil e Portugal.',
+    name: 'Calculadora de Salário Líquido',
+    subtitle: 'Calcule seu salário líquido mensal após descontos oficiais de INSS e Imposto de Renda (IRRF).',
+    badge: 'Cálculo Trabalhista Brasil',
+    shortDesc: 'Calcule seu salário líquido a partir do salário bruto.',
+    introParagraphs: [
+      'Ao receber uma proposta de emprego no Brasil ou Portugal, o valor anunciado costuma ser o salário bruto. Contudo, o montante que realmente cai na sua conta bancária é o salário líquido.',
+      'Nossa ferramenta aplica os descontos obrigatórios de INSS e tabela progressiva do IRRF para mostrar o valor líquido exato de cada mês.'
+    ],
+    howItWorksTitle: 'Como Calcular o Salário Líquido',
+    howItWorksSteps: [
+      { step: '1. Informe o Salário Bruto', desc: 'Digite o valor total do salário registrado em carteira (CLT).' },
+      { step: '2. Desconto do INSS', desc: 'A alíquota progressiva do INSS é deduzida de acordo com as faixas salariais.' },
+      { step: '3. Desconto do IRRF', desc: 'O Imposto de Renda é calculado sobre o saldo restante após a dedução do INSS.' }
+    ],
+    formulaTitle: 'Fórmula do Salário Líquido',
+    formulaMath: 'Salário Líquido = Salário Bruto - INSS - IRRF - Outros Descontos',
+    formulaExplanation: 'O salário líquido é o valor final depositado pelo empregador.',
+    exampleTitle: 'Exemplo de Salário de R$ 5.000,00',
+    exampleText: 'Com salário bruto de R$ 5.000,00, descontando INSS e IRRF pela tabela progressiva, o salário líquido a receber fica em aproximadamente R$ 4.120,00.',
+    faqsTitle: 'Perguntas Frecuentes sobre Salário',
+    faqs: [
+      { q: 'O que desconta do salário bruto?', a: 'Os descontos legais obrigatórios são a previdência social (INSS) e o imposto de renda retido na fonte (IRRF), além de eventuais benefícios como vale-transporte e plano de saúde.' }
+    ],
+    tips: [
+      'Planeje seus gastos mensais sempre com base no salário líquido e nunca no salário bruto.'
+    ]
+  }
+]
+
+for (const p of MULTILINGUAL_PAGES) {
+  let html = template
+  html = html.replace(/<html lang=".*?" dir=".*?">/, `<html lang="${p.lang}" dir="${p.dir}">`)
+  html = html.replace(/<title>.*?<\/title>/, `<title>${p.title}</title>`)
+  html = html.replace(/<meta name="title" content=".*?" \/>/, `<meta name="title" content="${p.title}" />`)
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${p.metaDesc}" />`)
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${p.canonical}" />`)
+
+  const multiContentHtml = `
+      <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4 px-6">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <a href="/" style="font-weight: 800; font-size: 1.35rem; color: #2563eb; text-decoration: none;">SmartCalcLab</a>
+          <nav style="display: flex; gap: 1.25rem; font-size: 0.875rem; flex-wrap: wrap;">
+            <a href="/salary" style="color: #475569; text-decoration: none; font-weight: 500;">Salary</a>
+            <a href="/loan" style="color: #475569; text-decoration: none; font-weight: 500;">Mortgage & Loan</a>
+            <a href="/autoloan" style="color: #475569; text-decoration: none; font-weight: 500;">Auto Loan</a>
+            <a href="/currency" style="color: #475569; text-decoration: none; font-weight: 500;">Currency</a>
+            <a href="/bmi" style="color: #475569; text-decoration: none; font-weight: 500;">BMI</a>
+            <a href="/compound" style="color: #475569; text-decoration: none; font-weight: 500;">Compound</a>
+            <a href="/percentage" style="color: #475569; text-decoration: none; font-weight: 500;">Percentage</a>
+            <a href="/guides" style="color: #4f46e5; text-decoration: none; font-weight: 600;">Guides</a>
+          </nav>
+        </div>
+      </header>
+
+      <main style="max-width: 1100px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1e293b;" dir="${p.dir}">
+        <nav aria-label="Breadcrumb" style="font-size: 0.8125rem; color: #64748b; margin-bottom: 1.5rem;">
+          <a href="/" style="color: #2563eb; text-decoration: none;">Home</a> &gt; <span>Calculators</span> &gt; <strong>${p.name}</strong>
+        </nav>
+
+        <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.2;">${p.title}</h1>
+        <p style="font-size: 1.125rem; color: #475569; margin-bottom: 2rem;">${p.subtitle}</p>
+
+        <section style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; margin-bottom: 2.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <div style="display: inline-block; padding: 0.25rem 0.75rem; background: #eff6ff; color: #2563eb; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem;">
+            ${p.badge}
+          </div>
+          <h2 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">${p.name}</h2>
+          <p style="font-size: 0.9375rem; color: #64748b; margin-bottom: 1.5rem;">${p.shortDesc}</p>
+          <div style="padding: 1.5rem; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 0.5rem; text-align: center; color: #64748b; font-size: 0.875rem;">
+            Interactive calculation engine initialized.
+          </div>
+        </section>
+
+        <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <h2 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">${p.name}</h2>
+          ${p.introParagraphs.map(para => `<p style="margin-bottom: 1rem; font-size: 1rem; color: #334155; line-height: 1.7;">${para}</p>`).join('')}
+        </article>
+
+        <section style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 1.25rem;">${p.howItWorksTitle}</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+            ${p.howItWorksSteps.map((s, idx) => `
+              <div style="padding: 1.25rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem;">
+                <div style="font-size: 0.75rem; font-weight: 700; color: #2563eb; text-transform: uppercase; margin-bottom: 0.35rem;">Paso 0${idx + 1}</div>
+                <h4 style="font-weight: 600; font-size: 1rem; color: #0f172a; margin-bottom: 0.5rem;">${s.step}</h4>
+                <p style="font-size: 0.875rem; color: #475569; line-height: 1.5;">${s.desc}</p>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+
+        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: #4f46e5; text-transform: uppercase; margin-bottom: 0.35rem;">Fórmula Matemática</div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">${p.formulaTitle}</h3>
+            <div style="background: #0f172a; color: #fde047; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; padding: 1rem; border-radius: 0.5rem; font-size: 0.875rem; margin-bottom: 1rem; word-break: break-all;">
+              ${p.formulaMath}
+            </div>
+            <p style="font-size: 0.875rem; color: #475569; line-height: 1.5;">${p.formulaExplanation}</p>
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: #059669; text-transform: uppercase; margin-bottom: 0.35rem;">Ejemplo Real</div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">${p.exampleTitle}</h3>
+            <p style="font-size: 0.875rem; color: #475569; line-height: 1.6;">${p.exampleText}</p>
+          </div>
+        </section>
+
+        <section style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; margin-bottom: 2.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <h3 style="font-size: 1.375rem; font-weight: 700; color: #0f172a; margin-bottom: 1.5rem;">${p.faqsTitle}</h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            ${p.faqs.map(f => `
+              <div style="border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; background: #f8fafc;">
+                <h4 style="font-weight: 600; font-size: 1rem; color: #0f172a; margin-bottom: 0.5rem;">${f.q}</h4>
+                <p style="font-size: 0.875rem; color: #475569; line-height: 1.6;">${f.a}</p>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+      </main>
+
+      <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 px-6 text-sm text-slate-500">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <strong style="color: #0f172a;">SmartCalcLab</strong> — 100% Free Financial, Health & Daily Multi-Calculators.
+            <p style="font-size: 0.75rem; margin-top: 0.35rem;">© 2026 SmartCalcLab.</p>
+          </div>
+          <div style="display: flex; gap: 1.25rem; font-size: 0.8125rem;">
+            <a href="/guides" style="color: #2563eb; text-decoration: none; font-weight: 600;">Guides</a>
+            <a href="/privacy" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+            <a href="/terms" style="color: #64748b; text-decoration: none;">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+  `
+
+  const multiFaqSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': 'https://smartcalclab.com/#website',
+        'url': 'https://smartcalclab.com/',
+        'name': 'SmartCalcLab',
+        'inLanguage': p.lang
+      },
+      {
+        '@type': 'WebApplication',
+        '@id': `${p.canonical}#webapp`,
+        'name': p.title,
+        'url': p.canonical,
+        'inLanguage': p.lang,
+        'applicationCategory': p.toolKey === 'bmi' ? 'HealthApplication' : 'FinanceApplication',
+        'operatingSystem': 'All',
+        'description': p.metaDesc,
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD'
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': 'https://smartcalclab.com/'
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': p.name,
+            'item': p.canonical
+          }
+        ]
+      },
+      {
+        '@type': 'FAQPage',
+        'mainEntity': p.faqs.map(f => ({
+          '@type': 'Question',
+          'name': f.q,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': f.a
+          }
+        }))
+      }
+    ]
+  }
+
+  const jsonLdRegex = /<script type="application\/ld\+json">[\s\S]*?<\/script>/
+  html = html.replace(jsonLdRegex, `<script type="application/ld+json">\n${JSON.stringify(multiFaqSchema, null, 2)}\n    </script>`)
+
+  const rootRegex = /<div id="root">[\s\S]*?<\/div>/
+  html = html.replace(rootRegex, `<div id="root">${multiContentHtml}</div>`)
+
+  const fileName = `${p.toolKey}-${p.lang}.html`
+  fs.writeFileSync(path.resolve(distDir, fileName), html, 'utf-8')
+  console.log(`[prerender] Rendered Multilingual HTML: /${fileName} (${p.lang})`)
 }
 
 console.log('[prerender] Complete! Generated static HTML for all routes & educational guides.')

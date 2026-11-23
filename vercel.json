@@ -80,6 +80,36 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/loan",
+      "has": [{ "type": "query", "key": "lang", "value": "es" }],
+      "destination": "/loan-es.html"
+    },
+    {
+      "source": "/loan",
+      "has": [{ "type": "query", "key": "lang", "value": "ar" }],
+      "destination": "/loan-ar.html"
+    },
+    {
+      "source": "/compound",
+      "has": [{ "type": "query", "key": "lang", "value": "es" }],
+      "destination": "/compound-es.html"
+    },
+    {
+      "source": "/salary",
+      "has": [{ "type": "query", "key": "lang", "value": "es" }],
+      "destination": "/salary-es.html"
+    },
+    {
+      "source": "/salary",
+      "has": [{ "type": "query", "key": "lang", "value": "pt" }],
+      "destination": "/salary-pt.html"
+    },
+    {
+      "source": "/bmi",
+      "has": [{ "type": "query", "key": "lang", "value": "es" }],
+      "destination": "/bmi-es.html"
+    },
+    {
       "source": "/salary",
       "destination": "/salary.html"
     },

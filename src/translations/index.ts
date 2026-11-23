@@ -167,14 +167,14 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
     },
     tools: {
       loan: {
-        name: 'Mortgage Cost Estimator & Loan Calculator',
-        shortDesc: 'Compute monthly mortgage payments, down payment, property taxes, insurance, and amortization schedule.',
+        name: 'Loan Calculator & Mortgage Payment Estimator',
+        shortDesc: 'Compute monthly loan and mortgage payments, down payment, property taxes, insurance, and amortization schedule.',
         category: 'finance',
         seo: {
-          title: 'Mortgage Cost Estimator & Calculator (with Taxes & Insurance)',
+          title: 'Loan Calculator - Mortgage & Payment Estimator',
           subtitle: 'Accurately compute monthly mortgage payments, calculate down payment savings, property taxes, homeowners insurance, and analyze your principal vs interest chart.',
-          metaDesc: 'Free mortgage cost estimator to compute monthly home payments with taxes, insurance, down payment, interest rates, and full amortization schedule.',
-          badge: 'High Precision Mortgage Tool',
+          metaDesc: 'Free loan calculator to compute monthly mortgage and loan payments with taxes, insurance, down payment, interest rates, and full amortization schedule.',
+          badge: 'High Precision Loan & Mortgage Tool',
           introParagraphs: [
             'Estimating your total monthly homeownership cost is the most critical step before shopping for real estate or negotiating a home loan. Our free Mortgage Cost Estimator and Loan Calculator allows you to compute your exact monthly mortgage payment, factoring in principal, interest, property taxes, homeowners insurance (hazard insurance), and private mortgage insurance (PMI).',
             'Whether you are computing down payment options for a first-time home purchase, evaluating a 15-year vs. 30-year fixed loan, or calculating amortization payoff schedules, this comprehensive simulator gives you full financial clarity.'
@@ -388,9 +388,9 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
         shortDesc: 'Calculate annual to gross wages, hourly to yearly pay, income tax deductions, and net take-home salary.',
         category: 'finance',
         seo: {
-          title: 'Salary Calculator – Gross to Net Pay & Take-Home Salary (2026)',
+          title: 'US Salary Calculator - Gross to Net Paycheck',
           subtitle: 'Convert between annual salary, monthly pay, and hourly wages to calculate your exact net take-home paycheck after federal, state, and local taxes.',
-          metaDesc: 'Free salary calculator to convert hourly, monthly, and annual gross pay to net take-home paycheck after federal income tax, state tax, and pre-tax deductions.',
+          metaDesc: 'Free US salary calculator to convert hourly, monthly, and annual pay to net take-home pay after federal and state taxes. Calculate your paycheck now.',
           badge: 'Annual & Gross Wage Converter',
           introParagraphs: [
             'Calculating your net take-home pay from your gross pay is essential when evaluating job offers, planning income growth, or budgeting monthly household expenses against median income benchmarks. Our free Annual to Gross and Net Salary Calculator converts between hourly rate, monthly wage, and annual salary, projecting your spendable paycheck after federal income tax, state income tax, local income tax, and statutory payroll deductions.',
