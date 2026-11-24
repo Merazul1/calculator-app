@@ -267,6 +267,8 @@ export default function App() {
             currentLang={currentLang}
             onSelectTool={handleNavigate}
             onSelectLang={setCurrentLang}
+            onSelectGuide={handleSelectGuide}
+            onNavigate={handleNavigate}
           />
         )}
 

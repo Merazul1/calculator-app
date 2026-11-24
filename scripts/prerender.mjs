@@ -79,7 +79,7 @@ const TOOLS = [
     metaDesc: 'Free loan calculator to compute monthly mortgage and loan payments with taxes, insurance, down payment, interest rates, and full amortization schedule.',
     badge: 'High Precision Loan & Mortgage Tool',
     introParagraphs: [
-      'Estimating your total monthly homeownership cost is the most critical step before shopping for real estate or negotiating a home loan. Our free Mortgage Cost Estimator and Loan Calculator allows you to compute your exact monthly mortgage payment, factoring in principal, interest, property taxes, homeowners insurance (hazard insurance), and private mortgage insurance (PMI).',
+      'Estimating your total monthly homeownership cost is the most critical step before shopping for real estate or negotiating a home loan. Our free Loan Calculator and Mortgage Payment Estimator allows you to compute your exact monthly mortgage payment, factoring in principal, interest, property taxes, homeowners insurance (hazard insurance), and private mortgage insurance (PMI).',
       'Whether you are computing down payment options for a first-time home purchase, evaluating a 15-year vs. 30-year fixed loan, or calculating amortization payoff schedules, this comprehensive simulator gives you full financial clarity.'
     ],
     howItWorksTitle: 'How to Compute Your Mortgage & Loan Payment',
@@ -353,7 +353,7 @@ const GUIDES = [
     author: 'SmartCalcLab Financial Analysis Team',
     reviewedBy: 'CFPB & Federal Reserve Benchmark Guidelines',
     toolPath: '/loan',
-    toolName: 'Mortgage Cost Estimator & Loan Calculator',
+    toolName: 'Loan Calculator & Mortgage Payment Estimator',
     summary: 'Master the four components of a monthly mortgage payment (PITI), understand the mathematical curve of amortization schedules, and learn five actionable strategies to save tens of thousands in lifetime interest charges.',
     paragraphs: [
       'When purchasing residential real estate, many first-time homebuyers mistakenly focus solely on the principal and interest quoted by their lender. In reality, your actual monthly housing expense consists of four distinct pillars known in the banking industry as PITI: Principal, Interest, Property Taxes, and Homeowners Insurance.',
@@ -457,6 +457,18 @@ const GUIDES = [
     ]
   }
 ]
+
+function replaceRoot(html, innerContent) {
+  const rootStart = html.indexOf('<div id="root">')
+  const bodyEnd = html.lastIndexOf('</body>')
+  if (rootStart !== -1 && bodyEnd !== -1) {
+    const lastDiv = html.lastIndexOf('</div>', bodyEnd)
+    if (lastDiv !== -1 && lastDiv > rootStart) {
+      return html.slice(0, rootStart) + `<div id="root">${innerContent}</div>` + html.slice(lastDiv + 6)
+    }
+  }
+  return html
+}
 
 console.log('[prerender] Starting static pre-rendering...')
 
@@ -700,8 +712,7 @@ for (const tool of TOOLS) {
   const jsonLdRegex = /<script type="application\/ld\+json">[\s\S]*?<\/script>/
   html = html.replace(jsonLdRegex, `<script type="application/ld+json">\n${JSON.stringify(faqSchema, null, 2)}\n    </script>`)
 
-  const rootRegex = /<div id="root">[\s\S]*?<\/div>/
-  html = html.replace(rootRegex, `<div id="root">${contentHtml}</div>`)
+  html = replaceRoot(html, contentHtml)
 
   const targetDir = path.resolve(distDir, tool.key)
   if (!fs.existsSync(targetDir)) {
@@ -755,8 +766,7 @@ for (const page of LEGAL_PAGES) {
       </footer>
   `
 
-  const rootRegex = /<div id="root">[\s\S]*?<\/div>/
-  html = html.replace(rootRegex, `<div id="root">${fullLegalHtml}</div>`)
+  html = replaceRoot(html, fullLegalHtml)
 
   const targetDir = path.resolve(distDir, page.key)
   if (!fs.existsSync(targetDir)) {
@@ -854,8 +864,7 @@ for (const page of LEGAL_PAGES) {
       </footer>
   `
 
-  const rootRegex = /<div id="root">[\s\S]*?<\/div>/
-  html = html.replace(rootRegex, `<div id="root">${hubHtml}</div>`)
+  html = replaceRoot(html, hubHtml)
 
   const targetDir = path.resolve(distDir, 'guides')
   if (!fs.existsSync(targetDir)) {
@@ -961,8 +970,7 @@ for (const guide of GUIDES) {
       </footer>
   `
 
-  const rootRegex = /<div id="root">[\s\S]*?<\/div>/
-  html = html.replace(rootRegex, `<div id="root">${guideHtml}</div>`)
+  html = replaceRoot(html, guideHtml)
 
   const guideDir = path.resolve(distDir, 'guides', guide.slug)
   if (!fs.existsSync(guideDir)) {
@@ -1351,8 +1359,7 @@ for (const p of MULTILINGUAL_PAGES) {
   const jsonLdRegex = /<script type="application\/ld\+json">[\s\S]*?<\/script>/
   html = html.replace(jsonLdRegex, `<script type="application/ld+json">\n${JSON.stringify(multiFaqSchema, null, 2)}\n    </script>`)
 
-  const rootRegex = /<div id="root">[\s\S]*?<\/div>/
-  html = html.replace(rootRegex, `<div id="root">${multiContentHtml}</div>`)
+  html = replaceRoot(html, multiContentHtml)
 
   const fileName = `${p.toolKey}-${p.lang}.html`
   fs.writeFileSync(path.resolve(distDir, fileName), html, 'utf-8')

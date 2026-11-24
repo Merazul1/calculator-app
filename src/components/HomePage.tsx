@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
-import { ToolId, Language } from '../types';
+import { ToolId, Language, PageId } from '../types';
 import { TRANSLATIONS, LANGUAGES } from '../translations';
+import { GUIDES } from '../data/guides';
 import { ToolCard } from './ToolCard';
 import { AdSlot } from './AdSlot';
-import { Search, Sparkles, Shield, Cpu, Zap, Globe2 } from 'lucide-react';
+import { Search, Sparkles, Shield, Cpu, Zap, Globe2, BookOpen, ArrowRight, Award } from 'lucide-react';
 
 interface HomePageProps {
   currentLang: Language;
   onSelectTool: (id: ToolId) => void;
   onSelectLang: (lang: Language) => void;
+  onSelectGuide?: (slug: string) => void;
+  onNavigate?: (page: PageId) => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ currentLang, onSelectTool, onSelectLang }) => {
+export const HomePage: React.FC<HomePageProps> = ({ 
+  currentLang, 
+  onSelectTool, 
+  onSelectLang,
+  onSelectGuide,
+  onNavigate,
+}) => {
   const t = TRANSLATIONS[currentLang];
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'finance' | 'health' | 'daily'>('all');
@@ -122,6 +131,70 @@ export const HomePage: React.FC<HomePageProps> = ({ currentLang, onSelectTool, o
         )}
       </section>
 
+      {/* Featured Educational Guides & Research Hub */}
+      <section className="space-y-6 pt-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div>
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Publisher Research &amp; Knowledge Hub</span>
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+              Featured Calculation &amp; Financial Guides
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-2xl">
+              Original mathematical breakdowns, statutory benchmark analyses, and step-by-step practical guides published by our research team.
+            </p>
+          </div>
+          {onNavigate && (
+            <button
+              onClick={() => onNavigate('guides')}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors whitespace-nowrap cursor-pointer"
+            >
+              <span>Explore All {GUIDES.length} Guides</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          )}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {GUIDES.slice(0, 3).map((guide) => (
+            <article
+              key={guide.slug}
+              className="flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-300 dark:hover:border-blue-700 transition-all group"
+            >
+              <div>
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-400 dark:text-slate-500 mb-3">
+                  <span className="px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-900 font-medium">
+                    {guide.category}
+                  </span>
+                  <span>{guide.readTime}</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2 leading-snug">
+                  {guide.title}
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3 mb-4">
+                  {guide.summary}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                <span className="text-[11px] text-slate-400 truncate max-w-[170px]">
+                  🛡️ {guide.reviewedBy.split('&')[0]}
+                </span>
+                <button
+                  onClick={() => onSelectGuide ? onSelectGuide(guide.slug) : (onNavigate && onNavigate('guides'))}
+                  className="font-bold text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <span>Read Guide</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* Middle AdSlot */}
       <AdSlot currentLang={currentLang} format="in-article" />
 
@@ -130,13 +203,13 @@ export const HomePage: React.FC<HomePageProps> = ({ currentLang, onSelectTool, o
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 text-blue-300 text-xs font-bold uppercase tracking-wider">
             <Globe2 className="w-4 h-4" />
-            <span>Target Global Non-English Search Markets</span>
+            <span>International Financial &amp; Metric Standards</span>
           </div>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-            Available in 4 Major Global Languages
+            Available in Global Languages &amp; Regional Formats
           </h3>
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Targeting low-competition, high-volume search traffic across Latin America, Spain, Middle East, and India.
+            Serving students, homebuyers, and financial professionals worldwide with localized currency symbols, decimal notations, and tax standards.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
@@ -191,14 +264,14 @@ export const HomePage: React.FC<HomePageProps> = ({ currentLang, onSelectTool, o
 
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4">
           <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400 flex items-center justify-center flex-shrink-0">
-            <Zap className="w-5 h-5" />
+            <Award className="w-5 h-5" />
           </div>
           <div>
             <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">
-              AdSense Ready Architecture
+              Statutory Accuracy &amp; Standards
             </h4>
             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Equipped with in-depth educational text, formulas, and schema FAQs on every page to prevent thin-content rejection.
+              Every formula is cross-referenced with official standards from the CFPB, IRS Publication 15-T, and World Health Organization guidelines.
             </p>
           </div>
         </div>

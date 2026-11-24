@@ -36,7 +36,7 @@ export const GUIDES: GuideArticle[] = [
     author: 'SmartCalcLab Financial Analysis Team',
     reviewedBy: 'CFPB & Federal Reserve Benchmark Guidelines',
     toolPath: '/loan',
-    toolName: 'Mortgage Cost Estimator & Loan Calculator',
+    toolName: 'Loan Calculator & Mortgage Payment Estimator',
     summary: 'Master the four components of a monthly mortgage payment (PITI), understand the mathematical curve of amortization schedules, and learn five actionable strategies to save tens of thousands in lifetime interest charges.',
     sections: [
       {
