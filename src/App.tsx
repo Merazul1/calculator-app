@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Language, PageId, ToolId } from './types';
 import { LANGUAGES, TRANSLATIONS } from './translations';
 import { Header } from './components/Header';
@@ -8,25 +8,32 @@ import { AdSlot } from './components/AdSlot';
 import { SEOContentSection } from './components/SEOContentSection';
 import { SEOHead } from './components/SEOHead';
 
-// Calculator components
-import { LoanCalculator } from './components/calculators/LoanCalculator';
-import { AutoLoanCalculator } from './components/calculators/AutoLoanCalculator';
-import { CurrencyConverter } from './components/calculators/CurrencyConverter';
-import { BMICalculator } from './components/calculators/BMICalculator';
-import { PercentageCalculator } from './components/calculators/PercentageCalculator';
-import { CompoundInterestCalculator } from './components/calculators/CompoundInterestCalculator';
-import { SalaryCalculator } from './components/calculators/SalaryCalculator';
+// Lazy-loaded Calculator components for fast initial load
+const LoanCalculator = lazy(() => import('./components/calculators/LoanCalculator').then(m => ({ default: m.LoanCalculator })));
+const AutoLoanCalculator = lazy(() => import('./components/calculators/AutoLoanCalculator').then(m => ({ default: m.AutoLoanCalculator })));
+const CurrencyConverter = lazy(() => import('./components/calculators/CurrencyConverter').then(m => ({ default: m.CurrencyConverter })));
+const BMICalculator = lazy(() => import('./components/calculators/BMICalculator').then(m => ({ default: m.BMICalculator })));
+const PercentageCalculator = lazy(() => import('./components/calculators/PercentageCalculator').then(m => ({ default: m.PercentageCalculator })));
+const CompoundInterestCalculator = lazy(() => import('./components/calculators/CompoundInterestCalculator').then(m => ({ default: m.CompoundInterestCalculator })));
+const SalaryCalculator = lazy(() => import('./components/calculators/SalaryCalculator').then(m => ({ default: m.SalaryCalculator })));
 
-// Legal & trust pages
-import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
-import { TermsOfService } from './components/pages/TermsOfService';
-import { AboutUs } from './components/pages/AboutUs';
-import { ContactUs } from './components/pages/ContactUs';
-import { Disclaimer } from './components/pages/Disclaimer';
+// Lazy-loaded Legal & trust pages
+const PrivacyPolicy = lazy(() => import('./components/pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const TermsOfService = lazy(() => import('./components/pages/TermsOfService').then(m => ({ default: m.TermsOfService })));
+const AboutUs = lazy(() => import('./components/pages/AboutUs').then(m => ({ default: m.AboutUs })));
+const ContactUs = lazy(() => import('./components/pages/ContactUs').then(m => ({ default: m.ContactUs })));
+const Disclaimer = lazy(() => import('./components/pages/Disclaimer').then(m => ({ default: m.Disclaimer })));
 
-// Educational Guides Hub
-import { GuidesPage } from './components/pages/GuidesPage';
-import { GuideDetailPage } from './components/pages/GuideDetailPage';
+// Lazy-loaded Educational Guides Hub
+const GuidesPage = lazy(() => import('./components/pages/GuidesPage').then(m => ({ default: m.GuidesPage })));
+const GuideDetailPage = lazy(() => import('./components/pages/GuideDetailPage').then(m => ({ default: m.GuideDetailPage })));
+
+const LoadingSpinner = () => (
+  <div className="py-24 flex flex-col items-center justify-center gap-3 text-slate-400">
+    <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+    <span className="text-xs font-semibold text-slate-500">Loading calculation engine...</span>
+  </div>
+);
 
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 
@@ -274,52 +281,60 @@ export default function App() {
 
         {/* Individual Tool Pages */}
         {isToolPage && (
-          <div className="space-y-8">
-            {/* Top Leaderboard Ad */}
-            <AdSlot currentLang={currentLang} format="leaderboard" />
+          <Suspense fallback={<LoadingSpinner />}>
+            <div className="space-y-8">
+              {/* Top Leaderboard Ad */}
+              <AdSlot currentLang={currentLang} format="leaderboard" />
 
-            {/* The Active Calculator */}
-            {currentPage === 'loan' && <LoanCalculator currentLang={currentLang} />}
-            {currentPage === 'autoloan' && <AutoLoanCalculator currentLang={currentLang} />}
-            {currentPage === 'currency' && <CurrencyConverter currentLang={currentLang} />}
-            {currentPage === 'bmi' && <BMICalculator currentLang={currentLang} />}
-            {currentPage === 'percentage' && <PercentageCalculator currentLang={currentLang} />}
-            {currentPage === 'compound' && <CompoundInterestCalculator currentLang={currentLang} />}
-            {currentPage === 'salary' && <SalaryCalculator currentLang={currentLang} />}
+              {/* The Active Calculator */}
+              {currentPage === 'loan' && <LoanCalculator currentLang={currentLang} />}
+              {currentPage === 'autoloan' && <AutoLoanCalculator currentLang={currentLang} />}
+              {currentPage === 'currency' && <CurrencyConverter currentLang={currentLang} />}
+              {currentPage === 'bmi' && <BMICalculator currentLang={currentLang} />}
+              {currentPage === 'percentage' && <PercentageCalculator currentLang={currentLang} />}
+              {currentPage === 'compound' && <CompoundInterestCalculator currentLang={currentLang} />}
+              {currentPage === 'salary' && <SalaryCalculator currentLang={currentLang} />}
 
-            {/* In-Article Mid Ad Unit */}
-            <AdSlot currentLang={currentLang} format="in-article" />
+              {/* In-Article Mid Ad Unit */}
+              <AdSlot currentLang={currentLang} format="in-article" />
 
-            {/* In-Depth SEO Rich Content */}
-            <SEOContentSection seo={t.tools[currentPage as ToolId].seo} />
+              {/* In-Depth SEO Rich Content */}
+              <SEOContentSection seo={t.tools[currentPage as ToolId].seo} />
 
-            {/* Bottom Ad Unit */}
-            <AdSlot currentLang={currentLang} format="in-article" />
-          </div>
+              {/* Bottom Ad Unit */}
+              <AdSlot currentLang={currentLang} format="in-article" />
+            </div>
+          </Suspense>
         )}
 
         {/* Educational Guides Section */}
         {currentPage === 'guides' && (
-          activeGuideSlug ? (
-            <GuideDetailPage
-              slug={activeGuideSlug}
-              onNavigate={handleNavigate}
-              onSelectGuide={handleSelectGuide}
-            />
-          ) : (
-            <GuidesPage
-              onSelectGuide={handleSelectGuide}
-              onNavigate={handleNavigate}
-            />
-          )
+          <Suspense fallback={<LoadingSpinner />}>
+            {activeGuideSlug ? (
+              <GuideDetailPage
+                slug={activeGuideSlug}
+                onNavigate={handleNavigate}
+                onSelectGuide={handleSelectGuide}
+              />
+            ) : (
+              <GuidesPage
+                onSelectGuide={handleSelectGuide}
+                onNavigate={handleNavigate}
+              />
+            )}
+          </Suspense>
         )}
 
         {/* Legal & Trust Pages for AdSense Compliance */}
-        {currentPage === 'privacy' && <PrivacyPolicy currentLang={currentLang} />}
-        {currentPage === 'terms' && <TermsOfService currentLang={currentLang} />}
-        {currentPage === 'about' && <AboutUs currentLang={currentLang} />}
-        {currentPage === 'contact' && <ContactUs currentLang={currentLang} />}
-        {currentPage === 'disclaimer' && <Disclaimer currentLang={currentLang} />}
+        {['privacy', 'terms', 'about', 'contact', 'disclaimer'].includes(currentPage) && (
+          <Suspense fallback={<LoadingSpinner />}>
+            {currentPage === 'privacy' && <PrivacyPolicy currentLang={currentLang} />}
+            {currentPage === 'terms' && <TermsOfService currentLang={currentLang} />}
+            {currentPage === 'about' && <AboutUs currentLang={currentLang} />}
+            {currentPage === 'contact' && <ContactUs currentLang={currentLang} />}
+            {currentPage === 'disclaimer' && <Disclaimer currentLang={currentLang} />}
+          </Suspense>
+        )}
       </main>
 
       {/* Global Footer */}

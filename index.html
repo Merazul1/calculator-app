@@ -60,7 +60,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3890743631653804" crossorigin="anonymous"></script>
 
     <!-- Ahrefs Web Analytics -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="VefSA7IuILcn2I5SpSPEgg" async></script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="VefSA7IuILcn2I5SpSPEgg" defer></script>
 
     <!-- Schema.org JSON-LD Structured Data for WebSite & Application -->
     <script type="application/ld+json">
@@ -93,10 +93,14 @@
     }
     </script>
 
-    <!-- Google Fonts for Multi-language Support (Latin, Arabic, Devanagari) -->
+    <!-- Google Fonts for Multi-language Support (Latin, Arabic, Devanagari) - Asynchronous Non-blocking Load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap">
+    </noscript>
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased min-h-screen">
     <div id="root">
@@ -123,10 +127,19 @@
           <span>Standards: <strong>CFPB / WHO / IRS Benchmarks (2026)</strong></span>
         </div>
 
-        <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem;">SmartCalcLab — Free High-Precision Financial, Health &amp; Daily Multi-Calculators</h1>
-        <p style="font-size: 1.125rem; color: #475569; margin-bottom: 2rem; max-width: 900px;">
-          Welcome to SmartCalcLab. We provide fast, accurate, client-side online calculation tools for auto loans, daily finance, mortgages, currency exchange, body mass index (BMI), percentages, compound interest, and take-home pay in English, Spanish, Portuguese, French, German, Arabic, and Hindi. All computations execute locally in your web browser with zero server latency and absolute privacy.
-        </p>
+        <section class="text-center py-8 sm:py-12 max-w-4xl mx-auto px-4" style="text-align: center; padding: 2rem 1rem 1.5rem; max-width: 56rem; margin: 0 auto;">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-4" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; border-radius: 9999px; background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;">
+            <span>✨ Multilingual High-Precision Utility Suite</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight sm:leading-none mb-4" style="font-size: 2.25rem; font-weight: 900; color: #0f172a; letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 1rem;">
+            Fast, Free &amp; Accurate Calculators for Daily Finance, Health &amp; Math
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed" style="font-size: 1rem; color: #475569; max-width: 42rem; margin: 0 auto 2rem; line-height: 1.6;">
+            Free calculators for mortgages, live currencies, body mass index, percentages, and take-home salary. Fast, private, and 100% free with no registration required.
+          </p>
+        </section>
 
         <section style="margin-bottom: 2.5rem;">
           <h2 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1.25rem;">Available Online Calculators &amp; Educational Tools</h2>
