@@ -135,7 +135,7 @@ export const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ currentLang 
       </div>
 
       {/* Country & Regional Tax System Presets */}
-      <div className="mt-6 p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800">
+      <div className="mt-6 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-800">
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2.5">
           <Globe2 className="w-4 h-4 text-cyan-500" />
           <span>Select Regional Tax &amp; Payroll Preset:</span>

@@ -80,7 +80,7 @@ export const GuidesPage: React.FC<GuidesPageProps> = ({ onSelectGuide, onNavigat
       </section>
 
       {/* Bottom CTA to Interactive Tools */}
-      <section className="bg-slate-100 dark:bg-slate-850 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <section className="bg-slate-100 dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div>
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
             Looking for Interactive Calculators?

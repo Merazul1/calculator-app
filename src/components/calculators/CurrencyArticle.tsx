@@ -27,7 +27,7 @@ export const CurrencyArticle: React.FC = () => {
     <article className="mt-12 space-y-10 text-slate-800 dark:text-slate-200">
       {/* Editorial Byline & Live Rates Transparency Header */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" />
             <span>
@@ -70,7 +70,7 @@ export const CurrencyArticle: React.FC = () => {
 
         <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700/80">
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50 dark:bg-slate-850 text-slate-900 dark:text-white font-semibold border-b border-slate-200 dark:border-slate-700/80">
+            <thead className="bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold border-b border-slate-200 dark:border-slate-700/80">
               <tr>
                 <th className="py-3 px-4 sm:px-6">Provider Markup</th>
                 <th className="py-3 px-4 sm:px-6">Exchange Rate Received</th>
@@ -152,19 +152,19 @@ export const CurrencyArticle: React.FC = () => {
           Four Traps That Quietly Drain Foreign Exchange
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800">
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
             <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Dynamic Currency Conversion (DCC)</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">When an overseas ATM or credit card terminal asks &ldquo;Pay in USD or EUR?&rdquo;, always choose the <strong>local currency (EUR)</strong>. Selecting your home currency triggers an exorbitant 5–8% DCC markup.</p>
           </div>
-          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800">
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
             <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Weekend Spread Widening</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">Forex markets close from Friday 22:00 UTC to Sunday 22:00 UTC. Apps often widen their spreads by 1–2% over weekends to buffer against market opening gaps.</p>
           </div>
-          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800">
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
             <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Airport Exchange Kiosks</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">Airport physical currency booths pay high terminal concessions and charge 10% to 18% spreads. Avoid exchanging physical cash in airport terminals.</p>
           </div>
-          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800">
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
             <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Foreign Transaction Surcharges</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">Standard credit cards tack on a 3% foreign transaction fee on every purchase made outside your domestic country. Switch to travel cards with 0% foreign transaction fees.</p>
           </div>
@@ -188,7 +188,7 @@ export const CurrencyArticle: React.FC = () => {
             >
               <button
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                className="w-full text-left p-4 sm:p-5 font-semibold text-slate-900 dark:text-white flex items-center justify-between gap-4 hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors"
+                className="w-full text-left p-4 sm:p-5 font-semibold text-slate-900 dark:text-white flex items-center justify-between gap-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
               >
                 <span className="text-base sm:text-lg">{faq.q}</span>
                 {openFaq === idx ? (
@@ -198,7 +198,7 @@ export const CurrencyArticle: React.FC = () => {
                 )}
               </button>
               {openFaq === idx && (
-                <div className="p-4 sm:p-5 pt-0 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850/50">
+                <div className="p-4 sm:p-5 pt-0 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
                   {faq.a}
                 </div>
               )}
@@ -208,7 +208,7 @@ export const CurrencyArticle: React.FC = () => {
       </section>
 
       {/* Methodology & Citations */}
-      <section className="bg-slate-50 dark:bg-slate-850 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 space-y-6 text-sm text-slate-600 dark:text-slate-400">
+      <section className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 space-y-6 text-sm text-slate-600 dark:text-slate-400">
         <div>
           <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
             Foreign Exchange Methodology &amp; Sources

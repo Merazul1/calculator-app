@@ -27,7 +27,7 @@ export const SalaryArticle: React.FC = () => {
     <article className="mt-12 space-y-10 text-slate-800 dark:text-slate-200">
       {/* Editorial Byline & Standards Header */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" />
             <span>
@@ -69,7 +69,7 @@ export const SalaryArticle: React.FC = () => {
 
         <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700/80">
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50 dark:bg-slate-850 text-slate-900 dark:text-white font-semibold border-b border-slate-200 dark:border-slate-700/80">
+            <thead className="bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold border-b border-slate-200 dark:border-slate-700/80">
               <tr>
                 <th className="py-3.5 px-4 sm:px-6">Paycheck Line Item</th>
                 <th className="py-3.5 px-4 sm:px-6">Calculation Basis</th>
@@ -87,7 +87,7 @@ export const SalaryArticle: React.FC = () => {
                 <td className="py-3.5 px-4 sm:px-6 font-sans text-slate-500">IRS inflation-adjusted allowance</td>
                 <td className="py-3.5 px-4 sm:px-6 text-right text-emerald-600 dark:text-emerald-400">−$16,100.00</td>
               </tr>
-              <tr className="bg-slate-50/50 dark:bg-slate-850/50">
+              <tr className="bg-slate-50/50 dark:bg-slate-800/50">
                 <td className="py-3.5 px-4 sm:px-6 font-sans font-semibold">Federal Taxable Income</td>
                 <td className="py-3.5 px-4 sm:px-6 font-sans text-slate-500">$75,000 − $16,100</td>
                 <td className="py-3.5 px-4 sm:px-6 text-right font-bold">$58,900.00</td>
@@ -112,7 +112,7 @@ export const SalaryArticle: React.FC = () => {
                 <td className="py-4 px-4 sm:px-6 font-sans text-emerald-700 dark:text-emerald-300">Net annual spendable income</td>
                 <td className="py-4 px-4 sm:px-6 text-right text-base font-extrabold text-emerald-700 dark:text-emerald-300">$61,592.50</td>
               </tr>
-              <tr className="bg-slate-50 dark:bg-slate-850 text-slate-800 dark:text-slate-200">
+              <tr className="bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
                 <td className="py-3 px-4 sm:px-6 font-sans">Monthly / Bi-Weekly Paycheck</td>
                 <td className="py-3 px-4 sm:px-6 font-sans text-slate-500">12 monthly checks / 26 bi-weekly checks</td>
                 <td className="py-3 px-4 sm:px-6 text-right font-medium">$5,132.71 / $2,368.94</td>
@@ -175,7 +175,7 @@ export const SalaryArticle: React.FC = () => {
 
         <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700/80">
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50 dark:bg-slate-850 text-slate-900 dark:text-white font-semibold border-b border-slate-200 dark:border-slate-700/80">
+            <thead className="bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold border-b border-slate-200 dark:border-slate-700/80">
               <tr>
                 <th className="py-3 px-4 sm:px-6">Gross Salary</th>
                 <th className="py-3 px-4 sm:px-6">Federal Income Tax</th>
@@ -206,7 +206,7 @@ export const SalaryArticle: React.FC = () => {
                 <td className="py-3 px-4 sm:px-6 font-medium text-emerald-600 dark:text-emerald-400">$148,927</td>
                 <td className="py-3 px-4 sm:px-6 text-right">18.4%</td>
               </tr>
-              <tr className="bg-slate-50/50 dark:bg-slate-850/50">
+              <tr className="bg-slate-50/50 dark:bg-slate-800/50">
                 <td className="py-3 px-4 sm:px-6 font-bold text-slate-900 dark:text-white">$250,000</td>
                 <td className="py-3 px-4 sm:px-6">$51,304</td>
                 <td className="py-3 px-4 sm:px-6">$15,514</td>
@@ -256,7 +256,7 @@ export const SalaryArticle: React.FC = () => {
             >
               <button
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                className="w-full text-left p-4 sm:p-5 font-semibold text-slate-900 dark:text-white flex items-center justify-between gap-4 hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors"
+                className="w-full text-left p-4 sm:p-5 font-semibold text-slate-900 dark:text-white flex items-center justify-between gap-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
               >
                 <span className="text-base sm:text-lg">{faq.q}</span>
                 {openFaq === idx ? (
@@ -266,7 +266,7 @@ export const SalaryArticle: React.FC = () => {
                 )}
               </button>
               {openFaq === idx && (
-                <div className="p-4 sm:p-5 pt-0 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850/50">
+                <div className="p-4 sm:p-5 pt-0 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
                   {faq.a}
                 </div>
               )}
@@ -276,7 +276,7 @@ export const SalaryArticle: React.FC = () => {
       </section>
 
       {/* Methodology, Citations & Related Links */}
-      <section className="bg-slate-50 dark:bg-slate-850 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 space-y-6 text-sm text-slate-600 dark:text-slate-400">
+      <section className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 space-y-6 text-sm text-slate-600 dark:text-slate-400">
         <div>
           <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
             Tax Methodology &amp; Official Sources

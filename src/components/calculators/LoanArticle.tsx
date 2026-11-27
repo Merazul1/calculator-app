@@ -35,7 +35,7 @@ export const LoanArticle: React.FC = () => {
     <article className="mt-12 space-y-10 text-slate-800 dark:text-slate-200">
       {/* 1. Byline & Editorial Standards Header */}
       <section className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" />
             <span>
@@ -320,7 +320,7 @@ export const LoanArticle: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-slate-50/50 dark:bg-slate-850/50 transition-colors"
+                className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-slate-50/50 dark:bg-slate-800/50 transition-colors"
               >
                 <button
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
@@ -345,7 +345,7 @@ export const LoanArticle: React.FC = () => {
       </section>
 
       {/* 11. Methodology & Statutory Sources */}
-      <section className="bg-slate-50 dark:bg-slate-850 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+      <section className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
           Methodology and sources
         </h2>

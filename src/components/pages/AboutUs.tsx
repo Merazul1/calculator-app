@@ -54,7 +54,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ currentLang }) => {
       </div>
 
       {/* Editorial Methodology & E-E-A-T Standards */}
-      <section className="space-y-4 rounded-2xl p-6 bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800">
+      <section className="space-y-4 rounded-2xl p-6 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
         <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold text-sm uppercase tracking-wider">
           <BookCheck className="w-5 h-5" />
           <span>Our Editorial &amp; Verification Methodology</span>
@@ -106,7 +106,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ currentLang }) => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 font-black flex items-center justify-center text-sm">
                 DV
@@ -121,7 +121,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ currentLang }) => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 font-black flex items-center justify-center text-sm">
                 SJ
@@ -136,7 +136,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ currentLang }) => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/60 text-amber-700 dark:text-amber-300 font-black flex items-center justify-center text-sm">
                 MT
@@ -151,7 +151,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ currentLang }) => {
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-rose-100 dark:bg-rose-900/60 text-rose-700 dark:text-rose-300 font-black flex items-center justify-center text-sm">
                 ER
@@ -169,7 +169,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ currentLang }) => {
       </section>
 
       {/* Editorial Policy & Reader Corrections */}
-      <section className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-3">
+      <section className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 space-y-3">
         <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-wider">
           <BookCheck className="w-4 h-4" />
           <span>Editorial Standards &amp; Reader Corrections</span>
