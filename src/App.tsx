@@ -10,11 +10,18 @@ import { SEOHead } from './components/SEOHead';
 
 // Lazy-loaded Calculator components for fast initial load
 const LoanCalculator = lazy(() => import('./components/calculators/LoanCalculator').then(m => ({ default: m.LoanCalculator })));
+const LoanArticle = lazy(() => import('./components/calculators/LoanArticle').then(m => ({ default: m.LoanArticle })));
+const SalaryArticle = lazy(() => import('./components/calculators/SalaryArticle').then(m => ({ default: m.SalaryArticle })));
 const AutoLoanCalculator = lazy(() => import('./components/calculators/AutoLoanCalculator').then(m => ({ default: m.AutoLoanCalculator })));
+const AutoLoanArticle = lazy(() => import('./components/calculators/AutoLoanArticle').then(m => ({ default: m.AutoLoanArticle })));
 const CurrencyConverter = lazy(() => import('./components/calculators/CurrencyConverter').then(m => ({ default: m.CurrencyConverter })));
+const CurrencyArticle = lazy(() => import('./components/calculators/CurrencyArticle').then(m => ({ default: m.CurrencyArticle })));
 const BMICalculator = lazy(() => import('./components/calculators/BMICalculator').then(m => ({ default: m.BMICalculator })));
+const BMIArticle = lazy(() => import('./components/calculators/BMIArticle').then(m => ({ default: m.BMIArticle })));
 const PercentageCalculator = lazy(() => import('./components/calculators/PercentageCalculator').then(m => ({ default: m.PercentageCalculator })));
+const PercentageArticle = lazy(() => import('./components/calculators/PercentageArticle').then(m => ({ default: m.PercentageArticle })));
 const CompoundInterestCalculator = lazy(() => import('./components/calculators/CompoundInterestCalculator').then(m => ({ default: m.CompoundInterestCalculator })));
+const CompoundArticle = lazy(() => import('./components/calculators/CompoundArticle').then(m => ({ default: m.CompoundArticle })));
 const SalaryCalculator = lazy(() => import('./components/calculators/SalaryCalculator').then(m => ({ default: m.SalaryCalculator })));
 
 // Lazy-loaded Legal & trust pages
@@ -299,7 +306,16 @@ export default function App() {
               <AdSlot currentLang={currentLang} format="in-article" />
 
               {/* In-Depth SEO Rich Content */}
-              <SEOContentSection seo={t.tools[currentPage as ToolId].seo} />
+              {currentPage === 'loan' && <LoanArticle />}
+              {currentPage === 'salary' && <SalaryArticle />}
+              {currentPage === 'autoloan' && <AutoLoanArticle />}
+              {currentPage === 'currency' && <CurrencyArticle />}
+              {currentPage === 'bmi' && <BMIArticle />}
+              {currentPage === 'compound' && <CompoundArticle />}
+              {currentPage === 'percentage' && <PercentageArticle />}
+              {!['loan', 'salary', 'autoloan', 'currency', 'bmi', 'compound', 'percentage'].includes(currentPage) && (
+                <SEOContentSection seo={t.tools[currentPage as ToolId].seo} />
+              )}
 
               {/* Bottom Ad Unit */}
               <AdSlot currentLang={currentLang} format="in-article" />
