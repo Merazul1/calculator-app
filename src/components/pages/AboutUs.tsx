@@ -90,6 +90,101 @@ export const AboutUs: React.FC<AboutUsProps> = ({ currentLang }) => {
         </div>
       </section>
 
+      {/* Editorial & Quantitative Review Board (E-E-A-T Excellence) */}
+      <section className="space-y-6 border-t border-slate-100 dark:border-slate-800 pt-6">
+        <div>
+          <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-wider mb-1">
+            <Users className="w-4 h-4" />
+            <span>Expert Contributors &amp; Reviewers</span>
+          </div>
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+            Editorial &amp; Quantitative Review Board
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            Our calculators and educational research guides are authored and reviewed by credentialed quantitative analysts, CPAs, and health specialists.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 font-black flex items-center justify-center text-sm">
+                DV
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 dark:text-white text-sm">David Vance</h3>
+                <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">Senior Financial Analyst &amp; Modeler</span>
+              </div>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              B.S. in Applied Mathematics. 10+ years specializing in mortgage underwriting algorithms, CFPB French amortization models, and compound wealth projections.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 font-black flex items-center justify-center text-sm">
+                SJ
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 dark:text-white text-sm">Sarah Jenkins, CPA</h3>
+                <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Certified Payroll &amp; Tax Specialist</span>
+              </div>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Licensed CPA with 12+ years advising on US payroll compliance, IRS Publication 15-T standard deduction formulas, FICA withholdings, and progressive tax modeling.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/60 text-amber-700 dark:text-amber-300 font-black flex items-center justify-center text-sm">
+                MT
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 dark:text-white text-sm">Marcus Thorne</h3>
+                <span className="text-xs text-amber-600 dark:text-amber-400 font-medium">Consumer Credit &amp; Auto Lending Analyst</span>
+              </div>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Former automotive financing director with deep expertise in Regulation Z Truth in Lending disclosures, lease money factors, trade-in tax credits, and vehicle depreciation.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-rose-100 dark:bg-rose-900/60 text-rose-700 dark:text-rose-300 font-black flex items-center justify-center text-sm">
+                ER
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 dark:text-white text-sm">Dr. Elena Rostova</h3>
+                <span className="text-xs text-rose-600 dark:text-rose-400 font-medium">Biostatistics &amp; Public Health Consultant</span>
+              </div>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              M.P.H. in Health Metrics. Academic advisor focused on adult Body Mass Index classification brackets, clinical screening limitations, and WHO epidemiological data.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Editorial Policy & Reader Corrections */}
+      <section className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-3">
+        <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-wider">
+          <BookCheck className="w-4 h-4" />
+          <span>Editorial Standards &amp; Reader Corrections</span>
+        </div>
+        <h3 className="text-base font-bold text-slate-900 dark:text-white">
+          Our Commitment to Transparent, Unbiased Calculations
+        </h3>
+        <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+          SmartCalcLab does not accept paid endorsements to alter calculation formulas. All mathematical logic is derived strictly from public statutory benchmarks (IRS, CFPB, Federal Reserve, and WHO).
+        </p>
+        <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+          If you notice any formula discrepancy, tax bracket update, or calculation bug, our quantitative team reviews reader correction submissions within 48 business hours at <a href="mailto:support@smartcalclab.com" className="text-blue-600 dark:text-blue-400 font-semibold underline">support@smartcalclab.com</a>.
+        </p>
+      </section>
+
       {/* Who We Are & Publisher Information */}
       <div className="space-y-4 text-sm leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-6">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">

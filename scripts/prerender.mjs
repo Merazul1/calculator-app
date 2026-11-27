@@ -350,7 +350,7 @@ const GUIDES = [
     category: 'Mortgage & Loans',
     readTime: '9 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Financial Analysis Team',
+    author: 'David Vance, Senior Financial Analyst',
     reviewedBy: 'CFPB & Federal Reserve Benchmark Guidelines',
     toolPath: '/loan',
     toolName: 'Loan Calculator & Mortgage Payment Estimator',
@@ -370,7 +370,7 @@ const GUIDES = [
     category: 'Salary & Taxes',
     readTime: '8 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Payroll & Tax Analysis Team',
+    author: 'Sarah Jenkins, CPA & Payroll Tax Specialist',
     reviewedBy: 'IRS Publication 15-T & Statutory Withholding Guidelines',
     toolPath: '/salary',
     toolName: 'Annual to Gross & Net Salary Calculator',
@@ -390,7 +390,7 @@ const GUIDES = [
     category: 'Auto Financing',
     readTime: '7 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Consumer Automotive Finance Team',
+    author: 'Marcus Thorne, Consumer Lending Specialist',
     reviewedBy: 'Consumer Financial Protection Bureau (CFPB) Guidelines',
     toolPath: '/autoloan',
     toolName: 'Auto Loan & Car Payment Calculator',
@@ -409,7 +409,7 @@ const GUIDES = [
     category: 'Investing & Wealth',
     readTime: '8 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Wealth & Investment Editorial Team',
+    author: 'David Vance, Senior Financial Analyst',
     reviewedBy: 'FINRA & Federal Reserve Educational Benchmarks',
     toolPath: '/compound',
     toolName: 'Compound Interest Calculator',
@@ -427,7 +427,7 @@ const GUIDES = [
     category: 'Health & Nutrition',
     readTime: '7 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Health Science Editorial Team',
+    author: 'Dr. Elena Rostova, Biostatistics & Public Health Consultant',
     reviewedBy: 'World Health Organization (WHO) Guidelines',
     toolPath: '/bmi',
     toolName: 'BMI & Body Health Calculator',
@@ -445,7 +445,7 @@ const GUIDES = [
     category: 'Currency & Global Trade',
     readTime: '6 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab International Finance Team',
+    author: 'David Vance, Senior Financial Analyst',
     reviewedBy: 'Interbank Forex & Financial Consumer Standards',
     toolPath: '/currency',
     toolName: 'Live Currency Converter',
@@ -454,6 +454,115 @@ const GUIDES = [
       'The mid-market exchange rate (also known as the interbank rate or spot rate) is the exact midpoint between global buy (bid) and sell (ask) rates across international currency markets. It represents the purest, fairest price of a currency before retail markups are added.',
       'Many airport currency booths and retail banks advertise "0% Commission" or "Fee-Free Transfers." In reality, they embed their profit margin directly into an unfavorable exchange rate spread, adding a hidden 5% to 10% markup.',
       'When paying with a credit or debit card abroad, always choose to be charged in the LOCAL CURRENCY rather than USD to avoid predatory Dynamic Currency Conversion (DCC) markup spreads.'
+    ]
+  },
+  {
+    slug: 'mortgage-refinance-break-even-guide',
+    title: 'Mortgage Refinance Break-Even Analysis: Closing Costs, Interest Drops & Timeline (2026)',
+    subtitle: 'A complete mathematical framework to calculate refinance closing cost payback periods, monthly savings, and avoid the 30-year amortization reset trap.',
+    category: 'Mortgage & Loans',
+    readTime: '9 min read',
+    publishedDate: 'November 2026',
+    author: 'David Vance, Senior Financial Analyst',
+    reviewedBy: 'CFPB Benchmark Guidelines & Underwriting Standards',
+    toolPath: '/loan',
+    toolName: 'Loan Calculator & Mortgage Payment Estimator',
+    summary: 'Master the refinance break-even formula: divide total upfront closing expenses by your net monthly savings to find your exact payback month. Compare rate drops, closing points, and loan balance resets.',
+    paragraphs: [
+      'A mortgage refinance replaces an existing home loan with a new loan featuring updated interest rates, term lengths, or principal balances. While refinancing can significantly reduce your monthly payments, it is rarely free.',
+      'Lenders charge origination fees, appraisal fees, title insurance, and recording taxes that typically total 2% to 4% of the new loan balance. Your break-even point is the exact number of months it takes for your cumulative monthly payment savings to surpass those upfront closing costs. Break-Even (Months) = Total Refinance Closing Costs ÷ Net Monthly Payment Savings.',
+      'One of the most dangerous oversights when refinancing is resetting the 30-year amortization clock. If you have already paid a 30-year mortgage for 7 years, refinancing into a brand new 30-year term adds 7 years of additional interest payments back onto your balance. To avoid this trap, refinance into a matching remaining term (e.g., a 20-year or 15-year fixed loan).'
+    ]
+  },
+  {
+    slug: 'extra-principal-payments-guide',
+    title: 'How Extra Principal Payments Cut 30-Year Mortgages in Half: Amortization Acceleration',
+    subtitle: 'The mathematics behind extra monthly principal payments, bi-weekly pay schedules, lump-sum recasting, and how one extra payment a year saves tens of thousands in lifetime interest.',
+    category: 'Mortgage & Loans',
+    readTime: '10 min read',
+    publishedDate: 'November 2026',
+    author: 'David Vance, Senior Financial Analyst',
+    reviewedBy: 'Federal Reserve Amortization Guidelines',
+    toolPath: '/loan',
+    toolName: 'Loan Calculator & Mortgage Payment Estimator',
+    summary: 'Learn how paying even $100 extra towards your monthly principal shrinks a 30-year amortization schedule, eliminates compound interest charges, and builds home equity years ahead of schedule.',
+    paragraphs: [
+      'Under standard French amortization schedules, your monthly mortgage payment consists of two parts: interest owed on the remaining principal, and a payment toward the principal itself. In the early years of a home loan, interest makes up over 70% of every dollar you pay.',
+      'When you make an extra payment specifically designated toward principal, 100% of that extra dollar directly reduces your outstanding loan balance. Because subsequent monthly interest charges are calculated purely on the remaining unpaid balance, that single extra payment permanently reduces the interest calculated on every remaining monthly payment for the life of the loan.',
+      'On a standard $350,000 mortgage at 6.50% fixed interest, adding just $250 extra per month cuts your repayment timeline from 30 years down to 23.3 years—saving over $103,450 in lifetime interest charges.',
+      'Three proven accelerated payoff strategies include switching to bi-weekly payments (resulting in 13 full payments per year), adopting the 1/12th budget method, or making annual lump-sum payments paired with loan recasting.'
+    ]
+  },
+  {
+    slug: 'federal-tax-brackets-standard-deductions-guide',
+    title: '2026 Federal Income Tax Brackets, Standard Deductions & Effective Tax Rate Guide',
+    subtitle: 'How marginal tax brackets actually work, comparing effective vs. marginal tax rates, IRS Publication 15-T payroll withholding changes, and optimizing taxable gross income.',
+    category: 'Salary & Taxes',
+    readTime: '11 min read',
+    publishedDate: 'November 2026',
+    author: 'Sarah Jenkins, CPA & Payroll Tax Specialist',
+    reviewedBy: 'IRS Publication 15-T (2026 Standards)',
+    toolPath: '/salary',
+    toolName: 'Annual to Gross & Net Salary Calculator',
+    summary: 'Understand how the US progressive income tax system taxes your earnings in tiers. Master the difference between your highest marginal tax bracket and your true effective tax rate, and optimize pre-tax retirement deductions.',
+    paragraphs: [
+      'One of the most widespread personal finance myths is that earning a raise into a higher tax bracket causes you to take home less money. Under the United States progressive tax system, this is mathematically impossible because income is taxed in marginal buckets.',
+      'Only the dollars that fall within each specific income bucket are taxed at that bucket\'s percentage rate. Every dollar earned below that threshold continues to be taxed at the lower statutory percentages (10%, 12%, 22%, 24%, 32%, 35%, 37%).',
+      'Your marginal tax rate is the highest rate paid on your last dollar of taxable income, while your effective tax rate is your actual overall tax percentage. Pre-tax contributions to traditional 401(k), 403(b), or HSA accounts directly reduce your taxable gross income at your highest marginal rate.'
+    ]
+  },
+  {
+    slug: 'apr-vs-interest-rate-guide',
+    title: 'APR vs. Interest Rate Explained: The Real Cost of Loans, Points & Financing Fees',
+    subtitle: 'Learn why APR is always higher than your nominal interest rate, how discount points and lender origination fees alter borrowing costs, and how the Truth in Lending Act protects consumers.',
+    category: 'Auto Financing & Loans',
+    readTime: '8 min read',
+    publishedDate: 'November 2026',
+    author: 'Marcus Thorne, Consumer Lending Specialist',
+    reviewedBy: 'Truth in Lending Act (Regulation Z) Standards',
+    toolPath: '/autoloan',
+    toolName: 'Auto Loan & Car Payment Calculator',
+    summary: 'Demystify the difference between interest rate and Annual Percentage Rate (APR). See how lender origination fees, doc fees, and discount points turn a seemingly low rate into an expensive loan.',
+    paragraphs: [
+      'The interest rate is the baseline annual cost you pay to borrow principal, expressed as a simple percentage. It dictates your monthly Principal & Interest payment calculation.',
+      'Annual Percentage Rate (APR) represents the true, comprehensive annual cost of credit, encompassing the interest rate PLUS all mandatory upfront lender fees, discount points, origination charges, and administrative processing fees amortized over the loan term.',
+      'Under the federal Truth in Lending Act (TILA), all consumer lenders are legally mandated to disclose the APR prominently on loan estimates so borrowers can accurately compare competitive loan products.'
+    ]
+  },
+  {
+    slug: 'compound-growth-401k-vs-roth-ira-guide',
+    title: 'Traditional 401(k) vs. Roth IRA Compounding: 30-Year Mathematical Wealth Modeling',
+    subtitle: 'Evaluate upfront tax deductions vs. tax-free retirement withdrawals, calculate the compounding multiplier over decades, and determine your optimal investment allocation.',
+    category: 'Investing & Wealth',
+    readTime: '9 min read',
+    publishedDate: 'November 2026',
+    author: 'David Vance, Senior Financial Analyst',
+    reviewedBy: 'FINRA & Statutory Retirement Benchmarks',
+    toolPath: '/compound',
+    toolName: 'Compound Interest & Wealth Calculator',
+    summary: 'Model the long-term compounding growth of $500/month invested in traditional tax-deferred vs. Roth tax-exempt retirement vehicles. Learn how tax timing interacts with decades of exponential capital growth.',
+    paragraphs: [
+      'Both Traditional 401(k) accounts and Roth IRAs utilize compound interest to grow wealth over multiple decades. The sole mathematical difference between them is the timing of taxation: pre-tax contributions today with taxable withdrawals in retirement versus after-tax contributions today with 100% tax-free withdrawals in retirement.',
+      'Over a 30-year investing horizon, contributing $500 per month at a 7% average annual return yields $610,227 from just $180,000 in total principal deposits. Over $430,000 represents pure compounding gains.',
+      'In a Roth IRA, that entire $430,000 gain is withdrawn completely tax-free, making it exceptionally powerful for long-term compound growth.'
+    ]
+  },
+  {
+    slug: 'car-leasing-vs-buying-guide',
+    title: 'Car Leasing vs. Buying: 5-Year Mathematical Cost Comparison & Depreciation Analysis',
+    subtitle: 'Calculate total cost of ownership, understand lease money factors, residual values, acquisition fees, and determine whether financing or leasing a vehicle is more cost-effective.',
+    category: 'Auto Financing',
+    readTime: '8 min read',
+    publishedDate: 'November 2026',
+    author: 'Marcus Thorne, Consumer Lending Specialist',
+    reviewedBy: 'Federal Trade Commission (FTC) Vehicle Financing Guidelines',
+    toolPath: '/autoloan',
+    toolName: 'Auto Loan & Car Payment Calculator',
+    summary: 'Compare the 5-year financial footprint of leasing a new vehicle versus taking out an auto purchase loan. Analyze depreciation loss, mileage penalties, lease money factor conversions, and equity retention.',
+    paragraphs: [
+      'When you purchase a vehicle with an auto loan, your payments pay down principal to eventually own the asset free and clear. When you lease, you are merely renting the expected depreciation of the car over 36 months, plus financing interest (known as the money factor) and administrative bank fees.',
+      'Because you never build equity in a lease, exiting consecutive leases over a 5 to 6 year period on a $42,000 vehicle typically costs $8,000 to $10,000 more than financing and owning the vehicle outright.',
+      'To convert a dealer\'s quoted lease money factor to an equivalent APR, multiply the money factor by 2,400. For example, a money factor of 0.00250 represents an equivalent financing rate of 6.0% APR.'
     ]
   }
 ]

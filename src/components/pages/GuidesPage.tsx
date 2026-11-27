@@ -33,7 +33,7 @@ export const GuidesPage: React.FC<GuidesPageProps> = ({ onSelectGuide, onNavigat
             <span>•</span>
             <div className="flex items-center gap-1.5">
               <BookOpen className="w-4 h-4 text-blue-300" />
-              <span>6 Long-Form Reference Guides</span>
+              <span>{GUIDES.length} Long-Form Reference Guides</span>
             </div>
           </div>
         </div>

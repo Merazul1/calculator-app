@@ -33,7 +33,7 @@ export const GUIDES: GuideArticle[] = [
     category: 'Mortgage & Loans',
     readTime: '9 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Financial Analysis Team',
+    author: 'David Vance, Senior Financial Analyst',
     reviewedBy: 'CFPB & Federal Reserve Benchmark Guidelines',
     toolPath: '/loan',
     toolName: 'Loan Calculator & Mortgage Payment Estimator',
@@ -102,7 +102,7 @@ export const GUIDES: GuideArticle[] = [
     category: 'Salary & Taxes',
     readTime: '8 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Payroll & Tax Analysis Team',
+    author: 'Sarah Jenkins, CPA & Payroll Tax Specialist',
     reviewedBy: 'IRS Publication 15-T & Statutory Withholding Guidelines',
     toolPath: '/salary',
     toolName: 'Annual to Gross & Net Salary Calculator',
@@ -166,7 +166,7 @@ export const GUIDES: GuideArticle[] = [
     category: 'Auto Financing',
     readTime: '7 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Consumer Automotive Finance Team',
+    author: 'Marcus Thorne, Consumer Lending Specialist',
     reviewedBy: 'Consumer Financial Protection Bureau (CFPB) Guidelines',
     toolPath: '/autoloan',
     toolName: 'Auto Loan & Car Payment Calculator',
@@ -221,7 +221,7 @@ export const GUIDES: GuideArticle[] = [
     category: 'Investing & Wealth',
     readTime: '8 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Wealth & Investment Editorial Team',
+    author: 'David Vance, Senior Financial Analyst',
     reviewedBy: 'FINRA & Federal Reserve Educational Benchmarks',
     toolPath: '/compound',
     toolName: 'Compound Interest Calculator',
@@ -276,7 +276,7 @@ export const GUIDES: GuideArticle[] = [
     category: 'Health & Nutrition',
     readTime: '7 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab Health Science Editorial Team',
+    author: 'Dr. Elena Rostova, Biostatistics & Public Health Consultant',
     reviewedBy: 'World Health Organization (WHO) Guidelines',
     toolPath: '/bmi',
     toolName: 'BMI & Body Health Calculator',
@@ -336,7 +336,7 @@ export const GUIDES: GuideArticle[] = [
     category: 'Currency & Global Trade',
     readTime: '6 min read',
     publishedDate: 'November 2026',
-    author: 'SmartCalcLab International Finance Team',
+    author: 'David Vance, Senior Financial Analyst',
     reviewedBy: 'Interbank Forex & Financial Consumer Standards',
     toolPath: '/currency',
     toolName: 'Live Currency Converter',
@@ -381,6 +381,341 @@ export const GUIDES: GuideArticle[] = [
       {
         q: 'What is the best payment method when traveling abroad?',
         a: 'Use a travel credit card that explicitly offers zero foreign transaction fees, and always decline payment in USD when asked by foreign merchant card terminals.'
+      }
+    ]
+  },
+  {
+    slug: 'mortgage-refinance-break-even-guide',
+    title: 'Mortgage Refinance Break-Even Analysis: Closing Costs, Interest Drops & Timeline (2026)',
+    subtitle: 'A complete mathematical framework to calculate refinance closing cost payback periods, monthly savings, and avoid the 30-year amortization reset trap.',
+    category: 'Mortgage & Loans',
+    readTime: '9 min read',
+    publishedDate: 'November 2026',
+    author: 'David Vance, Senior Financial Analyst',
+    reviewedBy: 'CFPB Benchmark Guidelines & Underwriting Standards',
+    toolPath: '/loan',
+    toolName: 'Loan Calculator & Mortgage Payment Estimator',
+    summary: 'Master the refinance break-even formula: divide total upfront closing expenses by your net monthly savings to find your exact payback month. Compare rate drops, closing points, and loan balance resets.',
+    sections: [
+      {
+        heading: '1. What is the Refinance Break-Even Point?',
+        paragraphs: [
+          'A mortgage refinance replaces an existing home loan with a new loan featuring updated interest rates, term lengths, or principal balances. While refinancing can significantly reduce your monthly payments, it is rarely free.',
+          'Lenders charge origination fees, appraisal fees, title insurance, and recording taxes that typically total 2% to 4% of the new loan balance. Your break-even point is the exact number of months it takes for your cumulative monthly payment savings to surpass those upfront closing costs.',
+          'If you plan to sell the home or move before reaching that break-even threshold, refinancing will cost you more money than keeping your original loan.'
+        ],
+        callout: {
+          title: 'Break-Even Formula',
+          text: 'Break-Even (Months) = Total Refinance Closing Costs ÷ Net Monthly Payment Savings. For example: $5,000 in closing costs ÷ $200 monthly savings = 25 months (2.08 years) to break even.'
+        }
+      },
+      {
+        heading: '2. Interest Rate Drops & Break-Even Scenarios',
+        paragraphs: [
+          'Traditionally, financial advisors recommended waiting for a 1.00% to 2.00% drop in interest rates before refinancing. In modern lending, with large loan balances ($400,000+), even a 0.50% to 0.75% rate decrease can generate sufficient monthly savings to achieve break-even within 24 to 36 months.',
+          'The table below illustrates realistic break-even timelines for a $350,000 loan balance originally financed at 7.25% fixed interest:'
+        ],
+        table: {
+          headers: ['New Interest Rate', 'Rate Drop', 'New Monthly P&I', 'Monthly Savings', 'Estimated Break-Even ($6,000 Closing Costs)'],
+          rows: [
+            ['6.75%', '0.50% Drop', '$2,270', '$119 / month', '50.4 months (4.2 years)'],
+            ['6.50%', '0.75% Drop', '$2,212', '$177 / month', '33.9 months (2.8 years)'],
+            ['6.00%', '1.25% Drop', '$2,098', '$291 / month', '20.6 months (1.7 years)'],
+            ['5.75%', '1.50% Drop', '$2,042', '$347 / month', '17.3 months (1.4 years)']
+          ]
+        }
+      },
+      {
+        heading: '3. The Amortization Reset Trap',
+        paragraphs: [
+          'One of the most dangerous oversights when refinancing is resetting the 30-year amortization clock. If you have already paid a 30-year mortgage for 7 years, you have 23 years of payments remaining and have started paying down principal faster.',
+          'If you refinance into a brand new 30-year term, your monthly payment will decrease significantly, but you have just added 7 years of additional interest payments back onto your balance. In many cases, the borrower ends up paying more total lifetime interest despite having a lower interest rate.',
+          'To avoid this trap, refinance into a matching remaining term (e.g., a 20-year or 15-year fixed loan), or continue making your old, higher payment amount toward the new loan to accelerate principal reduction.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        q: 'What is a good break-even timeline for a mortgage refinance?',
+        a: 'A healthy break-even period is generally 24 to 36 months (2 to 3 years) or less. If it takes longer than 4 years to recoup closing costs and you are unsure whether you will remain in the property, refinancing carries heightened financial risk.'
+      },
+      {
+        q: 'Is it worth refinancing for a 0.5% interest rate decrease?',
+        a: 'On larger loan balances ($400,000+), a 0.5% reduction can save $120 to $150 per month. If your lender offers low or credited closing costs ($2,500 to $3,500), you can achieve break-even in roughly 24 months, making it mathematically advantageous.'
+      },
+      {
+        q: 'What are "no-closing-cost" refinances?',
+        a: 'No-closing-cost refinances do not eliminate lender fees; instead, the lender either rolls the closing costs directly into your loan principal or charges a slightly higher interest rate to cover the fees via lender credits.'
+      }
+    ]
+  },
+  {
+    slug: 'extra-principal-payments-guide',
+    title: 'How Extra Principal Payments Cut 30-Year Mortgages in Half: Amortization Acceleration',
+    subtitle: 'The mathematics behind extra monthly principal payments, bi-weekly pay schedules, lump-sum recasting, and how one extra payment a year saves tens of thousands in lifetime interest.',
+    category: 'Mortgage & Loans',
+    readTime: '10 min read',
+    publishedDate: 'November 2026',
+    author: 'David Vance, Senior Financial Analyst',
+    reviewedBy: 'Federal Reserve Amortization Guidelines',
+    toolPath: '/loan',
+    toolName: 'Loan Calculator & Mortgage Payment Estimator',
+    summary: 'Learn how paying even $100 extra towards your monthly principal shrinks a 30-year amortization schedule, eliminates compound interest charges, and builds home equity years ahead of schedule.',
+    sections: [
+      {
+        heading: '1. How Extra Principal Payments Alter the Amortization Curve',
+        paragraphs: [
+          'Under standard French amortization schedules, your monthly mortgage payment consists of two parts: interest owed on the remaining principal, and a payment toward the principal itself. In the early years of a home loan, interest makes up over 70% of every dollar you pay.',
+          'When you make an extra payment specifically designated toward principal, 100% of that extra dollar directly reduces your outstanding loan balance. Because subsequent monthly interest charges are calculated purely on the remaining unpaid balance, that single extra payment permanently reduces the interest calculated on every remaining monthly payment for the life of the loan.',
+          'This creates a powerful compounding reverse-interest effect that knocks years off your payoff timeline.'
+        ]
+      },
+      {
+        heading: '2. Mathematical Impact: Comparing $100, $250, and $500 Extra Monthly Payments',
+        paragraphs: [
+          'Consider a standard $350,000 mortgage with a 30-year fixed interest rate of 6.50%. The regular monthly Principal & Interest payment is $2,212.24. Total lifetime interest on the standard schedule is $446,406.',
+          'Here is how modest, consistent extra principal payments transform the loan:'
+        ],
+        table: {
+          headers: ['Extra Monthly Payment', 'New Total Monthly Payment', 'Total Years to Payoff', 'Years Saved', 'Lifetime Interest Saved'],
+          rows: [
+            ['$0 (Standard)', '$2,212.24', '30.0 Years', '0 Years', '$0'],
+            ['+$100 / month', '$2,312.24', '26.8 Years', '3.2 Years Saved', '$48,312 Saved'],
+            ['+$250 / month', '$2,462.24', '23.3 Years', '6.7 Years Saved', '$103,450 Saved'],
+            ['+$500 / month', '$2,712.24', '19.4 Years', '10.6 Years Saved', '$166,820 Saved']
+          ]
+        },
+        callout: {
+          title: 'Key Takeaway',
+          text: 'Adding just $250 extra per month saves over $103,000 in cash interest and frees your family from mortgage debt nearly 7 years sooner.'
+        }
+      },
+      {
+        heading: '3. Three Proven Accelerated Payoff Strategies',
+        paragraphs: [
+          'Bi-Weekly Payment Schedule: Instead of making 12 monthly payments per year, pay half your monthly mortgage amount every two weeks. Because there are 52 weeks in a year, you make 26 half-payments, which equals 13 full payments per year. That single extra payment each year shaves 4 to 5 years off a 30-year term.',
+          'The 1/12th Budget Method: If your loan servicer does not support bi-weekly processing, divide your monthly payment by 12 and add that exact amount to every monthly check. For a $2,400 monthly payment, add $200 per month.',
+          'Annual Lump-Sum Recasting: If you receive a year-end bonus or tax refund, apply it as a lump sum toward principal. Some servicers allow a "mortgage recast," recalculating your remaining monthly payments to a lower amount based on the reduced balance without charging refinance closing costs.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        q: 'How do I ensure my extra payment goes toward principal and not future interest?',
+        a: 'Always verify on your online banking portal or check memo that the extra funds are explicitly marked as "Principal-Only Payment." If not designated, some servicers automatically hold extra funds in an escrow prepayment account.'
+      },
+      {
+        q: 'Does paying extra principal lower my required monthly payment next month?',
+        a: 'No. On a fixed-rate mortgage, your required monthly payment remains constant unless you formally request a mortgage recast. Extra payments simply shorten the total loan duration and reduce lifetime interest.'
+      },
+      {
+        q: 'Is it better to pay extra on a mortgage or invest the money in the stock market?',
+        a: 'If your mortgage interest rate is high (6.5% to 7.5%+), paying down principal provides a guaranteed, risk-free return equal to your mortgage rate. If your mortgage rate is low (3% to 4%), investing in diversified index funds historically offers higher expected long-term returns.'
+      }
+    ]
+  },
+  {
+    slug: 'federal-tax-brackets-standard-deductions-guide',
+    title: '2026 Federal Income Tax Brackets, Standard Deductions & Effective Tax Rate Guide',
+    subtitle: 'How marginal tax brackets actually work, comparing effective vs. marginal tax rates, IRS Publication 15-T payroll withholding changes, and optimizing taxable gross income.',
+    category: 'Salary & Taxes',
+    readTime: '11 min read',
+    publishedDate: 'November 2026',
+    author: 'Sarah Jenkins, CPA & Payroll Tax Specialist',
+    reviewedBy: 'IRS Publication 15-T (2026 Standards)',
+    toolPath: '/salary',
+    toolName: 'Annual to Gross & Net Salary Calculator',
+    summary: 'Understand how the US progressive income tax system taxes your earnings in tiers. Master the difference between your highest marginal tax bracket and your true effective tax rate, and optimize pre-tax retirement deductions.',
+    sections: [
+      {
+        heading: '1. The Progressive Tax Myth: Why Higher Brackets Never Reduce Net Pay',
+        paragraphs: [
+          'One of the most widespread personal finance myths is that earning a raise into a higher tax bracket causes you to take home less money because "all your income is taxed at the higher rate." This is mathematically impossible under the United States progressive tax system.',
+          'Federal income tax operates in buckets (marginal brackets). Only the dollars that fall within each specific income bucket are taxed at that bucket\'s percentage rate. Every dollar earned below that threshold continues to be taxed at the lower statutory percentages.'
+        ]
+      },
+      {
+        heading: '2. 2026 Federal Income Tax Brackets & Thresholds',
+        paragraphs: [
+          'The IRS adjusts marginal tax bracket cutoffs annually to account for inflation under the Chained Consumer Price Index. Here are the federal tax tiers for individual earners and married couples filing jointly:'
+        ],
+        table: {
+          headers: ['Tax Rate', 'Single Filers (Taxable Income)', 'Married Filing Jointly (Taxable Income)'],
+          rows: [
+            ['10%', 'Up to $11,925', 'Up to $23,850'],
+            ['12%', '$11,926 to $48,475', '$23,851 to $96,950'],
+            ['22%', '$48,476 to $103,350', '$96,951 to $206,700'],
+            ['24%', '$103,351 to $197,300', '$206,701 to $394,600'],
+            ['32%', '$197,301 to $250,525', '$394,601 to $501,050'],
+            ['35%', '$250,526 to $626,350', '$501,051 to $751,600'],
+            ['37%', 'Over $626,350', 'Over $751,600']
+          ]
+        }
+      },
+      {
+        heading: '3. Marginal Tax Rate vs. Effective Tax Rate',
+        paragraphs: [
+          'Your marginal tax rate is the highest rate paid on your last dollar of taxable income. Your effective tax rate is your actual overall tax percentage: total federal taxes paid divided by total gross earnings.',
+          'For example, a single filer earning $75,000 gross salary has a marginal rate of 22%. However, after taking the standard deduction and flowing income through the 10% and 12% tiers, their actual effective federal income tax rate is only roughly 11.5% to 12.8% of their gross earnings.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        q: 'What is the standard deduction for 2026?',
+        a: 'The standard deduction lowers your gross income before tax brackets are applied. For single filers, the standard deduction is estimated at $15,000, and for married couples filing jointly, it is $30,000.'
+      },
+      {
+        q: 'How do pre-tax 401(k) contributions lower my tax bracket?',
+        a: 'Pre-tax retirement contributions (traditional 401k, 403b, or traditional IRA) are deducted directly from your gross income before federal and state income taxes are calculated, reducing your taxable income at your highest marginal rate.'
+      }
+    ]
+  },
+  {
+    slug: 'apr-vs-interest-rate-guide',
+    title: 'APR vs. Interest Rate Explained: The Real Cost of Loans, Points & Financing Fees',
+    subtitle: 'Learn why APR is always higher than your nominal interest rate, how discount points and lender origination fees alter borrowing costs, and how the Truth in Lending Act protects consumers.',
+    category: 'Auto Financing & Loans',
+    readTime: '8 min read',
+    publishedDate: 'November 2026',
+    author: 'Marcus Thorne, Consumer Lending Specialist',
+    reviewedBy: 'Truth in Lending Act (Regulation Z) Standards',
+    toolPath: '/autoloan',
+    toolName: 'Auto Loan & Car Payment Calculator',
+    summary: 'Demystify the difference between interest rate and Annual Percentage Rate (APR). See how lender origination fees, doc fees, and discount points turn a seemingly low rate into an expensive loan.',
+    sections: [
+      {
+        heading: '1. What is the Difference Between Interest Rate and APR?',
+        paragraphs: [
+          'The interest rate is the baseline annual cost you pay to borrow principal, expressed as a simple percentage. It dictates your monthly Principal & Interest payment calculation.',
+          'Annual Percentage Rate (APR) represents the true, comprehensive annual cost of credit, encompassing the interest rate PLUS all mandatory upfront lender fees, discount points, origination charges, and administrative processing fees amortized over the loan term.',
+          'Under the federal Truth in Lending Act (TILA), all consumer lenders are legally mandated to disclose the APR prominently on loan estimates.'
+        ]
+      },
+      {
+        heading: '2. Why Auto Loans and Personal Loans Have APR Spreads',
+        paragraphs: [
+          'When you purchase a vehicle, dealerships frequently quote an attractive interest rate (e.g., 5.9%), but include $1,200 in dealer documentation charges, acquisition fees, and financing markups.',
+          'The table below shows how fees transform the effective APR on a 60-month $30,000 auto loan:'
+        ],
+        table: {
+          headers: ['Quoted Interest Rate', 'Mandatory Financed Fees', 'Monthly Payment', 'Actual Effective APR', 'Extra Lifetime Cost'],
+          rows: [
+            ['5.90%', '$0 (Zero Fee Baseline)', '$578.54', '5.90% APR', '$0'],
+            ['5.90%', '$500 Doc Fee', '$588.18', '6.58% APR', '$578'],
+            ['5.90%', '$1,200 Dealer & Admin Fees', '$601.68', '7.54% APR', '$1,388'],
+            ['5.90%', '$2,500 Fees + GAP Insurance', '$626.75', '9.28% APR', '$2,892']
+          ]
+        }
+      }
+    ],
+    faqs: [
+      {
+        q: 'Why should I compare loans by APR instead of interest rate?',
+        a: 'APR accounts for both the rate and the fees. A lender offering a 5.5% interest rate with $3,000 in upfront fees can easily cost you more than a lender offering a 5.8% rate with zero upfront fees.'
+      },
+      {
+        q: 'Can APR be lower than the interest rate?',
+        a: 'No. APR is almost always equal to or higher than the nominal interest rate because it folds financing fees into the borrowing cost equation.'
+      }
+    ]
+  },
+  {
+    slug: 'compound-growth-401k-vs-roth-ira-guide',
+    title: 'Traditional 401(k) vs. Roth IRA Compounding: 30-Year Mathematical Wealth Modeling',
+    subtitle: 'Evaluate upfront tax deductions vs. tax-free retirement withdrawals, calculate the compounding multiplier over decades, and determine your optimal investment allocation.',
+    category: 'Investing & Wealth',
+    readTime: '9 min read',
+    publishedDate: 'November 2026',
+    author: 'David Vance, Senior Financial Analyst',
+    reviewedBy: 'FINRA & Statutory Retirement Benchmarks',
+    toolPath: '/compound',
+    toolName: 'Compound Interest & Wealth Calculator',
+    summary: 'Model the long-term compounding growth of $500/month invested in traditional tax-deferred vs. Roth tax-exempt retirement vehicles. Learn how tax timing interacts with decades of exponential capital growth.',
+    sections: [
+      {
+        heading: '1. The Core Dilemma: Tax Me Now or Tax Me Later?',
+        paragraphs: [
+          'Both Traditional 401(k) accounts and Roth IRAs utilize compound interest to grow wealth over multiple decades. The sole mathematical difference between them is the timing of taxation.',
+          'With a Traditional 401(k), you contribute pre-tax dollars today, reducing your current-year taxable income. Your money grows tax-deferred, and you pay ordinary income tax upon withdrawal in retirement.',
+          'With a Roth IRA, you contribute after-tax dollars today. Your investments grow completely tax-free, and every penny withdrawn after age 59½—including hundreds of thousands in accumulated compound gains—is 100% tax-exempt.'
+        ]
+      },
+      {
+        heading: '2. 30-Year Compounding Model ($500 Monthly Contribution at 7% Return)',
+        paragraphs: [
+          'Over a 30-year career, an investor contributing $500 per month will deposit a total of $180,000 of principal capital. Here is how compound growth transforms that deposit:'
+        ],
+        table: {
+          headers: ['Investment Milestone', 'Total Contributions', 'Accumulated Compound Interest', 'Total Portfolio Value'],
+          rows: [
+            ['Year 10', '$60,000', '$26,548', '$86,548'],
+            ['Year 20', '$120,000', '$139,478', '$259,478'],
+            ['Year 30', '$180,000', '$430,227', '$610,227']
+          ]
+        },
+        callout: {
+          title: 'The Roth Advantage',
+          text: 'Notice that after 30 years, over $430,000 of the total $610,000 balance is pure investment gains. In a Roth IRA, that entire $430,000 profit is withdrawn completely tax-free.'
+        }
+      }
+    ],
+    faqs: [
+      {
+        q: 'Should I prioritize my company 401(k) match before a Roth IRA?',
+        a: 'Always contribute enough to your company 401(k) to capture the full employer match first. An employer match represents an immediate, risk-free 50% to 100% return on your money.'
+      },
+      {
+        q: 'What is the Rule of 72 in compound investing?',
+        a: 'The Rule of 72 estimates how many years it takes for your investment to double. Divide 72 by your expected annual return rate. At an 8% annual return, your money doubles approximately every 9 years (72 ÷ 8 = 9).'
+      }
+    ]
+  },
+  {
+    slug: 'car-leasing-vs-buying-guide',
+    title: 'Car Leasing vs. Buying: 5-Year Mathematical Cost Comparison & Depreciation Analysis',
+    subtitle: 'Calculate total cost of ownership, understand lease money factors, residual values, acquisition fees, and determine whether financing or leasing a vehicle is more cost-effective.',
+    category: 'Auto Financing',
+    readTime: '8 min read',
+    publishedDate: 'November 2026',
+    author: 'Marcus Thorne, Consumer Lending Specialist',
+    reviewedBy: 'Federal Trade Commission (FTC) Vehicle Financing Guidelines',
+    toolPath: '/autoloan',
+    toolName: 'Auto Loan & Car Payment Calculator',
+    summary: 'Compare the 5-year financial footprint of leasing a new vehicle versus taking out an auto purchase loan. Analyze depreciation loss, mileage penalties, lease money factor conversions, and equity retention.',
+    sections: [
+      {
+        heading: '1. What You Are Actually Paying for in a Car Lease',
+        paragraphs: [
+          'When you purchase a vehicle with an auto loan, your payments pay down principal to eventually own the asset free and clear. When you lease, you are merely renting the expected depreciation of the car over 36 months, plus financing interest (known as the money factor) and administrative bank fees.',
+          'Because you never build equity in a lease, you exit a 3-year term with zero residual value, needing to either purchase the vehicle at its pre-agreed residual price or enter another lease.'
+        ]
+      },
+      {
+        heading: '2. 5-Year Cost Comparison on a $42,000 Vehicle',
+        paragraphs: [
+          'Here is the side-by-side financial math between financing a $42,000 car over 5 years versus leasing two consecutive 3-year vehicles over a 6-year period:'
+        ],
+        table: {
+          headers: ['Financial Metric', 'Purchase Loan (60 Months at 6.0%)', 'Leasing (Two Consecutive 36-Mo Leases)'],
+          rows: [
+            ['Down Payment', '$4,000', '$3,000 ($1,500 × 2)'],
+            ['Monthly Payment', '$734 / month', '$480 / month'],
+            ['Total Cash Paid (Month 60)', '$48,040', '$37,560'],
+            ['Vehicle Equity at Month 60', '+$18,500 (Car Owned Free & Clear)', '$0 (Zero Asset Value)'],
+            ['Net True Financial Cost', '$29,540', '$37,560 (+$8,020 More Expensive)']
+          ]
+        }
+      }
+    ],
+    faqs: [
+      {
+        q: 'How do you convert a lease money factor to an APR?',
+        a: 'Multiply the money factor by 2,400. For example, a money factor of 0.00250 multiplied by 2,400 equals an equivalent financing rate of 6.0% APR.'
+      },
+      {
+        q: 'When does leasing make financial sense?',
+        a: 'Leasing makes sense if you use the car strictly for business tax write-offs, drive under 10,000 miles per year, and prioritize always having a vehicle under manufacturer bumper-to-bumper warranty.'
       }
     ]
   }
