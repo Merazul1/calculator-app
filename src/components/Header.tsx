@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Language, PageId, ToolId } from '../types';
 import { LANGUAGES, TRANSLATIONS } from '../translations';
-import { Calculator, Moon, Sun, Globe, Menu, X, Landmark, RefreshCw, Activity, Percent, TrendingUp, Briefcase } from 'lucide-react';
+import { Calculator, Moon, Sun, Globe, Menu, X, Landmark, RefreshCw, Activity, Percent, TrendingUp, Briefcase, Car } from 'lucide-react';
+import { NavLink } from './NavLink';
+import { buildPath } from '../lib/routes';
 
 interface HeaderProps {
   currentLang: Language;
@@ -28,11 +30,12 @@ export const Header: React.FC<HeaderProps> = ({
 
   const toolsList: { id: ToolId; name: string; icon: React.ReactNode }[] = [
     { id: 'loan', name: t.tools.loan.name, icon: <Landmark className="w-4 h-4" /> },
+    { id: 'autoloan', name: t.tools.autoloan.name, icon: <Car className="w-4 h-4" /> },
+    { id: 'compound', name: t.tools.compound.name, icon: <TrendingUp className="w-4 h-4" /> },
+    { id: 'salary', name: t.tools.salary.name, icon: <Briefcase className="w-4 h-4" /> },
     { id: 'currency', name: t.tools.currency.name, icon: <RefreshCw className="w-4 h-4" /> },
     { id: 'bmi', name: t.tools.bmi.name, icon: <Activity className="w-4 h-4" /> },
     { id: 'percentage', name: t.tools.percentage.name, icon: <Percent className="w-4 h-4" /> },
-    { id: 'compound', name: t.tools.compound.name, icon: <TrendingUp className="w-4 h-4" /> },
-    { id: 'salary', name: t.tools.salary.name, icon: <Briefcase className="w-4 h-4" /> },
   ];
 
   return (
@@ -40,8 +43,10 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo & Brand */}
-          <div 
-            onClick={() => onNavigate('home')} 
+          <NavLink
+            lang={currentLang}
+            page="home"
+            onNavigate={onNavigate}
             className="flex items-center gap-2.5 cursor-pointer group"
           >
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
@@ -55,47 +60,33 @@ export const Header: React.FC<HeaderProps> = ({
                 LAB
               </span>
             </div>
-          </div>
+          </NavLink>
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-1">
-            <button
-              onClick={() => onNavigate('home')}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                currentPage === 'home'
-                  ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400'
-                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white'
-              }`}
-            >
-              {t.navigation.home}
-            </button>
-
-            {toolsList.slice(0, 4).map((tool) => (
-              <button
-                key={tool.id}
-                onClick={() => onNavigate(tool.id)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                  currentPage === tool.id
-                    ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400'
-                    : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white'
-                }`}
-              >
-                {tool.icon}
-                <span className="truncate max-w-[130px]">{tool.name.split('(')[0]}</span>
-              </button>
-            ))}
-
-            <button
-              onClick={() => onNavigate('guides')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                currentPage === 'guides'
-                  ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400'
-                  : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white'
-              }`}
-            >
-              <Briefcase className="w-4 h-4 text-indigo-500" />
-              <span>Guides</span>
-            </button>
+            {(['home', ...toolsList.map((x) => x.id), 'guides'] as PageId[]).map((id) => {
+              const tool = toolsList.find((x) => x.id === id);
+              const idx = toolsList.findIndex((x) => x.id === id);
+              const extra = idx >= 4; // all links stay in the DOM for crawlers; extras hide on narrower screens
+              return (
+                <NavLink
+                  key={id}
+                  lang={currentLang}
+                  page={id}
+                  onNavigate={onNavigate}
+                  className={`${extra ? 'hidden 2xl:flex' : 'flex'} items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                    currentPage === id
+                      ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400'
+                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white'
+                  }`}
+                >
+                  {id === 'guides' ? <Briefcase className="w-4 h-4 text-indigo-500" /> : tool?.icon}
+                  <span className="truncate max-w-[130px]">
+                    {id === 'home' ? t.navigation.home : id === 'guides' ? 'Guides' : tool!.name.split('(')[0]}
+                  </span>
+                </NavLink>
+              );
+            })}
           </nav>
 
           {/* Language Switcher & Controls */}
@@ -121,9 +112,11 @@ export const Header: React.FC<HeaderProps> = ({
                     Select Language / Idioma / اللغة
                   </div>
                   {LANGUAGES.map((lang) => (
-                    <button
+                    <a
                       key={lang.code}
-                      onClick={() => {
+                      href={buildPath(lang.code, currentPage)}
+                      onClick={(e) => {
+                        e.preventDefault();
                         onSelectLang(lang.code);
                         setLangDropdownOpen(false);
                       }}
@@ -143,7 +136,7 @@ export const Header: React.FC<HeaderProps> = ({
                       {currentLang === lang.code && (
                         <span className="w-2 h-2 rounded-full bg-blue-600"></span>
                       )}
-                    </button>
+                    </a>
                   ))}
                 </div>
               )}

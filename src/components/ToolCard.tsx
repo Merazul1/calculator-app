@@ -1,6 +1,7 @@
 import React from 'react';
 import { ToolId, Language } from '../types';
 import { TRANSLATIONS } from '../translations';
+import { buildPath } from '../lib/routes';
 import { Landmark, RefreshCw, Activity, Percent, TrendingUp, Briefcase, Car, ArrowRight } from 'lucide-react';
 
 interface ToolCardProps {
@@ -54,8 +55,13 @@ export const ToolCard: React.FC<ToolCardProps> = ({ id, currentLang, onSelect })
   const currentIcon = iconMap[id];
 
   return (
-    <div
-      onClick={() => onSelect(id)}
+    <a
+      href={buildPath(currentLang, id)}
+      onClick={(e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        onSelect(id);
+      }}
       className="group relative bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between"
     >
       <div>
@@ -80,6 +86,6 @@ export const ToolCard: React.FC<ToolCardProps> = ({ id, currentLang, onSelect })
         <span>{t.common.calculate}</span>
         <ArrowRight className="w-4 h-4 rtl:rotate-180" />
       </div>
-    </div>
+    </a>
   );
 };

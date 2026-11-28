@@ -1,23 +1,43 @@
 import React, { useEffect } from 'react';
 import { Language, PageId, ToolId } from '../types';
 import { TRANSLATIONS } from '../translations';
+import { LANG_CODES, SITE, absUrl, buildPath, isLocalizedPage } from '../lib/routes';
 
 interface SEOHeadProps {
   currentLang: Language;
   currentPage: PageId;
+  guideSlug?: string | null;
 }
 
-export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage }) => {
+const OG_LOCALE: Record<string, string> = {
+  en: 'en_US', es: 'es_ES', pt: 'pt_BR', fr: 'fr_FR', de: 'de_DE', ar: 'ar_AR', hi: 'hi_IN',
+};
+
+export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage, guideSlug = null }) => {
   const t = TRANSLATIONS[currentLang];
 
   useEffect(() => {
+    const canonicalUrl = absUrl(currentLang, currentPage, guideSlug);
+
+    // Guides: English-only URL; title/meta come from the prerendered HTML
+    if (currentPage === 'guides') {
+      let c = document.querySelector('link[rel="canonical"]');
+      if (!c) {
+        c = document.createElement('link');
+        c.setAttribute('rel', 'canonical');
+        document.head.appendChild(c);
+      }
+      c.setAttribute('href', canonicalUrl);
+      document.querySelectorAll('link[data-dynamic-hreflang="true"]').forEach((el) => el.remove());
+      const sch = document.getElementById('dynamic-page-schema');
+      if (sch) sch.textContent = '';
+      return;
+    }
+
     const isTool = ['loan', 'autoloan', 'currency', 'bmi', 'percentage', 'compound', 'salary'].includes(currentPage);
     
     let title = `${t.siteName} - ${t.tagline}`;
     let desc = 'Free online calculators for mortgage loans, car payments, live currency exchange, BMI (kg & cm), and annual to gross salary in 7 global languages.';
-    const basePath = currentPage !== 'home' ? `/${currentPage}` : '';
-    const langQuery = currentLang !== 'en' ? `?lang=${currentLang}` : '';
-    let canonicalUrl = `https://smartcalclab.com${basePath}${langQuery}`;
 
     if (isTool) {
       const tool = t.tools[currentPage as ToolId];
@@ -59,6 +79,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage }) =>
     setMetaTag('property', 'og:title', title);
     setMetaTag('property', 'og:description', desc);
     setMetaTag('property', 'og:url', canonicalUrl);
+    setMetaTag('property', 'og:locale', OG_LOCALE[currentLang] || 'en_US');
     setMetaTag('name', 'twitter:title', title);
     setMetaTag('name', 'twitter:description', desc);
 
@@ -71,38 +92,20 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage }) =>
     }
     canonicalLink.setAttribute('href', canonicalUrl);
 
-    // 4. Update Multilingual Hreflang Tags Dynamically
-    const supportedLangs: { code: Language; hreflang: string }[] = [
-      { code: 'en', hreflang: 'en' },
-      { code: 'es', hreflang: 'es' },
-      { code: 'pt', hreflang: 'pt' },
-      { code: 'fr', hreflang: 'fr' },
-      { code: 'de', hreflang: 'de' },
-      { code: 'ar', hreflang: 'ar' },
-      { code: 'hi', hreflang: 'hi' },
-    ];
-
-    // Remove existing dynamic alternate links
+    // 4. hreflang: only for pages that exist in every language (path-based URLs)
     document.querySelectorAll('link[data-dynamic-hreflang="true"]').forEach((el) => el.remove());
-
-    // Inject alternate links for each language
-    supportedLangs.forEach(({ code, hreflang }) => {
-      const altLink = document.createElement('link');
-      altLink.setAttribute('rel', 'alternate');
-      altLink.setAttribute('hreflang', hreflang);
-      altLink.setAttribute('data-dynamic-hreflang', 'true');
-      const hrefQuery = code !== 'en' ? `?lang=${code}` : '';
-      altLink.setAttribute('href', `https://smartcalclab.com${basePath}${hrefQuery}`);
-      document.head.appendChild(altLink);
-    });
-
-    // x-default points to default English path
-    const xDefaultLink = document.createElement('link');
-    xDefaultLink.setAttribute('rel', 'alternate');
-    xDefaultLink.setAttribute('hreflang', 'x-default');
-    xDefaultLink.setAttribute('data-dynamic-hreflang', 'true');
-    xDefaultLink.setAttribute('href', `https://smartcalclab.com${basePath}`);
-    document.head.appendChild(xDefaultLink);
+    if (isLocalizedPage(currentPage)) {
+      const addAlt = (hreflang: string, href: string) => {
+        const l = document.createElement('link');
+        l.setAttribute('rel', 'alternate');
+        l.setAttribute('hreflang', hreflang);
+        l.setAttribute('data-dynamic-hreflang', 'true');
+        l.setAttribute('href', href);
+        document.head.appendChild(l);
+      };
+      LANG_CODES.forEach((code) => addAlt(code, SITE + buildPath(code, currentPage)));
+      addAlt('x-default', SITE + buildPath('en', currentPage));
+    }
 
     // 4. Inject Dynamic Schema.org JSON-LD (FAQPage + SoftwareApplication)
     let schemaScript = document.getElementById('dynamic-page-schema') as HTMLScriptElement | null;
@@ -137,7 +140,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage }) =>
                 '@type': 'ListItem',
                 'position': 1,
                 'name': 'Home',
-                'item': 'https://smartcalclab.com/',
+                'item': absUrl(currentLang, 'home'),
               },
               {
                 '@type': 'ListItem',
@@ -164,7 +167,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ currentLang, currentPage }) =>
     } else {
       schemaScript.textContent = '';
     }
-  }, [currentLang, currentPage, t]);
+  }, [currentLang, currentPage, guideSlug, t]);
 
   return null;
 };

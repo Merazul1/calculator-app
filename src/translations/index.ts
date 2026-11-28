@@ -485,7 +485,7 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
         shortDesc: 'Calcula tu cuota mensual, intereses acumulados y cuadro de amortización completo.',
         category: 'finance',
         seo: {
-          title: 'Calculadora de Préstamos e Hipotecas Online | Simulador de Cuotas',
+          title: 'Calculadora de Préstamos e Hipotecas',
           subtitle: 'Simula préstamos personales, hipotecas y créditos bancarios con cuota mensual exacta en España y Latinoamérica.',
           metaDesc: 'Calculadora de préstamos y simulador de hipoteca gratis. Calcula tu cuota mensual, amortización e intereses totales en segundos.',
           badge: 'Alta Rentabilidad Financiera',
@@ -659,9 +659,9 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
         shortDesc: 'Proyecta el crecimiento de tus ahorros e inversiones a largo plazo gracias al interés compuesto.',
         category: 'finance',
         seo: {
-          title: 'Calculadora de Interés Compuesto | Simulador de Inversiones y Ahorro',
+          title: 'Calculadora y Simulador de Interés Compuesto',
           subtitle: 'Descubre el poder del interés compuesto con aportaciones mensuales y rentabilidad anual.',
-          metaDesc: 'Calculadora de interés compuesto gratis. Simula la rentabilidad de tus inversiones y fondos indexados a 5, 10, 20 o 30 años.',
+          metaDesc: 'Calculadora y simulador de interés compuesto gratis. Calcula el crecimiento de tu ahorro con aportes mensuales a 5, 10, 20 o 30 años, con tabla año por año.',
           badge: 'Crecimiento Patrimonial',
           introParagraphs: [
             'El interés compuesto es la fuerza financiera que permite hacer crecer el patrimonio con el paso del tiempo. Consiste en reinvertir los beneficios o intereses generados, de modo que en el siguiente periodo se generan intereses sobre los intereses previos.',

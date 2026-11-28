@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { TRANSLATIONS } from '../src/translations/index.ts'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, '..')
@@ -1018,7 +1019,7 @@ const MULTILINGUAL_PAGES = [
     toolKey: 'loan',
     lang: 'es',
     dir: 'ltr',
-    canonical: 'https://smartcalclab.com/loan?lang=es',
+    canonical: 'https://smartcalclab.com/es/loan',
     title: 'Calculadora de Préstamos e Hipotecas Online | SmartCalcLab',
     metaDesc: 'Calculadora de préstamos y simulador de hipoteca gratis. Calcula tu cuota mensual, amortización e intereses totales en segundos.',
     name: 'Calculadora de Préstamos e Hipotecas',
@@ -1054,7 +1055,7 @@ const MULTILINGUAL_PAGES = [
     toolKey: 'compound',
     lang: 'es',
     dir: 'ltr',
-    canonical: 'https://smartcalclab.com/compound?lang=es',
+    canonical: 'https://smartcalclab.com/es/compound',
     title: 'Calculadora de Interés Compuesto | Inversión y Ahorro | SmartCalcLab',
     metaDesc: 'Calculadora de interés compuesto gratis. Simula la rentabilidad de tus inversiones y fondos indexados a 5, 10, 20 o 30 años.',
     name: 'Calculadora de Interés Compuesto',
@@ -1090,7 +1091,7 @@ const MULTILINGUAL_PAGES = [
     toolKey: 'loan',
     lang: 'ar',
     dir: 'rtl',
-    canonical: 'https://smartcalclab.com/loan?lang=ar',
+    canonical: 'https://smartcalclab.com/ar/loan',
     title: 'حاسبة القروض والتمويل العقاري والشخصي | SmartCalcLab',
     metaDesc: 'حاسبة قروض مجانية لحساب القسط الشهري للتمويل الشخصي والعقاري مع جدول السداد والفوائد البنكية بدقة متناهية.',
     name: 'حاسبة القروض والتمويل العقاري',
@@ -1124,7 +1125,7 @@ const MULTILINGUAL_PAGES = [
     toolKey: 'bmi',
     lang: 'es',
     dir: 'ltr',
-    canonical: 'https://smartcalclab.com/bmi?lang=es',
+    canonical: 'https://smartcalclab.com/es/bmi',
     title: 'Calculadora de IMC (Índice de Masa Corporal kg y cm) | SmartCalcLab',
     metaDesc: 'Calculadora de IMC en kg y cm según la OMS. Calcula tu Índice de Masa Corporal, peso ideal y clasificación nutricional al instante.',
     name: 'Calculadora de IMC (Índice de Masa Corporal)',
@@ -1158,7 +1159,7 @@ const MULTILINGUAL_PAGES = [
     toolKey: 'salary',
     lang: 'es',
     dir: 'ltr',
-    canonical: 'https://smartcalclab.com/salary?lang=es',
+    canonical: 'https://smartcalclab.com/es/salary',
     title: 'Calculadora de Sueldo Neto a Bruto | SmartCalcLab',
     metaDesc: 'Calculadora de sueldo bruto a neto. Calcula tu salario neto mensual y anual tras IRPF, Seguridad Social y retenciones en España y Latinoamérica.',
     name: 'Calculadora de Sueldo Bruto a Neto',
@@ -1192,7 +1193,7 @@ const MULTILINGUAL_PAGES = [
     toolKey: 'salary',
     lang: 'pt',
     dir: 'ltr',
-    canonical: 'https://smartcalclab.com/salary?lang=pt',
+    canonical: 'https://smartcalclab.com/pt/salary',
     title: 'Calculadora de Salário Líquido | SmartCalcLab',
     metaDesc: 'Calculadora de salário líquido a partir do salário bruto. Calcule descontos de INSS, IRRF e seu salário a receber no Brasil e Portugal.',
     name: 'Calculadora de Salário Líquido',
@@ -1224,37 +1225,116 @@ const MULTILINGUAL_PAGES = [
   }
 ]
 
-for (const p of MULTILINGUAL_PAGES) {
-  let html = template
-  html = html.replace(/<html lang=".*?" dir=".*?">/, `<html lang="${p.lang}" dir="${p.dir}">`)
-  html = html.replace(/<title>.*?<\/title>/, `<title>${p.title}</title>`)
-  html = html.replace(/<meta name="title" content=".*?" \/>/, `<meta name="title" content="${p.title}" />`)
-  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${p.metaDesc}" />`)
-  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${p.canonical}" />`)
 
-  const multiContentHtml = `
-      <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4 px-6">
+// ---- Language URL helpers (keep in sync with src/lib/routes.ts) ----
+const SITE = 'https://smartcalclab.com'
+const LANGS = ['en', 'es', 'pt', 'fr', 'de', 'ar', 'hi']
+const NON_EN = LANGS.filter((l) => l !== 'en')
+const TOOL_KEYS = ['loan', 'autoloan', 'currency', 'bmi', 'percentage', 'compound', 'salary']
+const DIRS = { en: 'ltr', es: 'ltr', pt: 'ltr', fr: 'ltr', de: 'ltr', ar: 'rtl', hi: 'ltr' }
+const langPath = (l, page) => (l === 'en' ? (page ? `/${page}` : '/') : page ? `/${l}/${page}` : `/${l}`)
+const langUrl = (l, page) => SITE + langPath(l, page)
+const attr = (str) => String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+const hreflangTags = (page) =>
+  [...LANGS.map((l) => [l, langUrl(l, page)]), ['x-default', langUrl('en', page)]]
+    .map(([l, href]) => `    <link rel="alternate" hreflang="${l}" href="${href}" data-dynamic-hreflang="true" />`)
+    .join('\n')
+
+const LABELS = {
+  es: { step: 'Paso', formula: 'Fórmula Matemática', example: 'Ejemplo Real', home: 'Inicio', calcs: 'Calculadoras', loading: 'Cargando la calculadora interactiva…', all: 'Todas las calculadoras' },
+  pt: { step: 'Passo', formula: 'Fórmula Matemática', example: 'Exemplo Real', home: 'Início', calcs: 'Calculadoras', loading: 'Carregando a calculadora interativa…', all: 'Todas as calculadoras' },
+  fr: { step: 'Étape', formula: 'Formule Mathématique', example: 'Exemple Concret', home: 'Accueil', calcs: 'Calculateurs', loading: 'Chargement du calculateur interactif…', all: 'Tous les calculateurs' },
+  de: { step: 'Schritt', formula: 'Mathematische Formel', example: 'Praxisbeispiel', home: 'Startseite', calcs: 'Rechner', loading: 'Interaktiver Rechner wird geladen…', all: 'Alle Rechner' },
+  ar: { step: 'الخطوة', formula: 'الصيغة الرياضية', example: 'مثال عملي', home: 'الرئيسية', calcs: 'الحاسبات', loading: 'جارٍ تحميل الحاسبة التفاعلية…', all: 'جميع الحاسبات' },
+  hi: { step: 'चरण', formula: 'गणितीय सूत्र', example: 'व्यावहारिक उदाहरण', home: 'होम', calcs: 'कैलकुलेटर', loading: 'इंटरैक्टिव कैलकुलेटर लोड हो रहा है…', all: 'सभी कैलकुलेटर' },
+}
+
+// Localized crawlable header: real <a href> to /es/loan etc.
+const langHeader = (lang) => {
+  const t = TRANSLATIONS[lang]
+  const links = TOOL_KEYS.map(
+    (k) => `<a href="${langPath(lang, k)}" style="color: #475569; text-decoration: none; font-weight: 500;">${t.tools[k].name.split('(')[0].trim()}</a>`
+  ).join('\n            ')
+  return `<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4 px-6">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-          <a href="/" style="font-weight: 800; font-size: 1.35rem; color: #2563eb; text-decoration: none;">SmartCalcLab</a>
+          <a href="${langPath(lang, '')}" style="font-weight: 800; font-size: 1.35rem; color: #2563eb; text-decoration: none;">${t.siteName}</a>
           <nav style="display: flex; gap: 1.25rem; font-size: 0.875rem; flex-wrap: wrap;">
-            <a href="/salary" style="color: #475569; text-decoration: none; font-weight: 500;">Salary</a>
-            <a href="/loan" style="color: #475569; text-decoration: none; font-weight: 500;">Mortgage & Loan</a>
-            <a href="/autoloan" style="color: #475569; text-decoration: none; font-weight: 500;">Auto Loan</a>
-            <a href="/currency" style="color: #475569; text-decoration: none; font-weight: 500;">Currency</a>
-            <a href="/bmi" style="color: #475569; text-decoration: none; font-weight: 500;">BMI</a>
-            <a href="/compound" style="color: #475569; text-decoration: none; font-weight: 500;">Compound</a>
-            <a href="/percentage" style="color: #475569; text-decoration: none; font-weight: 500;">Percentage</a>
+            ${links}
             <a href="/guides" style="color: #4f46e5; text-decoration: none; font-weight: 600;">Guides</a>
           </nav>
         </div>
-      </header>
+      </header>`
+}
+
+// Auto-generate a prerendered page for every (language x tool) not hand-written above,
+// straight from src/translations so SPA and static HTML never drift apart.
+const handWritten = new Set(MULTILINGUAL_PAGES.map((p) => `${p.lang}/${p.toolKey}`))
+const GENERATED_PAGES = []
+for (const lang of NON_EN) {
+  const t = TRANSLATIONS[lang]
+  for (const key of TOOL_KEYS) {
+    if (handWritten.has(`${lang}/${key}`)) continue
+    const tool = t.tools[key]
+    const seo = tool.seo
+    GENERATED_PAGES.push({
+      toolKey: key,
+      lang,
+      dir: DIRS[lang],
+      canonical: langUrl(lang, key),
+      title: `${seo.title} | ${t.siteName}`,
+      h1: seo.title,
+      metaDesc: seo.metaDesc,
+      name: tool.name,
+      subtitle: seo.subtitle,
+      badge: seo.badge,
+      shortDesc: tool.shortDesc,
+      introParagraphs: seo.introParagraphs,
+      howItWorksTitle: seo.howItWorksTitle,
+      howItWorksSteps: seo.howItWorksSteps,
+      formulaTitle: seo.formulaTitle,
+      formulaMath: seo.formulaMath,
+      formulaExplanation: seo.formulaExplanation,
+      exampleTitle: seo.exampleTitle,
+      exampleText: seo.exampleText,
+      faqsTitle: seo.faqsTitle,
+      faqs: seo.faqs,
+      tips: seo.tips,
+    })
+  }
+}
+const ALL_LANG_PAGES = [...MULTILINGUAL_PAGES, ...GENERATED_PAGES]
+
+for (const p of ALL_LANG_PAGES) {
+  const L = LABELS[p.lang]
+  {
+    const tr = TRANSLATIONS[p.lang]
+    p.title = `${tr.tools[p.toolKey].seo.title} | ${tr.siteName}`
+    p.metaDesc = tr.tools[p.toolKey].seo.metaDesc
+  }
+  let html = template
+  html = html.replace(/<html lang=".*?" dir=".*?">/, `<html lang="${p.lang}" dir="${p.dir}">`)
+  html = html.replace(/<title>.*?<\/title>/, () => `<title>${attr(p.title)}</title>`)
+  html = html.replace(/<meta name="title" content=".*?" \/>/, () => `<meta name="title" content="${attr(p.title)}" />`)
+  html = html.replace(/<meta name="description" content=".*?" \/>/, () => `<meta name="description" content="${attr(p.metaDesc)}" />`)
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/, () => `<meta property="og:title" content="${attr(p.title)}" />`)
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/, () => `<meta property="og:description" content="${attr(p.metaDesc)}" />`)
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, () => `<meta property="og:url" content="${p.canonical}" />`)
+  html = html.replace(/<meta property="og:locale" content=".*?" \/>/, () => `<meta property="og:locale" content="${{ en: 'en_US', es: 'es_ES', pt: 'pt_BR', fr: 'fr_FR', de: 'de_DE', ar: 'ar_AR', hi: 'hi_IN' }[p.lang]}" />`)
+  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/, () => `<meta name="twitter:title" content="${attr(p.title)}" />`)
+  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/, () => `<meta name="twitter:description" content="${attr(p.metaDesc)}" />`)
+  html = html.replace(/<meta name="twitter:url" content=".*?" \/>/, () => `<meta name="twitter:url" content="${p.canonical}" />`)
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${p.canonical}" />`)
+  html = html.replace('</head>', `${hreflangTags(p.toolKey)}\n  </head>`)
+
+  const multiContentHtml = `
+      ${langHeader(p.lang)}
 
       <main style="max-width: 1100px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1e293b;" dir="${p.dir}">
         <nav aria-label="Breadcrumb" style="font-size: 0.8125rem; color: #64748b; margin-bottom: 1.5rem;">
-          <a href="/" style="color: #2563eb; text-decoration: none;">Home</a> &gt; <span>Calculators</span> &gt; <strong>${p.name}</strong>
+          <a href="${langPath(p.lang, '')}" style="color: #2563eb; text-decoration: none;">${L.home}</a> &gt; <a href="${langPath(p.lang, '')}" style="color: #2563eb; text-decoration: none;">${L.calcs}</a> &gt; <strong>${p.name}</strong>
         </nav>
 
-        <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.2;">${p.title}</h1>
+        <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.2;">${p.name}</h1>
         <p style="font-size: 1.125rem; color: #475569; margin-bottom: 2rem;">${p.subtitle}</p>
 
         <section style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; margin-bottom: 2.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
@@ -1264,7 +1344,7 @@ for (const p of MULTILINGUAL_PAGES) {
           <h2 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">${p.name}</h2>
           <p style="font-size: 0.9375rem; color: #64748b; margin-bottom: 1.5rem;">${p.shortDesc}</p>
           <div style="padding: 1.5rem; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 0.5rem; text-align: center; color: #64748b; font-size: 0.875rem;">
-            Interactive calculation engine initialized.
+            ${L.loading}
           </div>
         </section>
 
@@ -1278,7 +1358,7 @@ for (const p of MULTILINGUAL_PAGES) {
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
             ${p.howItWorksSteps.map((s, idx) => `
               <div style="padding: 1.25rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem;">
-                <div style="font-size: 0.75rem; font-weight: 700; color: #2563eb; text-transform: uppercase; margin-bottom: 0.35rem;">Paso 0${idx + 1}</div>
+                <div style="font-size: 0.75rem; font-weight: 700; color: #2563eb; text-transform: uppercase; margin-bottom: 0.35rem;">${L.step} 0${idx + 1}</div>
                 <h4 style="font-weight: 600; font-size: 1rem; color: #0f172a; margin-bottom: 0.5rem;">${s.step}</h4>
                 <p style="font-size: 0.875rem; color: #475569; line-height: 1.5;">${s.desc}</p>
               </div>
@@ -1288,7 +1368,7 @@ for (const p of MULTILINGUAL_PAGES) {
 
         <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
           <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: #4f46e5; text-transform: uppercase; margin-bottom: 0.35rem;">Fórmula Matemática</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: #4f46e5; text-transform: uppercase; margin-bottom: 0.35rem;">${L.formula}</div>
             <h3 style="font-size: 1.125rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">${p.formulaTitle}</h3>
             <div style="background: #0f172a; color: #fde047; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; padding: 1rem; border-radius: 0.5rem; font-size: 0.875rem; margin-bottom: 1rem; word-break: break-all;">
               ${p.formulaMath}
@@ -1297,7 +1377,7 @@ for (const p of MULTILINGUAL_PAGES) {
           </div>
 
           <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: #059669; text-transform: uppercase; margin-bottom: 0.35rem;">Ejemplo Real</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: #059669; text-transform: uppercase; margin-bottom: 0.35rem;">${L.example}</div>
             <h3 style="font-size: 1.125rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">${p.exampleTitle}</h3>
             <p style="font-size: 0.875rem; color: #475569; line-height: 1.6;">${p.exampleText}</p>
           </div>
@@ -1363,7 +1443,7 @@ for (const p of MULTILINGUAL_PAGES) {
             '@type': 'ListItem',
             'position': 1,
             'name': 'Home',
-            'item': 'https://smartcalclab.com/'
+            'item': langUrl(p.lang, '')
           },
           {
             '@type': 'ListItem',
@@ -1392,9 +1472,76 @@ for (const p of MULTILINGUAL_PAGES) {
 
   html = replaceRoot(html, multiContentHtml)
 
-  const fileName = `${p.toolKey}-${p.lang}.html`
-  fs.writeFileSync(path.resolve(distDir, fileName), html, 'utf-8')
-  console.log(`[prerender] Rendered Multilingual HTML: /${fileName} (${p.lang})`)
+  fs.mkdirSync(path.resolve(distDir, p.lang), { recursive: true })
+  fs.writeFileSync(path.resolve(distDir, p.lang, `${p.toolKey}.html`), html, 'utf-8')
+  console.log(`[prerender] Rendered: /${p.lang}/${p.toolKey}`)
 }
 
-console.log('[prerender] Complete! Generated static HTML for all routes & educational guides.')
+// 6. Language home pages: /es /pt /fr /de /ar /hi
+for (const lang of NON_EN) {
+  const t = TRANSLATIONS[lang]
+  const L = LABELS[lang]
+  const title = `${t.siteName} - ${t.tagline}`
+  const desc = attr(`${t.tagline}. ${TOOL_KEYS.map((k) => t.tools[k].name.split('(')[0].trim()).join(', ')}.`)
+  let html = template
+  html = html.replace(/<html lang=".*?" dir=".*?">/, `<html lang="${lang}" dir="${DIRS[lang]}">`)
+  html = html.replace(/<title>.*?<\/title>/, () => `<title>${attr(title)}</title>`)
+  html = html.replace(/<meta name="title" content=".*?" \/>/, () => `<meta name="title" content="${attr(title)}" />`)
+  html = html.replace(/<meta name="description" content=".*?" \/>/, () => `<meta name="description" content="${desc}" />`)
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/, () => `<meta property="og:title" content="${attr(title)}" />`)
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/, () => `<meta property="og:description" content="${desc}" />`)
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, () => `<meta property="og:url" content="${langUrl(lang, '')}" />`)
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${langUrl(lang, '')}" />`)
+  html = html.replace('</head>', `${hreflangTags('')}\n  </head>`)
+  const cards = TOOL_KEYS.map(
+    (k) => `<div style="padding: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1rem;">
+        <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="${langPath(lang, k)}" style="color: #2563eb; text-decoration: none;">${t.tools[k].name}</a></h3>
+        <p style="font-size: 0.875rem; color: #475569;">${t.tools[k].shortDesc}</p>
+      </div>`
+  ).join('\n')
+  const homeHtml = `${langHeader(lang)}
+      <main style="max-width: 1100px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1e293b;" dir="${DIRS[lang]}">
+        <h1 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-bottom: 1.5rem; line-height: 1.2;">${t.tagline}</h1>
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.25rem;">${L.all}</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          ${cards}
+        </div>
+      </main>`
+  html = replaceRoot(html, homeHtml)
+  fs.writeFileSync(path.resolve(distDir, `${lang}.html`), html, 'utf-8')
+  console.log(`[prerender] Rendered: /${lang}`)
+}
+
+// 7. hreflang on the English pages (home + 7 tools) so every language version is cross-linked
+for (const key of ['', ...TOOL_KEYS]) {
+  const targets = key
+    ? [path.resolve(distDir, `${key}.html`), path.resolve(distDir, key, 'index.html')]
+    : [path.resolve(distDir, 'index.html')]
+  for (const f of targets) {
+    if (!fs.existsSync(f)) continue
+    let h = fs.readFileSync(f, 'utf-8')
+    if (h.includes('hreflang="x-default"')) continue
+    h = h.replace('</head>', `${hreflangTags(key)}\n  </head>`)
+    fs.writeFileSync(f, h, 'utf-8')
+  }
+}
+
+// 8. 404.html: real 404 status for unknown URLs (replaces the catch-all rewrite). No app script, noindex.
+{
+  let h = template
+  h = h.replace(/<title>.*?<\/title>/, '<title>Page not found | SmartCalcLab</title>')
+  h = h.replace(/<link rel="canonical" href=".*?" \/>/, '')
+  h = h.replace(/<meta name="robots" content=".*?" \/>/, '<meta name="robots" content="noindex, follow" />')
+  h = h.replace(/<script type="module"[^>]*><\/script>/g, '').replace(/<link rel="modulepreload"[^>]*>/g, '')
+  h = replaceRoot(h, `${langHeader('en')}
+      <main style="max-width: 720px; margin: 4rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; text-align: center;">
+        <h1 style="font-size: 2rem; font-weight: 800;">404 - Page not found</h1>
+        <p style="margin: 1rem 0 2rem; color: #475569;">That page doesn't exist. Try one of our free calculators.</p>
+        <a href="/" style="color: #2563eb; font-weight: 600;">&larr; SmartCalcLab home</a>
+      </main>`)
+  fs.writeFileSync(path.resolve(distDir, '404.html'), h, 'utf-8')
+  console.log('[prerender] Rendered: 404.html')
+}
+
+console.log('[prerender] Complete! Generated static HTML for all routes, languages & educational guides.')
+

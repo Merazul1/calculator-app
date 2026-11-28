@@ -7,6 +7,7 @@ import { HomePage } from './components/HomePage';
 import { AdSlot } from './components/AdSlot';
 import { SEOContentSection } from './components/SEOContentSection';
 import { SEOHead } from './components/SEOHead';
+import { parseRoute, buildPath } from './lib/routes';
 
 // Lazy-loaded Calculator components for fast initial load
 const LoanCalculator = lazy(() => import('./components/calculators/LoanCalculator').then(m => ({ default: m.LoanCalculator })));
@@ -44,81 +45,16 @@ const LoadingSpinner = () => (
 
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 
-const VALID_PAGES: PageId[] = [
-  'home', 'loan', 'autoloan', 'currency', 'bmi', 'percentage', 'compound', 'salary',
-  'privacy', 'terms', 'about', 'contact', 'disclaimer', 'guides'
-];
-
 export default function App() {
-  // Read initial language from query param, localStorage, or default to English
-  const [currentLang, setCurrentLang] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const urlLang = params.get('lang') as Language;
-      if (['en', 'es', 'ar', 'hi', 'pt', 'fr', 'de'].includes(urlLang)) {
-        return urlLang;
-      }
-      try {
-        const savedLang = localStorage.getItem('user_lang') as Language;
-        if (['en', 'es', 'ar', 'hi', 'pt', 'fr', 'de'].includes(savedLang)) {
-          return savedLang;
-        }
-      } catch (e) {}
-    }
-    return 'en'; // Default English
-  });
-  
-  // Read active guide slug if on /guides/:slug
-  const [activeGuideSlug, setActiveGuideSlug] = useState<string | null>(() => {
-    if (typeof window !== 'undefined') {
-      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
-      if (rawPath.startsWith('guides/')) {
-        return rawPath.replace('guides/', '');
-      }
-    }
-    return null;
-  });
-
-  // Read initial page from pathname, query param, or hash
-  const [currentPage, setCurrentPage] = useState<PageId>(() => {
-    if (typeof window !== 'undefined') {
-      // 1. Pathname (e.g. /loan)
-      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
-      if (rawPath === 'guides' || rawPath.startsWith('guides/')) {
-        return 'guides';
-      }
-      if (VALID_PAGES.includes(rawPath as PageId)) {
-        return rawPath as PageId;
-      }
-      // Handle legacy URL aliases
-      if (rawPath === 'autoloan' || rawPath === 'auto-loan' || rawPath === 'car-loan' || rawPath === 'car-payment-calculator') {
-        return 'autoloan';
-      }
-      if (rawPath.includes('mortgage') || rawPath.includes('lease') || rawPath.includes('real-estate')) {
-        return 'loan';
-      }
-      if (rawPath.includes('dividend') || rawPath.includes('stock-profit') || rawPath.includes('investing')) {
-        return 'compound';
-      }
-      if (rawPath === 'overview') {
-        return 'about';
-      }
-      // 2. Query param (e.g. ?calc=loan or ?tool=loan)
-      const params = new URLSearchParams(window.location.search);
-      const queryPage = (params.get('calc') || params.get('tool') || params.get('p')) as PageId;
-      if (VALID_PAGES.includes(queryPage)) {
-        return queryPage;
-      }
-      // 3. Hash fallback (e.g. #loan)
-      if (window.location.hash) {
-        const hash = window.location.hash.replace('#', '') as PageId;
-        if (VALID_PAGES.includes(hash)) {
-          return hash;
-        }
-      }
-    }
-    return 'home';
-  });
+  // URL is the source of truth: /es/loan -> Spanish, /loan -> English
+  const [initial] = useState(() =>
+    typeof window === 'undefined'
+      ? { lang: 'en' as Language, page: 'home' as PageId, guideSlug: null as string | null }
+      : parseRoute(window.location.pathname, window.location.search, window.location.hash)
+  );
+  const [currentLang, setCurrentLang] = useState<Language>(initial.lang);
+  const [activeGuideSlug, setActiveGuideSlug] = useState<string | null>(initial.guideSlug);
+  const [currentPage, setCurrentPage] = useState<PageId>(initial.page);
 
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
@@ -138,9 +74,6 @@ export default function App() {
   useEffect(() => {
     document.documentElement.dir = langInfo.dir;
     document.documentElement.lang = currentLang;
-    try {
-      localStorage.setItem('user_lang', currentLang);
-    } catch (e) {}
   }, [currentLang, langInfo.dir]);
 
   // Sync Dark theme class and persist preference
@@ -161,44 +94,11 @@ export default function App() {
   // Listen to browser navigation (back/forward button and hash changes)
   useEffect(() => {
     const handlePopState = () => {
-      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
-      if (rawPath === 'guides' || rawPath.startsWith('guides/')) {
-        setCurrentPage('guides');
-        setActiveGuideSlug(rawPath.startsWith('guides/') ? rawPath.replace('guides/', '') : null);
-        return;
-      }
-      if (VALID_PAGES.includes(rawPath as PageId)) {
-        setCurrentPage(rawPath as PageId);
-        setActiveGuideSlug(null);
-        return;
-      }
-      if (rawPath === 'autoloan' || rawPath === 'auto-loan' || rawPath === 'car-loan' || rawPath === 'car-payment-calculator') {
-        setCurrentPage('autoloan');
-        return;
-      }
-      if (rawPath.includes('mortgage') || rawPath.includes('lease') || rawPath.includes('real-estate')) {
-        setCurrentPage('loan');
-        return;
-      }
-      if (rawPath.includes('dividend') || rawPath.includes('stock-profit') || rawPath.includes('investing')) {
-        setCurrentPage('compound');
-        return;
-      }
-      if (rawPath === 'overview') {
-        setCurrentPage('about');
-        return;
-      }
-      if (window.location.hash) {
-        const hash = window.location.hash.replace('#', '') as PageId;
-        if (VALID_PAGES.includes(hash)) {
-          setCurrentPage(hash);
-          return;
-        }
-      }
-      setCurrentPage('home');
-      setActiveGuideSlug(null);
+      const r = parseRoute(window.location.pathname, window.location.search, window.location.hash);
+      setCurrentLang(r.lang);
+      setCurrentPage(r.page);
+      setActiveGuideSlug(r.guideSlug);
     };
-
     window.addEventListener('popstate', handlePopState);
     window.addEventListener('hashchange', handlePopState);
     return () => {
@@ -207,16 +107,27 @@ export default function App() {
     };
   }, []);
 
-  // Clean URL routing on navigate
+  // Strip legacy ?lang=xx from the address bar, keep other params (utm etc.)
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    if (!p.has('lang')) return;
+    p.delete('lang');
+    const qs = p.toString();
+    window.history.replaceState(null, '', buildPath(currentLang, currentPage, activeGuideSlug) + (qs ? `?${qs}` : ''));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const pushIfNew = (url: string, state: object) => {
+    if (window.location.pathname + window.location.search !== url) {
+      window.history.pushState(state, '', url);
+    }
+  };
+
+  // Clean URL routing on navigate (keeps the current language prefix)
   const handleNavigate = (page: PageId) => {
-    if (page === 'guides') {
-      setActiveGuideSlug(null);
-    }
+    if (page === 'guides') setActiveGuideSlug(null);
     setCurrentPage(page);
-    const targetUrl = page === 'home' ? '/' : `/${page}`;
-    if (window.location.pathname !== targetUrl) {
-      window.history.pushState({ page }, '', targetUrl);
-    }
+    pushIfNew(buildPath(currentLang, page), { page });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -224,11 +135,14 @@ export default function App() {
   const handleSelectGuide = (slug: string) => {
     setActiveGuideSlug(slug);
     setCurrentPage('guides');
-    const targetUrl = `/guides/${slug}`;
-    if (window.location.pathname !== targetUrl) {
-      window.history.pushState({ page: 'guides', slug }, '', targetUrl);
-    }
+    pushIfNew(buildPath('en', 'guides', slug), { page: 'guides', slug });
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Language switch updates the URL: /loan <-> /es/loan
+  const handleSelectLang = (lang: Language) => {
+    setCurrentLang(lang);
+    pushIfNew(buildPath(lang, currentPage, activeGuideSlug), { page: currentPage, lang });
   };
 
   const isToolPage = [
@@ -244,12 +158,12 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
       {/* Dynamic SEO Meta & Schema.org JSON-LD */}
-      <SEOHead currentLang={currentLang} currentPage={currentPage} />
+      <SEOHead currentLang={currentLang} currentPage={currentPage} guideSlug={activeGuideSlug} />
 
       {/* Top Header */}
       <Header
         currentLang={currentLang}
-        onSelectLang={setCurrentLang}
+        onSelectLang={handleSelectLang}
         currentPage={currentPage}
         onNavigate={handleNavigate}
         isDark={isDark}
@@ -280,7 +194,7 @@ export default function App() {
           <HomePage
             currentLang={currentLang}
             onSelectTool={handleNavigate}
-            onSelectLang={setCurrentLang}
+            onSelectLang={handleSelectLang}
             onSelectGuide={handleSelectGuide}
             onNavigate={handleNavigate}
           />

@@ -63,6 +63,32 @@ for (const tool of tools) {
     console.error(`  [ERROR] Word count is under 1,000 words! Count = ${wordCount}`);
     allPassed = false;
   }
+  if (tool === 'loan' && h1Text[0] !== 'Loan Calculator') {
+    console.error(`  [ERROR] /loan H1 must be 'Loan Calculator', got '${h1Text[0]}'`);
+    allPassed = false;
+  }
+}
+
+console.log('\n--- AUDITING MULTILINGUAL & HREFLANG INTEGRATION ---');
+const loanHtml = fs.readFileSync(path.resolve(distDir, 'loan.html'), 'utf-8');
+const esLoanHtml = fs.readFileSync(path.resolve(distDir, 'es/loan.html'), 'utf-8');
+
+const loanHreflang = [...loanHtml.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map(m => `${m[1]} -> ${m[2]}`);
+console.log('loan.html hreflang tags count:', loanHreflang.length);
+loanHreflang.forEach(h => console.log('  ', h));
+
+const esLoanHreflang = [...esLoanHtml.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map(m => `${m[1]} -> ${m[2]}`);
+console.log('es/loan.html hreflang tags count:', esLoanHreflang.length);
+const esCanonMatch = esLoanHtml.match(/<link rel="canonical" href="([^"]+)"/);
+console.log('es/loan.html canonical:', esCanonMatch ? esCanonMatch[1] : 'NONE');
+
+if (loanHreflang.length !== 8) {
+  console.error(`[ERROR] Expected 8 hreflang tags on loan.html, got ${loanHreflang.length}`);
+  allPassed = false;
+}
+if (!esCanonMatch || esCanonMatch[1] !== 'https://smartcalclab.com/es/loan') {
+  console.error(`[ERROR] es/loan.html canonical mismatch, got ${esCanonMatch?.[1]}`);
+  allPassed = false;
 }
 
 if (allPassed) {

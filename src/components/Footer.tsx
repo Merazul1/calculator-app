@@ -1,6 +1,7 @@
 import React from 'react';
 import { Language, PageId } from '../types';
 import { TRANSLATIONS } from '../translations';
+import { NavLink } from './NavLink';
 import { Calculator, ShieldCheck, FileText, HelpCircle, Mail, AlertTriangle } from 'lucide-react';
 
 interface FooterProps {
@@ -36,24 +37,24 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
             <h4 className="text-white font-semibold mb-3 text-sm">{t.categories.finance}</h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => onNavigate('loan')} className="hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="loan" onNavigate={onNavigate} className="hover:text-blue-400 transition-colors">
                   {t.tools.loan.name}
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('currency')} className="hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="currency" onNavigate={onNavigate} className="hover:text-blue-400 transition-colors">
                   {t.tools.currency.name}
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('compound')} className="hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="compound" onNavigate={onNavigate} className="hover:text-blue-400 transition-colors">
                   {t.tools.compound.name}
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('salary')} className="hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="salary" onNavigate={onNavigate} className="hover:text-blue-400 transition-colors">
                   {t.tools.salary.name}
-                </button>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -63,24 +64,24 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
             <h4 className="text-white font-semibold mb-3 text-sm">{t.categories.health} & {t.categories.daily}</h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => onNavigate('bmi')} className="hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="bmi" onNavigate={onNavigate} className="hover:text-blue-400 transition-colors">
                   {t.tools.bmi.name}
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('percentage')} className="hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="percentage" onNavigate={onNavigate} className="hover:text-blue-400 transition-colors">
                   {t.tools.percentage.name}
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('guides')} className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">
+                <NavLink lang={currentLang} page="guides" onNavigate={onNavigate} className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">
                   Educational Guides &amp; Articles
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('home')} className="hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="home" onNavigate={onNavigate} className="hover:text-blue-400 transition-colors">
                   {t.categories.all}
-                </button>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -90,34 +91,34 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
             <h4 className="text-white font-semibold mb-3 text-sm">Legal & Trust</h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => onNavigate('privacy')} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="privacy" onNavigate={onNavigate} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   {t.navigation.privacy}
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('terms')} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="terms" onNavigate={onNavigate} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
                   <FileText className="w-3.5 h-3.5" />
                   {t.navigation.terms}
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('disclaimer')} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="disclaimer" onNavigate={onNavigate} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
                   <AlertTriangle className="w-3.5 h-3.5" />
                   {t.navigation.disclaimer}
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('about')} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="about" onNavigate={onNavigate} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
                   <HelpCircle className="w-3.5 h-3.5" />
                   {t.navigation.about}
-                </button>
+                </NavLink>
               </li>
               <li>
-                <button onClick={() => onNavigate('contact')} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
+                <NavLink lang={currentLang} page="contact" onNavigate={onNavigate} className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                   {t.navigation.contact}
-                </button>
+                </NavLink>
               </li>
             </ul>
           </div>

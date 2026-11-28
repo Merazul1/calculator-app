@@ -12,6 +12,35 @@
       "permanent": true
     },
     {
+      "source": "/en/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "(?<lang>es|pt|fr|de|ar|hi)"
+        }
+      ],
+      "destination": "/:lang",
+      "permanent": true
+    },
+    {
+      "source": "/:page(salary|loan|autoloan|currency|bmi|percentage|compound)",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "(?<lang>es|pt|fr|de|ar|hi)"
+        }
+      ],
+      "destination": "/:lang/:page",
+      "permanent": true
+    },
+    {
       "source": "/auto-loan",
       "destination": "/autoloan",
       "permanent": true
@@ -79,6 +108,14 @@
   ],
   "cleanUrls": true,
   "rewrites": [
+    {
+      "source": "/:lang(es|pt|fr|de|ar|hi)",
+      "destination": "/:lang.html"
+    },
+    {
+      "source": "/:lang(es|pt|fr|de|ar|hi)/:page(salary|loan|autoloan|currency|bmi|percentage|compound)",
+      "destination": "/:lang/:page.html"
+    },
     {
       "source": "/salary",
       "destination": "/salary.html"
@@ -158,32 +195,46 @@
     {
       "source": "/guides/:path*",
       "destination": "/guides/:path*.html"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
     }
   ],
   "headers": [
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
-        { "key": "X-Robots-Tag", "value": "all" }
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "all"
+        }
       ]
     },
     {
       "source": "/sitemap.xsl",
       "headers": [
-        { "key": "Content-Type", "value": "text/xsl; charset=utf-8" }
+        {
+          "key": "Content-Type",
+          "value": "text/xsl; charset=utf-8"
+        }
       ]
     },
     {
       "source": "/ads.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
       ]
     }
   ]
